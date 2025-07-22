@@ -16,13 +16,16 @@
 ## 🎯 Design Principles
 
 ### **Core Values**
-1. **Professional Excellence** - Clean, corporate design suitable for business environment
-2. **Accessibility First** - Clear hierarchy, readable text, proper contrast ratios
-3. **Mobile Responsive** - Seamless experience across all devices
-4. **Consistent Experience** - Standardized patterns and predictable interactions
-5. **Performance Focussed** - Optimized for fast loading and smooth interactions
+1. **Modern Flat Design** - Clean, professional appearance without unnecessary shadows or depth effects
+2. **Professional Excellence** - Corporate design suitable for business environment with comprehensive context
+3. **Accessibility First** - Clear hierarchy, readable text, proper contrast ratios
+4. **Mobile Responsive** - Seamless experience across all devices
+5. **Consistent Experience** - Standardized patterns and predictable interactions
+6. **Performance Focussed** - Optimized for fast loading and smooth interactions
 
 ### **Visual Philosophy**
+- **Flat Design Principles** - Modern appearance with subtle borders instead of shadows
+- **Contextual Clarity** - Section summaries provide purpose and understanding before content
 - **Minimalist Design** - Clean layouts with purposeful whitespace
 - **Professional Aesthetics** - Corporate-friendly colour scheme and typography
 - **Functional Beauty** - Every design element serves a purpose
@@ -106,7 +109,31 @@ caption: 0.8rem (12px) - Form labels, navigation
 
 ## 🧩 Component Patterns
 
-### **1. Three-Column Focus Areas**
+### **1. Section Summary Pattern**
+> **Contextual introduction for all major sections**
+
+```css
+.section-summary {
+    background: var(--neutral-gray-50);
+    padding: 1.5rem 2rem;
+    margin: 0 0 2rem 0;
+    border-radius: 4px;
+    border-left: 4px solid var(--integral-blue-light);
+}
+```
+
+**Structure:**
+- **Light Background** - Subtle gray-50 background for distinction
+- **Blue Accent Border** - Left border in brand light blue
+- **Italic Text** - Professional context setting with proper typography
+- **Strategic Purpose** - Explains section importance and objectives
+
+**When to Use:**
+- **All Major Sections**: Provides context before diving into focus areas
+- **User Understanding**: Helps users understand section purpose and relevance
+- **Professional Presentation**: Elevates content with strategic context
+
+### **2. Three-Column Focus Areas**
 > **Primary layout pattern for major sections**
 
 ```css
@@ -123,6 +150,7 @@ caption: 0.8rem (12px) - Form labels, navigation
 - **Heading** - h3 element, dark blue colour
 - **Description** - Gray body text with good line height
 - **Highlight List** - Checkmark bullets, organised items
+- **Flat Design** - Subtle borders with hover effects (no shadows)
 
 **When to Use:**
 - **Universal Application**: Now used across ALL content sections for design consistency
@@ -131,7 +159,7 @@ caption: 0.8rem (12px) - Form labels, navigation
 - **Service-Specific Sections**: SEO, PPC, Website service responsibilities
 - **Standards Sections**: Communication Guidelines & Performance Standards
 
-### **2. Legacy Traditional Cards (Deprecated)**
+### **3. Legacy Traditional Cards (Deprecated)**
 > **Previous pattern - now replaced by focus-area design**
 
 ```css
@@ -158,21 +186,23 @@ caption: 0.8rem (12px) - Form labels, navigation
 - **Design Consistency**: Achieved uniform visual treatment across all 14 sections
 - **Legacy Reference**: Pattern preserved for historical context only
 
-### **3. Floating Feedback Widget**
+### **4. Targeted Feedback System**
 > **Interactive feedback collection system**
 
 **Key Features:**
-- **Fixed positioning** - Top-right corner (20px from edges)
-- **Prominent button** - 70px circle with brand colours
-- **Panel overlay** - 400px wide modal with smooth animations
-- **33 section tracking** - Granular feedback collection across all focus areas
+- **Section-specific buttons** - Small circular buttons next to each section title
+- **Targeted feedback** - Users click buttons for sections they want to provide feedback on
+- **Visual state indicators** - Buttons turn green when feedback is provided
+- **Collected feedback review** - Users can edit/remove individual feedback before submission
+- **One-time setup** - Enter name/email once to enable all section buttons
 
 **States:**
-- **Closed** - Circular button with speech bubble icon
-- **Open** - Expanded panel with user form and section navigation
-- **Progress** - Visual indicators for completion status
+- **Hidden** - Section buttons hidden until user enters credentials
+- **Available** - Blue circular buttons appear next to section titles
+- **Has Feedback** - Green buttons indicate feedback provided
+- **Panel States** - Floating widget shows collected feedback and submission options
 
-### **4. Navigation Patterns**
+### **5. Navigation Patterns**
 
 #### **Sidebar Navigation**
 - **Fixed width** - 280px on desktop
