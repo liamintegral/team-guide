@@ -338,6 +338,105 @@ section:last-child {
     font-size: 0.85rem;
 }
 
+/* Overview Focus Areas */
+.overview-focus-areas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.focus-area {
+    background: var(--neutral-white);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--neutral-gray-200);
+    transition: all 0.3s ease;
+}
+
+.focus-area:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.focus-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--integral-blue-light);
+    color: var(--neutral-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.focus-area h3 {
+    color: var(--integral-blue-dark);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    line-height: 1.3;
+}
+
+.focus-area p {
+    color: var(--neutral-gray-700);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.focus-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.focus-highlights li {
+    position: relative;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    color: var(--neutral-gray-600);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    border-bottom: 1px solid var(--neutral-gray-100);
+}
+
+.focus-highlights li:last-child {
+    border-bottom: none;
+}
+
+.focus-highlights li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    color: var(--integral-blue);
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+/* Mobile responsive for focus areas */
+@media (max-width: 768px) {
+    .overview-focus-areas {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+    }
+    
+    .focus-area {
+        padding: 1.5rem;
+    }
+    
+    .focus-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+}
+
 /* Floating Feedback Widget */
 .feedback-widget {
     position: fixed;
