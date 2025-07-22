@@ -6,6 +6,7 @@
     <title>Integral Media - Team Guide</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css?v=perfect-alignment">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Sidebar Navigation -->
@@ -1024,6 +1025,10 @@
                     return;
                 }
                 
+                // Disable submit button and show loading state
+                this.submitAllBtn.disabled = true;
+                this.submitAllBtn.textContent = 'Sending...';
+                
                 // Prepare email content
                 const subject = `Team Guide Feedback from ${this.userInfo.name}`;
                 let emailBody = `Team Guide Feedback Submission\n`;
@@ -1062,19 +1067,41 @@
                 
                 emailBody += `---\nThis feedback was submitted via the Integral Media Team Guide feedback widget.`;
                 
-                // Create mailto link
-                const mailtoLink = `mailto:liam@integralmedia.com.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+                // Prepare EmailJS template parameters
+                const templateParams = {
+                    from_name: this.userInfo.name,
+                    from_email: this.userInfo.email,
+                    to_name: 'Liam Clarkin',
+                    to_email: 'liam@integralmedia.com.au',
+                    subject: subject,
+                    message: emailBody,
+                    sections_completed: Object.keys(this.feedback).length,
+                    total_sections: this.sections.length
+                };
                 
-                // Open email client
-                window.location.href = mailtoLink;
-                
-                // Show success message
-                alert('Email client opened! Please send the email to complete your feedback submission.');
-                
-                // Reset widget
-                setTimeout(() => {
-                    this.resetWidget();
-                }, 2000);
+                // Send email via EmailJS
+                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                    .then((response) => {
+                        console.log('SUCCESS!', response.status, response.text);
+                        alert('✅ Feedback sent successfully! Thank you for your input.');
+                        this.resetWidget();
+                    })
+                    .catch((error) => {
+                        console.error('FAILED...', error);
+                        alert('❌ Failed to send feedback. Please try again or contact support.');
+                        
+                        // Re-enable button on error
+                        this.submitAllBtn.disabled = false;
+                        this.submitAllBtn.textContent = 'Submit All Feedback';
+                        
+                        // Fallback to mailto if EmailJS fails
+                        const mailtoLink = `mailto:liam@integralmedia.com.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+                        console.log('Fallback to mailto:', mailtoLink);
+                        
+                        if (confirm('Would you like to try sending via your email client instead?')) {
+                            window.location.href = mailtoLink;
+                        }
+                    });
             }
             
             formatRating(rating) {
@@ -1104,6 +1131,13 @@
                 this.closePanel();
             }
         }
+        
+        // Initialize EmailJS
+        (function() {
+            emailjs.init({
+                publicKey: "YOUR_PUBLIC_KEY", // You'll need to replace this with your actual public key
+            });
+        })();
         
         // Initialize feedback widget when page loads
         document.addEventListener('DOMContentLoaded', () => {
