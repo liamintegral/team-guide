@@ -6,7 +6,7 @@
 ## Current Project State (2025-07-22)
 
 ### ✅ **Production Ready - Complete Layout System**
-- **Main File**: `index.html` (~65KB optimized single-page application)
+- **Main File**: `index.html` (~65KB optimised single-page application)
 - **Styling**: `css/main.css` (consolidated external stylesheet)
 - **Repository**: https://github.com/liamintegral/team-guide
 - **Deployment**: Ready for Vercel deployment
@@ -18,7 +18,7 @@
 - **Consistent three-column layouts** for all major sections
 - **Professional icons** with hover animations
 - **Mobile responsive** design (3 columns → 1 on mobile)
-- **Brand colors**: Integral Blue (#214e9c), Blue Light (#5cb3f0), Blue Dark (#1e3a8a)
+- **Brand colours**: Integral Blue (#214e9c), Blue Light (#5cb3f0), Blue Dark (#1e3a8a)
 - **Typography**: Segoe UI font stack with proper hierarchy
 
 ### 📱 **User Experience**
@@ -35,7 +35,7 @@
 2. **Time Tracking** - Comprehensive logging requirements (3 focus areas)
 3. **Client Communication Standards** - Professional communication protocols (3 focus areas)
 4. **Task Management Fundamentals** - Project oversight and execution (3 focus areas)
-5. **Performance Monitoring & Analysis** - KPI tracking and optimization (3 focus areas)
+5. **Performance Monitoring & Analysis** - KPI tracking and optimisation (3 focus areas)
 
 ### **Operational Sections (Three-Column Focus Areas)**
 6. **Daily Responsibilities** - Day-to-day operational tasks (4 focus areas)
@@ -44,7 +44,7 @@
 9. **Quarterly & Six-Monthly** - Strategic reviews and audits (2 focus areas)
 
 ### **Service-Specific Sections (Three-Column Focus Areas)**
-10. **SEO Service Responsibilities** - Search optimization and reporting (3 focus areas)
+10. **SEO Service Responsibilities** - Search optimisation and reporting (3 focus areas)
 11. **PPC Service Responsibilities** - Campaign management and analysis (3 focus areas)
 12. **Websites, CRM & Workflows** - Oversight, data gathering, and quality assurance (3 focus areas)
 
@@ -63,7 +63,7 @@
 
 ## Major Development Milestones
 
-### Phase 1: Foundation & Optimization (2025-07-22)
+### Phase 1: Foundation & Optimisation (2025-07-22)
 - ✅ **Debloating**: 550KB → 215KB (61% reduction)
 - ✅ **CSS Consolidation**: External stylesheet implementation
 - ✅ **File Structure**: Reduced from 8 to 1 active HTML file
@@ -73,7 +73,7 @@
 - ✅ **Three-Column Layouts**: Applied to 5 major sections
 - ✅ **Professional Icons**: Font Awesome integration with consistent sizing
 - ✅ **Responsive Design**: Mobile-first approach with proper breakpoints
-- ✅ **Brand Consistency**: Integral Media color scheme throughout
+- ✅ **Brand Consistency**: Integral Media colour scheme throughout
 
 ### Phase 3: Interactive Feedback System (2025-07-22)
 - ✅ **Floating Widget**: Modern top-right positioned feedback collection
@@ -143,7 +143,7 @@ git push
 ```
 
 ## Performance Metrics
-- **File Size**: ~65KB main file (optimized with expanded content)
+- **File Size**: ~65KB main file (optimised with expanded content)
 - **Load Time**: <2 seconds on standard connection
 - **Mobile Score**: 95+ (responsive design)
 - **Content Sections**: 14 main sections with 33 focus areas
@@ -153,10 +153,20 @@ git push
 
 ## Future Enhancement Opportunities
 - **Search Functionality**: Add search within sections
-- **Dark Mode**: Alternative color scheme
+- **Dark Mode**: Alternative colour scheme
 - **Offline Support**: Progressive Web App features
 - **Analytics**: Usage tracking and heat mapping
 - **Multi-language**: Internationalization support
+
+---
+
+## Language & Style Requirements
+
+**⚠️ IMPORTANT: British English Only**
+- This project uses **British English spelling exclusively**
+- All content, documentation, and user-facing text must use British spellings
+- Examples: optimise (not optimize), colour (not color), analyse (not analyze), organised (not organized)
+- CSS property names remain unchanged as per web standards (e.g., `color`, `background-color`)
 
 ---
 

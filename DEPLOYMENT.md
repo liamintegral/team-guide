@@ -115,7 +115,7 @@ EMAILJS_TEMPLATE_ID=template_35rncws
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
-# Redirect rules for SPA behavior
+# Redirect rules for SPA behaviour
 [[redirects]]
   from = "/*"
   to = "/index.html"
@@ -186,13 +186,13 @@ emailjs.send('service_p2fplrx', 'template_35rncws', {
 - `{{sections_completed}}` - Progress indicator (e.g., "12/24")
 - `{{submission_date}}` - Timestamp of submission
 
-### **Performance Optimization**
+### **Performance Optimisation**
 
-#### **Asset Optimization Checklist**
+#### **Asset Optimisation Checklist**
 - [ ] **HTML minification** - Remove unnecessary whitespace
 - [ ] **CSS consolidation** - Single external stylesheet
-- [ ] **Image optimization** - Use SVGs for icons, optimize any images
-- [ ] **Font loading** - Optimize web font loading strategy
+- [ ] **Image optimisation** - Use SVGs for icons, optimize any images
+- [ ] **Font loading** - Optimise web font loading strategy
 - [ ] **JavaScript bundling** - Consider bundling if adding more scripts
 
 #### **Caching Strategy**
@@ -271,7 +271,7 @@ emailjs.send('service_p2fplrx', 'template_35rncws', {
 #### **Quarterly Tasks**
 - [ ] **Content review** - Update team information and procedures
 - [ ] **Design refresh** - Consider UI improvements based on feedback
-- [ ] **Performance optimization** - Analyze and optimize loading times
+- [ ] **Performance optimisation** - Analyse and optimise loading times
 - [ ] **Accessibility audit** - Ensure WCAG compliance
 
 ### **Content Updates**
@@ -390,21 +390,21 @@ emailjs.init({
 - Poor PageSpeed scores
 
 **Solutions:**
-1. **Optimize CSS**
+1. **Optimise CSS**
    ```bash
    # Remove unused CSS rules
    # Combine multiple stylesheets
    # Minify CSS for production
    ```
 
-2. **Optimize Images**
+2. **Optimise Images**
    ```bash
    # Convert images to WebP format
    # Use SVGs for icons
    # Implement lazy loading if needed
    ```
 
-3. **Optimize Fonts**
+3. **Optimise Fonts**
    ```html
    <!-- Preload critical fonts -->
    <link rel="preload" href="path/to/font.woff2" as="font" type="font/woff2" crossorigin>
@@ -442,7 +442,7 @@ emailjs.init({
 
 ### **Traffic Growth**
 - **Static hosting** scales automatically for most platforms
-- **CDN optimization** for global performance
+- **CDN optimisation** for global performance
 - **Monitoring alerts** for unusual traffic patterns
 
 ### **Feature Additions**

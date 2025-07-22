@@ -51,7 +51,7 @@ Deployment:
 ├── 📁 css/
 │   └── 📄 main.css                 # Consolidated stylesheet (15KB)
 │
-├── 📁 documentation/               # Specialized content
+├── 📁 documentation/               # Specialised content
 │   ├── 📄 industry-specific-considerations.html
 │   └── 📄 kind-kitchens-remarketing-brief.html
 │

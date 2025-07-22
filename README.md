@@ -12,11 +12,11 @@ Interactive single-page application providing **daily operational guidance** and
 
 ### ✨ **Key Features**
 - **🎨 Modern Design**: Consistent three-column layouts with professional icons
-- **📱 Fully Responsive**: Mobile-optimized design (3 columns → 1 on mobile)
+- **📱 Fully Responsive**: Mobile-optimised design (3 columns → 1 on mobile)
 - **💬 Interactive Feedback**: Floating widget with 24 section granularity  
 - **📧 One-Click Submission**: EmailJS integration for direct feedback delivery
 - **🧭 Smart Navigation**: Hierarchical sidebar with smooth scrolling
-- **⚡ Optimized Performance**: ~50KB main file, <2s load time
+- **⚡ Optimised Performance**: ~50KB main file, <2s load time
 
 ## 📁 Project Structure
 
@@ -66,7 +66,7 @@ open index.html
 2. **⏱️ Time Tracking** - Comprehensive logging requirements (3 focus areas)
 3. **📞 Client Communication Standards** - Professional communication protocols (3 focus areas)
 4. **📋 Task Management Fundamentals** - Project oversight and execution (3 focus areas)
-5. **📈 Performance Monitoring & Analysis** - KPI tracking and optimization (3 focus areas)
+5. **📈 Performance Monitoring & Analysis** - KPI tracking and optimisation (3 focus areas)
 
 ### **🔸 Operational Sections (Three-Column Focus Areas)**
 6. **📅 Daily Responsibilities** - Day-to-day operational tasks (4 focus areas)
@@ -75,7 +75,7 @@ open index.html
 9. **🗓️ Quarterly & Six-Monthly** - Strategic reviews and audits (2 focus areas)
 
 ### **⚙️ Service-Specific Sections (Three-Column Focus Areas)**
-10. **🔍 SEO Service Responsibilities** - Search optimization and reporting (3 focus areas)
+10. **🔍 SEO Service Responsibilities** - Search optimisation and reporting (3 focus areas)
 11. **🎯 PPC Service Responsibilities** - Campaign management and analysis (3 focus areas)
 12. **🌐 Websites, CRM & Workflows** - Oversight, data gathering, and quality assurance (3 focus areas)
 
@@ -90,7 +90,7 @@ open index.html
 - **📊 Progress Tracking**: Visual indicators for completion status  
 - **👤 One-Time Setup**: Enter name/email once for entire session
 - **⚡ Direct Submission**: EmailJS integration sends directly to `liam@integralmedia.com.au`
-- **📱 Mobile Optimized**: Responsive design for all devices
+- **📱 Mobile Optimised**: Responsive design for all devices
 
 ### **Feedback Collection Process**
 1. **Click floating widget** (top-right corner)
@@ -101,7 +101,7 @@ open index.html
 
 ## 🎨 Design System
 
-### **Brand Colors**
+### **Brand Colours**
 - **Primary Blue**: `#214e9c` (Integral Blue)
 - **Light Blue**: `#5cb3f0` (Accents and icons)
 - **Dark Blue**: `#1e3a8a` (Headers and emphasis)
@@ -110,7 +110,7 @@ open index.html
 ### **Typography**
 - **Font Stack**: `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`
 - **Responsive Sizing**: Proper hierarchy across all devices
-- **Line Height**: Optimized for readability (1.6 for body text)
+- **Line Height**: Optimised for readability (1.6 for body text)
 
 ### **Components**
 - **Focus Areas**: Three-column cards with icons and hover effects
@@ -137,7 +137,7 @@ open index.html
 - **Target Email**: `liam@integralmedia.com.au`
 
 ### **Performance Metrics**
-- **File Size**: ~65KB main file (optimized with expanded content)
+- **File Size**: ~65KB main file (optimised with expanded content)
 - **Load Time**: <2 seconds on standard connection
 - **Mobile Score**: 95+ (responsive design)
 - **Browser Support**: Modern browsers (ES6+ features)
@@ -156,11 +156,11 @@ open index.html
 - ✅ **Service-Specific Content**: Comprehensive SEO, PPC, and Website responsibility sections
 - ✅ **Enhanced Navigation**: 13 main sections with hierarchical sub-navigation
 - ✅ **Expanded Feedback System**: 33-section granular collection across all focus areas
-- ✅ **Mobile Optimization**: Responsive design across all sections
+- ✅ **Mobile Optimisation**: Responsive design across all sections
 - ✅ **Production Ready**: GitHub deployment with comprehensive documentation
 
 ### **📊 Project Milestones**
-1. **Foundation & Optimization** - Debloating and CSS consolidation
+1. **Foundation & Optimisation** - Debloating and CSS consolidation
 2. **Modern Design System** - Three-column layouts and responsive design  
 3. **Interactive Feedback** - Floating widget and EmailJS integration
 4. **Content Organization** - Logical ordering and enhanced navigation
@@ -180,10 +180,15 @@ open index.html
 - **GitHub Pages**: Free hosting with GitHub repository
 - **Firebase Hosting**: Google Cloud platform integration
 
+## 📝 Language & Style Requirements
+
+**⚠️ IMPORTANT: British English Only**
+This project uses **British English spelling exclusively** throughout all content, documentation, and user-facing text. Examples include: optimise (not optimize), colour (not color), analyse (not analyze), organised (not organized). CSS property names remain unchanged as per web standards.
+
 ## 🔮 Future Enhancements
 
 - **🔍 Search Functionality**: Add search within sections
-- **🌙 Dark Mode**: Alternative color scheme option
+- **🌙 Dark Mode**: Alternative colour scheme option
 - **📱 PWA Features**: Offline support and app-like experience  
 - **📊 Analytics**: Usage tracking and heat mapping
 - **🌍 Multi-language**: Internationalization support

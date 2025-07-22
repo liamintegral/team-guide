@@ -4,7 +4,7 @@
 
 ## 📋 Table of Contents
 - [🎯 Design Principles](#-design-principles)  
-- [🎨 Color System](#-color-system)
+- [🎨 Colour System](#-color-system)
 - [📝 Typography](#-typography)
 - [🧩 Component Patterns](#-component-patterns)
 - [📱 Responsive Design](#-responsive-design)
@@ -20,22 +20,22 @@
 2. **Accessibility First** - Clear hierarchy, readable text, proper contrast ratios
 3. **Mobile Responsive** - Seamless experience across all devices
 4. **Consistent Experience** - Standardized patterns and predictable interactions
-5. **Performance Focused** - Optimized for fast loading and smooth interactions
+5. **Performance Focussed** - Optimized for fast loading and smooth interactions
 
 ### **Visual Philosophy**
 - **Minimalist Design** - Clean layouts with purposeful whitespace
-- **Professional Aesthetics** - Corporate-friendly color scheme and typography
+- **Professional Aesthetics** - Corporate-friendly colour scheme and typography
 - **Functional Beauty** - Every design element serves a purpose
 - **Scalable System** - Components that work at any size or context
 
 ---
 
-## 🎨 Color System
+## 🎨 Colour System
 
-### **Primary Brand Colors**
+### **Primary Brand Colours**
 ```css
-/* Integral Media Brand Colors */
---integral-blue: #214e9c;        /* Primary brand color */
+/* Integral Media Brand Colours */
+--integral-blue: #214e9c;        /* Primary brand colour */
 --integral-blue-light: #5cb3f0;  /* Accents and highlights */
 --integral-blue-dark: #1e3a8a;   /* Headers and emphasis */
 ```
@@ -119,10 +119,10 @@ caption: 0.8rem (12px) - Form labels, navigation
 ```
 
 **Structure:**
-- **Icon Circle** - 60px diameter, brand color background
-- **Heading** - h3 element, dark blue color
+- **Icon Circle** - 60px diameter, brand colour background
+- **Heading** - h3 element, dark blue colour
 - **Description** - Gray body text with good line height
-- **Highlight List** - Checkmark bullets, organized items
+- **Highlight List** - Checkmark bullets, organised items
 
 **When to Use:**
 - **Universal Application**: Now used across ALL content sections for design consistency
@@ -163,7 +163,7 @@ caption: 0.8rem (12px) - Form labels, navigation
 
 **Key Features:**
 - **Fixed positioning** - Top-right corner (20px from edges)
-- **Prominent button** - 70px circle with brand colors
+- **Prominent button** - 70px circle with brand colours
 - **Panel overlay** - 400px wide modal with smooth animations
 - **33 section tracking** - Granular feedback collection across all focus areas
 
@@ -242,7 +242,7 @@ caption: 0.8rem (12px) - Form labels, navigation
 #### **CSS Custom Properties**
 ```css
 :root {
-    /* Use CSS variables for all colors and measurements */
+    /* Use CSS variables for all colours and measurements */
     --sidebar-width: 280px;
     --integral-blue: #214e9c;
     /* Define once, use everywhere */
@@ -291,7 +291,7 @@ emailjs.send(
 ### **Performance Requirements**
 - **File size** - Main HTML file under 100KB
 - **Load time** - Initial page load under 2 seconds
-- **Image optimization** - Use SVGs for icons, optimize any raster images
+- **Image optimisation** - Use SVGs for icons, optimise any raster images
 - **CSS efficiency** - Consolidated external stylesheet, no inline styles
 
 ### **Browser Support**
@@ -322,7 +322,7 @@ emailjs.send(
 - [ ] Identify which sections need focus area treatment
 
 ### **During Development**
-- [ ] Use CSS custom properties for colors and measurements  
+- [ ] Use CSS custom properties for colours and measurements  
 - [ ] Test three-column layouts on desktop and mobile
 - [ ] Ensure proper heading hierarchy (h1 → h2 → h3 → h4)
 - [ ] Implement smooth scrolling navigation
@@ -345,17 +345,27 @@ emailjs.send(
 3. **Include appropriate icons** - Font Awesome icons matching section purpose
 4. **Update navigation** - Add to sidebar with proper hierarchical structure and subitems
 5. **Update feedback system** - Add new sections to JavaScript feedback tracking array
-6. **Test responsiveness** - Ensure mobile optimization and single-column stacking
+6. **Test responsiveness** - Ensure mobile optimisation and single-column stacking
 
 ### **Extending Feedback System**
 - **Section tracking** - Update feedback sections array
 - **Email templates** - Modify EmailJS template for new fields
 - **Progress calculation** - Adjust completion percentages
 
-### **Performance Optimization**
-- **Image optimization** - Use WebP format where supported
+### **Performance Optimisation**
+- **Image optimisation** - Use WebP format where supported
 - **CSS minification** - Consider build process for production
 - **JavaScript bundling** - If adding more interactive features
+
+---
+
+## 📝 Language & Style Requirements
+
+**⚠️ IMPORTANT: British English Only**
+- This project uses **British English spelling exclusively**
+- All content, documentation, and user-facing text must use British spellings
+- Examples: optimise (not optimize), colour (not color), analyse (not analyze), organised (not organized)
+- CSS property names remain unchanged as per web standards (e.g., `color`, `background-color`)
 
 ---
 
