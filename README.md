@@ -77,7 +77,7 @@ open index.html
 ### **⚙️ Service-Specific Sections (Three-Column Focus Areas)**
 10. **🔍 SEO Service Responsibilities** - Search optimization and reporting (3 focus areas)
 11. **🎯 PPC Service Responsibilities** - Campaign management and analysis (3 focus areas)
-12. **🌐 Website Service Responsibilities** - Maintenance and optimization (3 focus areas)
+12. **🌐 Websites, CRM & Workflows** - Oversight, data gathering, and quality assurance (3 focus areas)
 
 ### **📋 Standards & Guidelines (Three-Column Focus Areas)**
 13. **📋 Communication Guidelines & Performance Standards** - Internal/client standards (3 focus areas)
