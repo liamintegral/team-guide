@@ -44,6 +44,7 @@
                     <i class="fas fa-chevron-down nav-chevron"></i>
                 </a>
                 <div class="nav-subitems">
+                    <a href="#assigned-inbox-monitoring" class="nav-subitem">Assigned Inbox Monitoring</a>
                     <a href="#email-management" class="nav-subitem">Email Management</a>
                     <a href="#daily-planning" class="nav-subitem">Daily Planning</a>
                     <a href="#daily-standup" class="nav-subitem">Daily Standup</a>
@@ -330,17 +331,35 @@
                     </button>
                 </div>
                 <div class="overview-focus-areas">
+                    <div class="focus-area" id="assigned-inbox-monitoring">
+                        <div class="focus-icon">
+                            <i class="fas fa-inbox"></i>
+                        </div>
+                        <h3>Assigned Inbox Monitoring</h3>
+                        <p><strong>Assigned Responsibilities:</strong> Maddy: integralmediaau@gmail.com, James: Higher Ranking Gmail, John: Purpose Gmail</p>
+                        <ul class="focus-highlights">
+                            <li>Monitor assigned inbox daily for important client-related information</li>
+                            <li>Check for new Google or Meta service linkings for clients</li>
+                            <li>Watch for CMS service notifications for new clients</li>
+                            <li>Identify performance or account management related issues</li>
+                            <li>Monitor for billing issues and payment notifications</li>
+                            <li>Escalate urgent issues immediately to relevant team members</li>
+                            <li>Create or update tasks as necessary to ensure proper communication flow</li>
+                        </ul>
+                    </div>
+
                     <div class="focus-area" id="email-management">
                         <div class="focus-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <h3>Email Management & Communication Triage</h3>
-                        <p><strong>Assigned Responsibilities:</strong> Maddy: integralmediaau@gmail.com, James: Higher Ranking Gmail, John: Purpose Gmail</p>
+                        <p>Manage your personal inbox and handle general email communications efficiently throughout the day.</p>
                         <ul class="focus-highlights">
                             <li>Review all incoming emails and categorise by urgency and client</li>
                             <li>Respond to time-sensitive communications within 2 hours</li>
                             <li>Forward relevant emails to appropriate team members</li>
                             <li>Flag any urgent issues that require immediate attention</li>
+                            <li>Maintain organised email folders and clear inbox daily</li>
                         </ul>
                     </div>
 
@@ -1217,32 +1236,68 @@
             }
             
             bindEvents() {
+                // Toggle button
                 this.toggle.addEventListener('click', () => this.togglePanel());
+                
+                // Close button
                 this.closeBtn.addEventListener('click', () => this.closePanel());
+                
+                // Start feedback button
                 this.startBtn.addEventListener('click', () => this.startFeedback());
+                
+                // Rating buttons
+                this.ratingBtns.forEach(btn => {
+                    btn.addEventListener('click', () => this.selectRating(btn.dataset.rating));
+                });
+                
+                // Save section feedback
                 this.saveSectionBtn.addEventListener('click', () => this.saveSectionFeedback());
-                this.skipSectionBtn.addEventListener('click', () => this.skipSection());
+                
+                // Cancel section feedback
+                this.cancelSectionBtn.addEventListener('click', () => this.cancelSectionFeedback());
+                
+                // Submit all feedback
                 this.submitAllBtn.addEventListener('click', () => this.submitAllFeedback());
                 
-                // Quick rating buttons
-                document.querySelectorAll('.feedback-quick-btn').forEach(btn => {
-                    btn.addEventListener('click', () => this.selectRating(btn));
+                // Section feedback buttons
+                document.querySelectorAll('.section-feedback-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if (this.userInfo.name && this.userInfo.email) {
+                            this.showSectionFeedback(btn.dataset.sectionId, btn.dataset.sectionTitle);
+                            this.openPanel();
+                        } else {
+                            this.openPanel();
+                        }
+                    });
                 });
                 
                 // Close panel when clicking outside
                 document.addEventListener('click', (e) => {
-                    if (!document.getElementById('feedbackWidget').contains(e.target)) {
+                    if (!document.getElementById('feedbackWidget').contains(e.target) && 
+                        !e.target.classList.contains('section-feedback-btn')) {
                         this.closePanel();
                     }
                 });
             }
             
             togglePanel() {
-                this.panel.classList.toggle('open');
+                const isVisible = this.panel.classList.contains('open');
+                if (isVisible) {
+                    this.closePanel();
+                } else {
+                    this.openPanel();
+                }
+            }
+            
+            openPanel() {
+                this.panel.classList.add('open');
             }
             
             closePanel() {
                 this.panel.classList.remove('open');
+                this.cancelSectionFeedback();
             }
             
             startFeedback() {
@@ -1258,8 +1313,12 @@
                 this.userInfoSection.style.display = 'none';
                 this.feedbackSections.style.display = 'block';
                 
-                // Auto-select first section
-                this.selectSection(this.sections[0].id);
+                // Show section feedback buttons throughout the page
+                document.querySelectorAll('.section-feedback-btn').forEach(btn => {
+                    btn.style.display = 'block';
+                });
+                
+                this.updateCollectedFeedbackDisplay();
             }
             
             selectSection(sectionId) {
@@ -1518,11 +1577,194 @@
                 
                 this.userInfoSection.style.display = 'block';
                 this.feedbackSections.style.display = 'none';
+                this.collectedFeedback.style.display = 'none';
+                this.currentSectionFeedback.style.display = 'none';
                 
-                this.clearRatingSelection();
-                this.updateProgress();
-                this.updateSectionListUI();
+                // Hide section feedback buttons
+                document.querySelectorAll('.section-feedback-btn').forEach(btn => {
+                    btn.style.display = 'none';
+                    btn.classList.remove('has-feedback');
+                });
+                
+                this.updateBadge();
                 this.closePanel();
+                
+                this.submitAllBtn.disabled = false;
+                this.submitAllBtn.textContent = 'Submit Feedback';
+            }
+            
+            updateCollectedFeedbackDisplay() {
+                const hasFeedback = Object.keys(this.sectionFeedback).length > 0;
+                this.collectedFeedback.style.display = hasFeedback ? 'block' : 'none';
+                
+                if (hasFeedback) {
+                    this.feedbackList.innerHTML = Object.entries(this.sectionFeedback).map(([sectionId, feedback]) => `
+                        <div class="feedback-item">
+                            <div class="feedback-item-header">
+                                <span class="feedback-item-title">${feedback.title}</span>
+                                <span class="feedback-item-rating ${feedback.rating}">${feedback.rating}</span>
+                            </div>
+                            ${feedback.comment ? `<div class="feedback-item-comment">"${feedback.comment}"</div>` : ''}
+                            <div class="feedback-item-actions">
+                                <button class="edit-feedback-btn" onclick="feedbackWidget.editFeedback('${sectionId}')">Edit</button>
+                                <button class="remove-feedback-btn" onclick="feedbackWidget.removeFeedback('${sectionId}')">Remove</button>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }
+            
+            updateBadge() {
+                const count = Object.keys(this.sectionFeedback).length;
+                this.badge.textContent = count;
+                this.badge.style.display = count > 0 ? 'block' : 'none';
+            }
+            
+            selectRating(rating) {
+                this.ratingBtns.forEach(btn => btn.classList.remove('active'));
+                const selectedBtn = document.querySelector(`[data-rating="${rating}"]`);
+                if (selectedBtn) {
+                    selectedBtn.classList.add('active');
+                }
+                this.selectedRating = rating;
+            }
+            
+            clearRatingSelection() {
+                this.ratingBtns.forEach(btn => btn.classList.remove('active'));
+                this.selectedRating = null;
+                this.sectionFeedbackText.value = '';
+            }
+            
+            showSectionFeedback(sectionId, sectionTitle) {
+                this.currentSectionId = sectionId;
+                this.currentSectionTitle.textContent = sectionTitle;
+                this.currentSectionFeedback.style.display = 'block';
+                
+                // Clear previous selection
+                this.clearRatingSelection();
+                
+                // Pre-fill if feedback exists
+                if (this.sectionFeedback[sectionId]) {
+                    const feedback = this.sectionFeedback[sectionId];
+                    this.selectRating(feedback.rating);
+                    this.sectionFeedbackText.value = feedback.comment || '';
+                }
+            }
+            
+            saveSectionFeedback() {
+                if (!this.selectedRating) {
+                    alert('Please select a rating first.');
+                    return;
+                }
+                
+                const comment = this.sectionFeedbackText.value.trim();
+                
+                this.sectionFeedback[this.currentSectionId] = {
+                    title: this.currentSectionTitle.textContent,
+                    rating: this.selectedRating,
+                    comment: comment
+                };
+                
+                // Update section button appearance
+                const sectionBtn = document.querySelector(`[data-section-id="${this.currentSectionId}"]`);
+                if (sectionBtn) {
+                    sectionBtn.classList.add('has-feedback');
+                }
+                
+                this.updateBadge();
+                this.updateCollectedFeedbackDisplay();
+                this.cancelSectionFeedback();
+            }
+            
+            cancelSectionFeedback() {
+                this.currentSectionFeedback.style.display = 'none';
+                this.clearRatingSelection();
+                this.currentSectionId = null;
+            }
+            
+            editFeedback(sectionId) {
+                const feedback = this.sectionFeedback[sectionId];
+                this.showSectionFeedback(sectionId, feedback.title);
+            }
+            
+            removeFeedback(sectionId) {
+                delete this.sectionFeedback[sectionId];
+                
+                // Update section button appearance
+                const sectionBtn = document.querySelector(`[data-section-id="${sectionId}"]`);
+                if (sectionBtn) {
+                    sectionBtn.classList.remove('has-feedback');
+                }
+                
+                this.updateBadge();
+                this.updateCollectedFeedbackDisplay();
+            }
+            
+            submitAllFeedback() {
+                const generalComment = this.generalFeedbackText.value.trim();
+                const hasSectionFeedback = Object.keys(this.sectionFeedback).length > 0;
+                
+                if (!hasSectionFeedback && !generalComment) {
+                    alert('Please provide at least some feedback before submitting.');
+                    return;
+                }
+                
+                const feedbackSummary = this.generateFeedbackSummary();
+                
+                const templateParams = {
+                    user_name: this.userInfo.name,
+                    user_email: this.userInfo.email,
+                    feedback_summary: feedbackSummary,
+                    sections_completed: `${Object.keys(this.sectionFeedback).length} sections + general feedback`,
+                    submission_date: new Date().toLocaleString()
+                };
+                
+                // Disable submit button
+                this.submitAllBtn.disabled = true;
+                this.submitAllBtn.textContent = 'Submitting...';
+                
+                emailjs.send('service_p2fplrx', 'template_35rncws', templateParams)
+                    .then((response) => {
+                        alert('Thank you! Your feedback has been submitted successfully.');
+                        this.resetForm();
+                    })
+                    .catch((error) => {
+                        alert('Sorry, there was an error submitting your feedback. Please try again.');
+                        console.error('EmailJS error:', error);
+                        
+                        // Re-enable submit button
+                        this.submitAllBtn.disabled = false;
+                        this.submitAllBtn.textContent = 'Submit Feedback';
+                    });
+            }
+            
+            generateFeedbackSummary() {
+                let summary = `TEAM GUIDE FEEDBACK SUBMISSION\n\n`;
+                summary += `Submitted by: ${this.userInfo.name} (${this.userInfo.email})\n`;
+                summary += `Date: ${new Date().toLocaleString()}\n\n`;
+                summary += `===========================================\n\n`;
+                
+                // Section-specific feedback
+                if (Object.keys(this.sectionFeedback).length > 0) {
+                    summary += `SECTION-SPECIFIC FEEDBACK (${Object.keys(this.sectionFeedback).length} sections):\n\n`;
+                    
+                    Object.entries(this.sectionFeedback).forEach(([sectionId, feedback]) => {
+                        summary += `SECTION: ${feedback.title}\n`;
+                        summary += `RATING: ${feedback.rating.toUpperCase()}\n`;
+                        if (feedback.comment) {
+                            summary += `COMMENT: ${feedback.comment}\n`;
+                        }
+                        summary += `-------------------------------------------\n\n`;
+                    });
+                }
+                
+                // General feedback
+                const generalComment = this.generalFeedbackText.value.trim();
+                if (generalComment) {
+                    summary += `GENERAL FEEDBACK:\n${generalComment}\n\n`;
+                }
+                
+                return summary;
             }
         }
         
