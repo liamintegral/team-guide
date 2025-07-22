@@ -270,6 +270,10 @@
                         <i class="fas fa-comment"></i>
                     </button>
                 </div>
+                
+                <div class="section-summary">
+                    <p>Accurate time tracking is essential for transparent client billing, resource allocation, and business intelligence. All client-related work must be logged with precision to maintain profitability and provide clear visibility into project investments.</p>
+                </div>
 
                 <div class="overview-focus-areas">
                     <div class="focus-area">
@@ -330,6 +334,11 @@
                         <i class="fas fa-comment"></i>
                     </button>
                 </div>
+                
+                <div class="section-summary">
+                    <p>Daily operations form the foundation of exceptional client service delivery. These core responsibilities ensure consistent communication, organised task management, and proactive client relationship building through structured daily workflows.</p>
+                </div>
+                
                 <div class="overview-focus-areas">
                     <div class="focus-area" id="assigned-inbox-monitoring">
                         <div class="focus-icon">
@@ -418,6 +427,11 @@
                         <i class="fas fa-comment"></i>
                     </button>
                 </div>
+                
+                <div class="section-summary">
+                    <p>Weekly reviews and assessments provide strategic oversight and performance optimisation opportunities. These regular checkpoints ensure client projects stay on track and advertising performance meets established benchmarks.</p>
+                </div>
+                
                 <div class="overview-focus-areas">
                     <div class="focus-area" id="client-project-reviews">
                         <div class="focus-icon">
@@ -460,6 +474,11 @@
                         <i class="fas fa-comment"></i>
                     </button>
                 </div>
+                
+                <div class="section-summary">
+                    <p>Monthly activities focus on comprehensive client communication, strategic performance evaluation, and in-depth analysis. These responsibilities ensure long-term client satisfaction and identify opportunities for service enhancement.</p>
+                </div>
+                
                 <div class="overview-focus-areas">
                     <div class="focus-area" id="monthly-client-communications">
                         <div class="focus-icon">
@@ -515,6 +534,11 @@
                         <i class="fas fa-comment"></i>
                     </button>
                 </div>
+                
+                <div class="section-summary">
+                    <p>Quarterly and six-monthly assessments provide comprehensive strategic evaluation and thorough auditing processes. These deep-dive reviews ensure long-term account health and identify strategic growth opportunities.</p>
+                </div>
+                
                 <div class="overview-focus-areas">
                     <div class="focus-area" id="quarterly-strategy">
                         <div class="focus-icon">
@@ -757,6 +781,10 @@
                         <i class="fas fa-comment"></i>
                     </button>
                 </div>
+                
+                <div class="section-summary">
+                    <p>Professional client communication forms the cornerstone of successful account management. These standards ensure consistent, timely, and effective communication that builds trust and maintains strong client relationships.</p>
+                </div>
 
                 <div class="overview-focus-areas">
                     <div class="focus-area">
@@ -817,6 +845,10 @@
                         <i class="fas fa-comment"></i>
                     </button>
                 </div>
+                
+                <div class="section-summary">
+                    <p>Effective task management ensures systematic project delivery and maintains quality standards across all client work. These fundamentals provide the framework for organising, prioritising, and executing tasks efficiently.</p>
+                </div>
 
                 <div class="overview-focus-areas">
                     <div class="focus-area">
@@ -873,6 +905,10 @@
                     <button class="section-feedback-btn" data-section-id="performance-monitoring-expanded" data-section-title="Performance Monitoring & Analysis" style="display: none;">
                         <i class="fas fa-comment"></i>
                     </button>
+                </div>
+                
+                <div class="section-summary">
+                    <p>Continuous performance monitoring drives data-informed decision making and ensures strategic objectives are met. Regular analysis of key metrics enables proactive optimisation and demonstrates measurable value to clients.</p>
                 </div>
 
                 <div class="overview-focus-areas">
@@ -934,6 +970,11 @@
                         <i class="fas fa-comment"></i>
                     </button>
                 </div>
+                
+                <div class="section-summary">
+                    <p>Clear communication guidelines and performance standards establish expectations for professional excellence. These standards ensure consistent service delivery and maintain Integral Media's reputation for quality across all client interactions.</p>
+                </div>
+                
                 <div class="overview-focus-areas">
                     <div class="focus-area" id="internal-communication">
                         <div class="focus-icon">
@@ -1019,7 +1060,7 @@
             <!-- Section Feedback Area -->
             <div id="feedbackSections" class="feedback-sections" style="display: none;">
                 <div class="feedback-instructions">
-                    <p><i class="fas fa-info-circle"></i> Click the feedback buttons next to section titles to provide targeted feedback, or use the form below for general feedback.</p>
+                    <p><i class="fas fa-info-circle"></i> Click the feedback buttons next to section titles to provide targeted feedback for specific sections.</p>
                 </div>
 
                 <!-- Collected Feedback Display -->
@@ -1052,12 +1093,6 @@
                         <button id="saveSectionFeedback" class="save-section-btn">Save Feedback</button>
                         <button id="cancelSectionFeedback" class="cancel-section-btn">Cancel</button>
                     </div>
-                </div>
-
-                <!-- General Feedback Option -->
-                <div class="general-feedback">
-                    <h4>General Feedback</h4>
-                    <textarea id="generalFeedbackText" placeholder="Optional: Provide general feedback about the team guide..." rows="4"></textarea>
                 </div>
 
                 <!-- Submit All -->
@@ -1228,7 +1263,6 @@
                 this.sectionFeedbackText = document.getElementById('sectionFeedbackText');
                 this.saveSectionBtn = document.getElementById('saveSectionFeedback');
                 this.cancelSectionBtn = document.getElementById('cancelSectionFeedback');
-                this.generalFeedbackText = document.getElementById('generalFeedbackText');
                 this.submitAllBtn = document.getElementById('submitAllFeedback');
                 
                 // Rating buttons
@@ -1701,11 +1735,10 @@
             }
             
             submitAllFeedback() {
-                const generalComment = this.generalFeedbackText.value.trim();
                 const hasSectionFeedback = Object.keys(this.sectionFeedback).length > 0;
                 
-                if (!hasSectionFeedback && !generalComment) {
-                    alert('Please provide at least some feedback before submitting.');
+                if (!hasSectionFeedback) {
+                    alert('Please provide feedback for at least one section before submitting.');
                     return;
                 }
                 
@@ -1715,7 +1748,7 @@
                     user_name: this.userInfo.name,
                     user_email: this.userInfo.email,
                     feedback_summary: feedbackSummary,
-                    sections_completed: `${Object.keys(this.sectionFeedback).length} sections + general feedback`,
+                    sections_completed: `${Object.keys(this.sectionFeedback).length} sections`,
                     submission_date: new Date().toLocaleString()
                 };
                 
@@ -1745,24 +1778,16 @@
                 summary += `===========================================\n\n`;
                 
                 // Section-specific feedback
-                if (Object.keys(this.sectionFeedback).length > 0) {
-                    summary += `SECTION-SPECIFIC FEEDBACK (${Object.keys(this.sectionFeedback).length} sections):\n\n`;
-                    
-                    Object.entries(this.sectionFeedback).forEach(([sectionId, feedback]) => {
-                        summary += `SECTION: ${feedback.title}\n`;
-                        summary += `RATING: ${feedback.rating.toUpperCase()}\n`;
-                        if (feedback.comment) {
-                            summary += `COMMENT: ${feedback.comment}\n`;
-                        }
-                        summary += `-------------------------------------------\n\n`;
-                    });
-                }
+                summary += `SECTION FEEDBACK (${Object.keys(this.sectionFeedback).length} sections):\n\n`;
                 
-                // General feedback
-                const generalComment = this.generalFeedbackText.value.trim();
-                if (generalComment) {
-                    summary += `GENERAL FEEDBACK:\n${generalComment}\n\n`;
-                }
+                Object.entries(this.sectionFeedback).forEach(([sectionId, feedback]) => {
+                    summary += `SECTION: ${feedback.title}\n`;
+                    summary += `RATING: ${feedback.rating.toUpperCase()}\n`;
+                    if (feedback.comment) {
+                        summary += `COMMENT: ${feedback.comment}\n`;
+                    }
+                    summary += `-------------------------------------------\n\n`;
+                });
                 
                 return summary;
             }
