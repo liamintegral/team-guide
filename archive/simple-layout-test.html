@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Layout Test</title>
+    <style>
+        :root {
+            --sidebar-width: 280px;
+        }
+        
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: #214e9c;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+        
+        .sidebar.closed {
+            transform: translateX(-100%);
+        }
+        
+        .main-container {
+            margin-left: var(--sidebar-width);
+            transition: margin-left 0.3s ease;
+            min-height: 100vh;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .main-container.sidebar-closed {
+            margin-left: 0;
+        }
+        
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: #214e9c;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100vw;
+                transform: translateX(-100%);
+            }
+            
+            .sidebar:not(.closed) {
+                transform: translateX(0);
+            }
+            
+            .main-container {
+                margin-left: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <h2>Integral Media</h2>
+        <p>Navigation Sidebar</p>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin: 10px 0;"><a href="#" style="color: white; text-decoration: none;">• Team Guide</a></li>
+            <li style="margin: 10px 0;"><a href="#" style="color: white; text-decoration: none;">• Communication</a></li>
+            <li style="margin: 10px 0;"><a href="#" style="color: white; text-decoration: none;">• Tool Training</a></li>
+            <li style="margin: 10px 0;"><a href="#" style="color: white; text-decoration: none;">• Risk Assessment</a></li>
+        </ul>
+    </div>
+    
+    <div class="main-container" id="mainContainer">
+        <button class="toggle-btn" id="toggleBtn">☰ Toggle</button>
+        
+        <div class="content">
+            <h1>Main Content Area</h1>
+            <p><strong>Expected behavior:</strong></p>
+            <ul>
+                <li>On desktop: Content should start at 280px from left (after sidebar)</li>
+                <li>On mobile: Content should take full width</li>
+                <li>Toggle button should hide/show sidebar smoothly</li>
+                <li><strong>Content should NEVER be hidden behind sidebar</strong></li>
+            </ul>
+            
+            <div style="background: #e3f2fd; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <h3>Test Content</h3>
+                <p>This is test content to verify the layout. If you can see this text clearly without it being hidden behind the blue sidebar, then the layout is working correctly.</p>
+            </div>
+            
+            <div style="background: #f3e5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <h3>More Test Content</h3>
+                <p>Team Collaboration points should be visible here:</p>
+                <ul>
+                    <li>Knowledge Sharing: Share insights and learnings with team members</li>
+                    <li>Cross-Support: Assist team members when needed and during absences</li>
+                    <li>Clear Communication: Keep team informed of important client developments</li>
+                    <li>Escalation Protocol: Know when and how to escalate issues to management</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const mainContainer = document.getElementById('mainContainer');
+        const toggleBtn = document.getElementById('toggleBtn');
+        
+        // Toggle functionality
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('closed');
+            mainContainer.classList.toggle('sidebar-closed');
+        });
+        
+        // Initialize based on screen size
+        function initializeLayout() {
+            if (window.innerWidth <= 768) {
+                // Mobile: sidebar closed by default
+                sidebar.classList.add('closed');
+                mainContainer.classList.add('sidebar-closed');
+            } else {
+                // Desktop: sidebar open by default
+                sidebar.classList.remove('closed');
+                mainContainer.classList.remove('sidebar-closed');
+            }
+        }
+        
+        // Initialize on load
+        initializeLayout();
+        
+        // Handle window resize
+        window.addEventListener('resize', initializeLayout);
+    </script>
+</body>
+</html>

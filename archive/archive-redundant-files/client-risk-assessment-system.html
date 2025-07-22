@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Risk Assessment & Opportunity System - Integral Media</title>
+    <link rel="stylesheet" href="../styles/integral-style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Client Risk Assessment & Opportunity System</h1>
+            <p>Comprehensive client portfolio management for strategic decision making</p>
+        </header>
+
+        <div class="main-content">
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('assessment')">Risk Assessment</button>
+                <button class="tab" onclick="showTab('opportunity')">Opportunity Matrix</button>
+                <button class="tab" onclick="showTab('clients')">Client Portfolio</button>
+                <button class="tab" onclick="showTab('calculator')">Score Calculator</button>
+                <button class="tab" onclick="showTab('analytics')">Analytics</button>
+            </div>
+
+            <!-- Risk Assessment Tab -->
+            <div id="assessment" class="tab-content active">
+                <h2>Risk Assessment Framework</h2>
+                <div class="assessment-grid">
+                    <div class="assessment-card">
+                        <div class="card-title">
+                            <span class="card-icon risk-indicator">⚠</span>
+                            Payment & Financial Stability
+                        </div>
+                        <ul class="factor-list">
+                            <li class="factor-item">
+                                <span>Payment History (90+ days)</span>
+                                <span class="score-badge low-risk tooltip" data-tooltip="Consistent on-time payments">Excellent</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Credit Rating</span>
+                                <span class="score-badge medium-risk tooltip" data-tooltip="Industry average credit score">Good</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Cash Flow Stability</span>
+                                <span class="score-badge low-risk tooltip" data-tooltip="Stable revenue patterns">Stable</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Outstanding Balance</span>
+                                <span class="score-badge high-risk tooltip" data-tooltip="Exceeds 30-day terms">Concerning</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="assessment-card">
+                        <div class="card-title">
+                            <span class="card-icon risk-indicator">📉</span>
+                            Churn Risk Factors
+                        </div>
+                        <ul class="factor-list">
+                            <li class="factor-item">
+                                <span>Contract Renewal Date</span>
+                                <span class="score-badge medium-risk tooltip" data-tooltip="Renewal approaching in 3 months">Upcoming</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Engagement Level</span>
+                                <span class="score-badge high-risk tooltip" data-tooltip="Decreased interaction frequency">Declining</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Complaint History</span>
+                                <span class="score-badge low-risk tooltip" data-tooltip="Minimal complaints recorded">Low</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Competition Activity</span>
+                                <span class="score-badge medium-risk tooltip" data-tooltip="Competitors actively targeting">Moderate</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="assessment-card">
+                        <div class="card-title">
+                            <span class="card-icon opportunity-indicator">📈</span>
+                            Growth Potential
+                        </div>
+                        <ul class="factor-list">
+                            <li class="factor-item">
+                                <span>Budget Capacity</span>
+                                <span class="score-badge low-risk tooltip" data-tooltip="High potential for budget increase">High</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Service Expansion Interest</span>
+                                <span class="score-badge low-risk tooltip" data-tooltip="Expressed interest in additional services">Interested</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Market Position</span>
+                                <span class="score-badge medium-risk tooltip" data-tooltip="Growing market share">Expanding</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Decision Making Speed</span>
+                                <span class="score-badge low-risk tooltip" data-tooltip="Quick decision processes">Fast</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="assessment-card">
+                        <div class="card-title">
+                            <span class="card-icon performance-indicator">🎯</span>
+                            Campaign Performance
+                        </div>
+                        <ul class="factor-list">
+                            <li class="factor-item">
+                                <span>ROI Trend (6 months)</span>
+                                <span class="score-badge low-risk tooltip" data-tooltip="Consistent positive ROI growth">Positive</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Conversion Rates</span>
+                                <span class="score-badge medium-risk tooltip" data-tooltip="Meeting industry benchmarks">Average</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Client Satisfaction</span>
+                                <span class="score-badge low-risk tooltip" data-tooltip="High satisfaction scores">Excellent</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Goal Achievement</span>
+                                <span class="score-badge high-risk tooltip" data-tooltip="Missing quarterly targets">Below Target</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Opportunity Matrix Tab -->
+            <div id="opportunity" class="tab-content">
+                <h2>Client Opportunity Matrix</h2>
+                <div class="assessment-grid">
+                    <div class="assessment-card">
+                        <div class="card-title">
+                            <span class="card-icon opportunity-indicator">💰</span>
+                            Revenue Expansion
+                        </div>
+                        <ul class="factor-list">
+                            <li class="factor-item">
+                                <span>Upselling Potential (SEO → PPC)</span>
+                                <span class="score-badge low-risk">High</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Cross-selling Opportunities</span>
+                                <span class="score-badge medium-risk">Medium</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Budget Increase Likelihood</span>
+                                <span class="score-badge low-risk">Likely</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Premium Service Interest</span>
+                                <span class="score-badge high-risk">Unknown</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="assessment-card">
+                        <div class="card-title">
+                            <span class="card-icon opportunity-indicator">🤝</span>
+                            Partnership Value
+                        </div>
+                        <ul class="factor-list">
+                            <li class="factor-item">
+                                <span>Referral Potential</span>
+                                <span class="score-badge low-risk">High</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Case Study Value</span>
+                                <span class="score-badge low-risk">Excellent</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Testimonial Willingness</span>
+                                <span class="score-badge medium-risk">Moderate</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Industry Influence</span>
+                                <span class="score-badge low-risk">Strong</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="assessment-card">
+                        <div class="card-title">
+                            <span class="card-icon stability-indicator">⏰</span>
+                            Contract Opportunities
+                        </div>
+                        <ul class="factor-list">
+                            <li class="factor-item">
+                                <span>Extension Likelihood</span>
+                                <span class="score-badge low-risk">Very High</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Multi-year Agreement Interest</span>
+                                <span class="score-badge medium-risk">Possible</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Exclusivity Potential</span>
+                                <span class="score-badge high-risk">Low</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Performance Bonuses</span>
+                                <span class="score-badge low-risk">Available</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="assessment-card">
+                        <div class="card-title">
+                            <span class="card-icon performance-indicator">🎯</span>
+                            Strategic Value
+                        </div>
+                        <ul class="factor-list">
+                            <li class="factor-item">
+                                <span>Market Entry Value</span>
+                                <span class="score-badge low-risk">High</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Competitive Advantage</span>
+                                <span class="score-badge medium-risk">Moderate</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Innovation Partnership</span>
+                                <span class="score-badge low-risk">Promising</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Brand Association Value</span>
+                                <span class="score-badge low-risk">Excellent</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Client Portfolio Tab -->
+            <div id="clients" class="tab-content">
+                <h2>Client Portfolio Management</h2>
+                
+                <div class="filters">
+                    <select class="filter-select" id="priorityFilter" onchange="filterClients()">
+                        <option value="all">All Priorities</option>
+                        <option value="high-priority">High Priority</option>
+                        <option value="medium-priority">Medium Priority</option>
+                        <option value="low-priority">Low Priority</option>
+                        <option value="watch-list">Watch List</option>
+                    </select>
+                    
+                    <select class="filter-select" id="industryFilter" onchange="filterClients()">
+                        <option value="all">All Industries</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="education">Education</option>
+                        <option value="legal">Legal</option>
+                        <option value="technology">Technology</option>
+                        <option value="finance">Finance</option>
+                    </select>
+                    
+                    <select class="filter-select" id="managerFilter" onchange="filterClients()">
+                        <option value="all">All Managers</option>
+                        <option value="maddy">Maddy</option>
+                        <option value="james">James</option>
+                        <option value="john">John</option>
+                    </select>
+                </div>
+
+                <div class="client-search">
+                    <input type="text" class="search-input" placeholder="Search clients..." id="clientSearch" oninput="searchClients()">
+                    <span class="search-icon">🔍</span>
+                </div>
+
+                <div class="client-grid" id="clientGrid">
+                    <!-- Client cards will be dynamically generated -->
+                </div>
+
+                <div class="export-buttons">
+                    <button class="btn btn-primary" onclick="exportToCSV()">Export to CSV</button>
+                    <button class="btn btn-secondary" onclick="exportToPDF()">Export to PDF</button>
+                </div>
+            </div>
+
+            <!-- Calculator Tab -->
+            <div id="calculator" class="tab-content">
+                <h2>Client Risk & Opportunity Calculator</h2>
+                
+                <div class="calculator-section">
+                    <div class="calculator-grid">
+                        <div>
+                            <h3>Risk Factors</h3>
+                            
+                            <div class="input-group">
+                                <label class="input-label">Payment History Score (1-10)</label>
+                                <input type="range" class="slider" id="paymentHistory" min="1" max="10" value="8" oninput="updateCalculation()">
+                                <span id="paymentHistoryValue">8</span>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label class="input-label">Contract Renewal Risk (1-10)</label>
+                                <input type="range" class="slider" id="renewalRisk" min="1" max="10" value="3" oninput="updateCalculation()">
+                                <span id="renewalRiskValue">3</span>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label class="input-label">Communication Quality (1-10)</label>
+                                <input type="range" class="slider" id="communication" min="1" max="10" value="7" oninput="updateCalculation()">
+                                <span id="communicationValue">7</span>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label class="input-label">Competition Threat (1-10)</label>
+                                <input type="range" class="slider" id="competition" min="1" max="10" value="4" oninput="updateCalculation()">
+                                <span id="competitionValue">4</span>
+                            </div>
+                            
+                            <h3>Opportunity Factors</h3>
+                            
+                            <div class="input-group">
+                                <label class="input-label">Growth Potential (1-10)</label>
+                                <input type="range" class="slider" id="growth" min="1" max="10" value="6" oninput="updateCalculation()">
+                                <span id="growthValue">6</span>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label class="input-label">Upselling Opportunity (1-10)</label>
+                                <input type="range" class="slider" id="upselling" min="1" max="10" value="5" oninput="updateCalculation()">
+                                <span id="upsellingValue">5</span>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label class="input-label">Referral Potential (1-10)</label>
+                                <input type="range" class="slider" id="referral" min="1" max="10" value="7" oninput="updateCalculation()">
+                                <span id="referralValue">7</span>
+                            </div>
+                        </div>
+                        
+                        <div class="result-panel">
+                            <div class="score-display">
+                                <div class="score-circle" id="overallScore">75</div>
+                                <h3 id="priorityLevel">Medium Priority</h3>
+                                <p id="scoreDescription">Stable client with moderate growth potential</p>
+                            </div>
+                            
+                            <h4>Recommendations:</h4>
+                            <ul class="recommendations" id="recommendations">
+                                <!-- Recommendations will be dynamically generated -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div id="analytics" class="tab-content">
+                <h2>Portfolio Analytics & Insights</h2>
+                
+                <div class="chart-container">
+                    <h3>Client Distribution by Priority</h3>
+                    <canvas id="priorityChart" width="400" height="200"></canvas>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>Risk vs Opportunity Matrix</h3>
+                    <canvas id="riskOpportunityChart" width="400" height="400"></canvas>
+                </div>
+                
+                <div class="assessment-grid">
+                    <div class="assessment-card">
+                        <div class="card-title">Portfolio Overview</div>
+                        <div class="metrics-row">
+                            <div class="metric">
+                                <div class="metric-value" id="totalClients">47</div>
+                                <div class="metric-label">Total Clients</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value" id="highRiskClients">8</div>
+                                <div class="metric-label">High Risk</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value" id="highOpportunity">12</div>
+                                <div class="metric-label">High Opportunity</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="assessment-card">
+                        <div class="card-title">Action Items</div>
+                        <ul class="factor-list">
+                            <li class="factor-item">
+                                <span>Immediate Attention Required</span>
+                                <span class="score-badge high-risk">5</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Renewal Meetings Needed</span>
+                                <span class="score-badge medium-risk">12</span>
+                            </li>
+                            <li class="factor-item">
+                                <span>Upselling Opportunities</span>
+                                <span class="score-badge low-risk">8</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample client data
+        const clients = [
+            {
+                id: 1,
+                name: "St. Mary's Medical Center",
+                industry: "healthcare",
+                manager: "maddy",
+                priority: "high-priority",
+                riskScore: 85,
+                opportunityScore: 40,
+                contractValue: 45000,
+                renewalDate: "2024-03-15",
+                paymentHistory: 9,
+                churnRisk: 7,
+                growthPotential: 4
+            },
+            {
+                id: 2,
+                name: "Lincoln Elementary School",
+                industry: "education",
+                manager: "james",
+                priority: "medium-priority",
+                riskScore: 45,
+                opportunityScore: 75,
+                contractValue: 18000,
+                renewalDate: "2024-06-30",
+                paymentHistory: 8,
+                churnRisk: 3,
+                growthPotential: 8
+            },
+            {
+                id: 3,
+                name: "Davidson & Associates Law",
+                industry: "legal",
+                manager: "john",
+                priority: "watch-list",
+                riskScore: 90,
+                opportunityScore: 20,
+                contractValue: 32000,
+                renewalDate: "2024-02-28",
+                paymentHistory: 4,
+                churnRisk: 9,
+                growthPotential: 2
+            },
+            {
+                id: 4,
+                name: "TechStart Solutions",
+                industry: "technology",
+                manager: "maddy",
+                priority: "low-priority",
+                riskScore: 25,
+                opportunityScore: 85,
+                contractValue: 28000,
+                renewalDate: "2024-09-15",
+                paymentHistory: 10,
+                churnRisk: 2,
+                growthPotential: 9
+            },
+            {
+                id: 5,
+                name: "Regional Credit Union",
+                industry: "finance",
+                manager: "james",
+                priority: "medium-priority",
+                riskScore: 55,
+                opportunityScore: 65,
+                contractValue: 38000,
+                renewalDate: "2024-05-20",
+                paymentHistory: 7,
+                churnRisk: 4,
+                growthPotential: 6
+            }
+        ];
+
+        // Tab functionality
+        function showTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            // Initialize specific tab content
+            if (tabName === 'clients') {
+                renderClients();
+            } else if (tabName === 'analytics') {
+                renderCharts();
+            }
+        }
+
+        // Client portfolio functionality
+        function renderClients() {
+            const grid = document.getElementById('clientGrid');
+            grid.innerHTML = '';
+            
+            clients.forEach(client => {
+                const card = createClientCard(client);
+                grid.appendChild(card);
+            });
+        }
+
+        function createClientCard(client) {
+            const card = document.createElement('div');
+            card.className = `client-card ${client.priority}`;
+            card.setAttribute('data-industry', client.industry);
+            card.setAttribute('data-manager', client.manager);
+            card.setAttribute('data-priority', client.priority);
+            card.setAttribute('data-name', client.name.toLowerCase());
+            
+            const priorityText = client.priority.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
+            const priorityClass = client.priority.replace('-priority', '').replace('-', '');
+            
+            card.innerHTML = `
+                <div class="client-header">
+                    <div class="client-name">${client.name}</div>
+                    <div class="priority-badge ${priorityClass}-risk">${priorityText}</div>
+                </div>
+                <div class="metrics-row">
+                    <div class="metric">
+                        <div class="metric-value">${client.riskScore}</div>
+                        <div class="metric-label">Risk Score</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">${client.opportunityScore}</div>
+                        <div class="metric-label">Opportunity</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">$${client.contractValue.toLocaleString()}</div>
+                        <div class="metric-label">Contract Value</div>
+                    </div>
+                </div>
+                <div class="factor-list">
+                    <div class="factor-item">
+                        <span>Payment History</span>
+                        <span class="score-badge ${client.paymentHistory >= 8 ? 'low' : client.paymentHistory >= 6 ? 'medium' : 'high'}-risk">${client.paymentHistory}/10</span>
+                    </div>
+                    <div class="factor-item">
+                        <span>Churn Risk</span>
+                        <span class="score-badge ${client.churnRisk <= 3 ? 'low' : client.churnRisk <= 6 ? 'medium' : 'high'}-risk">${client.churnRisk}/10</span>
+                    </div>
+                    <div class="factor-item">
+                        <span>Growth Potential</span>
+                        <span class="score-badge ${client.growthPotential >= 7 ? 'low' : client.growthPotential >= 4 ? 'medium' : 'high'}-risk">${client.growthPotential}/10</span>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="scheduleReview(${client.id})">Schedule Review</button>
+                    <button class="btn btn-secondary" onclick="viewDetails(${client.id})">View Details</button>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function filterClients() {
+            const priorityFilter = document.getElementById('priorityFilter').value;
+            const industryFilter = document.getElementById('industryFilter').value;
+            const managerFilter = document.getElementById('managerFilter').value;
+            
+            const cards = document.querySelectorAll('.client-card');
+            
+            cards.forEach(card => {
+                const priority = card.getAttribute('data-priority');
+                const industry = card.getAttribute('data-industry');
+                const manager = card.getAttribute('data-manager');
+                
+                const priorityMatch = priorityFilter === 'all' || priority === priorityFilter;
+                const industryMatch = industryFilter === 'all' || industry === industryFilter;
+                const managerMatch = managerFilter === 'all' || manager === managerFilter;
+                
+                if (priorityMatch && industryMatch && managerMatch) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function searchClients() {
+            const searchTerm = document.getElementById('clientSearch').value.toLowerCase();
+            const cards = document.querySelectorAll('.client-card');
+            
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name');
+                if (name.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Calculator functionality
+        function updateCalculation() {
+            const paymentHistory = parseInt(document.getElementById('paymentHistory').value);
+            const renewalRisk = parseInt(document.getElementById('renewalRisk').value);
+            const communication = parseInt(document.getElementById('communication').value);
+            const competition = parseInt(document.getElementById('competition').value);
+            const growth = parseInt(document.getElementById('growth').value);
+            const upselling = parseInt(document.getElementById('upselling').value);
+            const referral = parseInt(document.getElementById('referral').value);
+            
+            // Update display values
+            document.getElementById('paymentHistoryValue').textContent = paymentHistory;
+            document.getElementById('renewalRiskValue').textContent = renewalRisk;
+            document.getElementById('communicationValue').textContent = communication;
+            document.getElementById('competitionValue').textContent = competition;
+            document.getElementById('growthValue').textContent = growth;
+            document.getElementById('upsellingValue').textContent = upselling;
+            document.getElementById('referralValue').textContent = referral;
+            
+            // Calculate risk score (lower is better)
+            const riskScore = (renewalRisk + competition + (10 - paymentHistory) + (10 - communication)) / 4;
+            
+            // Calculate opportunity score
+            const opportunityScore = (growth + upselling + referral) / 3;
+            
+            // Calculate overall score
+            const overallScore = Math.round(((10 - riskScore) + opportunityScore) * 5);
+            
+            // Update display
+            const scoreCircle = document.getElementById('overallScore');
+            const priorityLevel = document.getElementById('priorityLevel');
+            const scoreDescription = document.getElementById('scoreDescription');
+            
+            scoreCircle.textContent = overallScore;
+            
+            // Determine priority and styling
+            if (overallScore >= 80) {
+                scoreCircle.style.background = '#27ae60';
+                priorityLevel.textContent = 'High Priority - Opportunity Focus';
+                scoreDescription.textContent = 'Excellent client with high growth potential';
+            } else if (overallScore >= 60) {
+                scoreCircle.style.background = '#f39c12';
+                priorityLevel.textContent = 'Medium Priority';
+                scoreDescription.textContent = 'Stable client with moderate potential';
+            } else if (overallScore >= 40) {
+                scoreCircle.style.background = '#e67e22';
+                priorityLevel.textContent = 'Low Priority';
+                scoreDescription.textContent = 'Maintenance mode client';
+            } else {
+                scoreCircle.style.background = '#e74c3c';
+                priorityLevel.textContent = 'Watch List - Risk Focus';
+                scoreDescription.textContent = 'High risk client requiring immediate attention';
+            }
+            
+            // Generate recommendations
+            generateRecommendations(riskScore, opportunityScore, paymentHistory, renewalRisk, communication, competition, growth, upselling, referral);
+        }
+
+        function generateRecommendations(riskScore, opportunityScore, paymentHistory, renewalRisk, communication, competition, growth, upselling, referral) {
+            const recommendations = [];
+            
+            if (renewalRisk >= 7) {
+                recommendations.push('Schedule immediate renewal discussion meeting');
+            }
+            
+            if (paymentHistory <= 5) {
+                recommendations.push('Implement payment monitoring and follow-up protocol');
+            }
+            
+            if (communication <= 5) {
+                recommendations.push('Increase touchpoint frequency and improve communication channels');
+            }
+            
+            if (competition >= 7) {
+                recommendations.push('Conduct competitive analysis and strengthen value proposition');
+            }
+            
+            if (growth >= 7) {
+                recommendations.push('Present expansion opportunities and additional services');
+            }
+            
+            if (upselling >= 7) {
+                recommendations.push('Prepare upselling proposal for premium services');
+            }
+            
+            if (referral >= 7) {
+                recommendations.push('Request referrals and case study participation');
+            }
+            
+            if (recommendations.length === 0) {
+                recommendations.push('Maintain current service level and monitor quarterly');
+            }
+            
+            const recommendationsList = document.getElementById('recommendations');
+            recommendationsList.innerHTML = '';
+            
+            recommendations.forEach(rec => {
+                const li = document.createElement('li');
+                li.className = 'recommendation';
+                li.textContent = rec;
+                recommendationsList.appendChild(li);
+            });
+        }
+
+        // Analytics functionality
+        function renderCharts() {
+            renderPriorityChart();
+            renderRiskOpportunityChart();
+        }
+
+        function renderPriorityChart() {
+            const canvas = document.getElementById('priorityChart');
+            const ctx = canvas.getContext('2d');
+            
+            // Count clients by priority
+            const priorityCounts = clients.reduce((acc, client) => {
+                acc[client.priority] = (acc[client.priority] || 0) + 1;
+                return acc;
+            }, {});
+            
+            const labels = Object.keys(priorityCounts);
+            const data = Object.values(priorityCounts);
+            const colors = ['#e74c3c', '#f39c12', '#27ae60', '#8e44ad'];
+            
+            // Simple bar chart
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            const maxValue = Math.max(...data);
+            const barWidth = canvas.width / labels.length - 20;
+            const maxBarHeight = canvas.height - 60;
+            
+            labels.forEach((label, index) => {
+                const barHeight = (data[index] / maxValue) * maxBarHeight;
+                const x = index * (barWidth + 20) + 10;
+                const y = canvas.height - barHeight - 30;
+                
+                // Draw bar
+                ctx.fillStyle = colors[index];
+                ctx.fillRect(x, y, barWidth, barHeight);
+                
+                // Draw label
+                ctx.fillStyle = '#2c3e50';
+                ctx.font = '12px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText(label.replace('-', ' '), x + barWidth/2, canvas.height - 10);
+                
+                // Draw value
+                ctx.fillText(data[index], x + barWidth/2, y - 5);
+            });
+        }
+
+        function renderRiskOpportunityChart() {
+            const canvas = document.getElementById('riskOpportunityChart');
+            const ctx = canvas.getContext('2d');
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw axes
+            ctx.strokeStyle = '#ecf0f1';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(50, canvas.height - 50);
+            ctx.lineTo(canvas.width - 20, canvas.height - 50);
+            ctx.moveTo(50, canvas.height - 50);
+            ctx.lineTo(50, 20);
+            ctx.stroke();
+            
+            // Draw quadrant lines
+            ctx.strokeStyle = '#bdc3c7';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([5, 5]);
+            ctx.beginPath();
+            ctx.moveTo(canvas.width/2, canvas.height - 50);
+            ctx.lineTo(canvas.width/2, 20);
+            ctx.moveTo(50, canvas.height/2);
+            ctx.lineTo(canvas.width - 20, canvas.height/2);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+            // Plot clients
+            clients.forEach(client => {
+                const x = 50 + (client.riskScore / 100) * (canvas.width - 70);
+                const y = canvas.height - 50 - (client.opportunityScore / 100) * (canvas.height - 70);
+                
+                let color;
+                switch(client.priority) {
+                    case 'high-priority': color = '#e74c3c'; break;
+                    case 'medium-priority': color = '#f39c12'; break;
+                    case 'low-priority': color = '#27ae60'; break;
+                    case 'watch-list': color = '#8e44ad'; break;
+                }
+                
+                ctx.fillStyle = color;
+                ctx.beginPath();
+                ctx.arc(x, y, 6, 0, 2 * Math.PI);
+                ctx.fill();
+            });
+            
+            // Add labels
+            ctx.fillStyle = '#2c3e50';
+            ctx.font = '14px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('Risk Score →', canvas.width/2, canvas.height - 10);
+            ctx.save();
+            ctx.translate(15, canvas.height/2);
+            ctx.rotate(-Math.PI/2);
+            ctx.fillText('← Opportunity Score', 0, 0);
+            ctx.restore();
+        }
+
+        // Action functions
+        function scheduleReview(clientId) {
+            alert(`Review scheduled for client ID: ${clientId}`);
+        }
+
+        function viewDetails(clientId) {
+            const client = clients.find(c => c.id === clientId);
+            alert(`Viewing details for: ${client.name}`);
+        }
+
+        function exportToCSV() {
+            const csvContent = "data:text/csv;charset=utf-8," 
+                + "Name,Industry,Manager,Priority,Risk Score,Opportunity Score,Contract Value\n"
+                + clients.map(client => 
+                    `${client.name},${client.industry},${client.manager},${client.priority},${client.riskScore},${client.opportunityScore},${client.contractValue}`
+                ).join("\n");
+            
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "client_portfolio.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function exportToPDF() {
+            alert('PDF export functionality would integrate with a PDF library like jsPDF');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCalculation();
+            renderClients();
+        });
+    </script>
+</body>
+</html>

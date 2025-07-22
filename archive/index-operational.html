@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integral Media - Daily Operations Guide</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css?v=operational">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1>Integral Media</h1>
+            <p>Daily Operations Guide</p>
+        </div>
+        
+        <div class="nav-menu">
+            <div class="nav-section">
+                <div class="nav-section-title">Daily Operations</div>
+                <a href="#" class="nav-item active" data-section="daily-tasks">
+                    <i class="fas fa-calendar-day"></i>
+                    Daily Tasks
+                </a>
+                <a href="#" class="nav-item" data-section="email-workflow">
+                    <i class="fas fa-envelope"></i>
+                    Email Workflow
+                </a>
+                <a href="#" class="nav-item" data-section="client-communication">
+                    <i class="fas fa-phone"></i>
+                    Client Communication
+                </a>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-section-title">Schedules</div>
+                <a href="#" class="nav-item" data-section="weekly-tasks">
+                    <i class="fas fa-calendar-week"></i>
+                    Weekly Tasks
+                </a>
+                <a href="#" class="nav-item" data-section="monthly-tasks">
+                    <i class="fas fa-calendar-alt"></i>
+                    Monthly Tasks
+                </a>
+                <a href="#" class="nav-item" data-section="quarterly-tasks">
+                    <i class="fas fa-calendar"></i>
+                    Quarterly Tasks
+                </a>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-section-title">Support</div>
+                <a href="#" class="nav-item" data-section="escalation">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Escalation Procedures
+                </a>
+                <a href="#" class="nav-item" data-section="contacts">
+                    <i class="fas fa-address-book"></i>
+                    Emergency Contacts
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="breadcrumb">
+                <i class="fas fa-home"></i>
+                <span id="breadcrumbText">Daily Tasks</span>
+            </div>
+            
+            <button onclick="window.print()" class="menu-toggle">
+                <i class="fas fa-print"></i>
+            </button>
+        </header>
+
+        <!-- Content Area -->
+        <main class="content-area">
+            <!-- Daily Tasks Section -->
+            <section id="daily-tasks" class="content-section active">
+                <div class="section-header">
+                    <h1>Daily Tasks</h1>
+                    <p>Your daily responsibilities and workflow priorities</p>
+                </div>
+
+                <div class="highlight-box">
+                    Complete these tasks every day to maintain client service standards and stay on top of your responsibilities
+                </div>
+
+                <div class="card">
+                    <h3>Daily Checklist</h3>
+                    <ul>
+                        <li><strong>Email monitoring</strong> - Check assigned email accounts daily</li>
+                        <li><strong>Task triage in Zoho Projects</strong> - Review new assignments and acknowledge immediately</li>
+                        <li><strong>Content creation as assigned</strong> - Complete assigned content tasks</li>
+                        <li><strong>Task updates and comments</strong> - Update progress and ask questions for unclear requirements</li>
+                        <li><strong>Respond to urgent messages</strong> - Follow client SLAs for response times</li>
+                        <li><strong>Document communications</strong> - Update CRM with important client interactions</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Task Prioritization System</h3>
+                    <div class="grid">
+                        <div style="background: #fee2e2; padding: 1rem; border-left: 5px solid #dc2626;">
+                            <h4 style="color: #dc2626;">Priority 1</h4>
+                            <p>Client emergencies or urgent requests</p>
+                        </div>
+                        <div style="background: #fef3c7; padding: 1rem; border-left: 5px solid #d97706;">
+                            <h4 style="color: #d97706;">Priority 2</h4>
+                            <p>Tasks with today's deadline</p>
+                        </div>
+                        <div style="background: #dbeafe; padding: 1rem; border-left: 5px solid #2563eb;">
+                            <h4 style="color: #2563eb;">Priority 3</h4>
+                            <p>Revenue-impacting activities</p>
+                        </div>
+                        <div style="background: #dcfce7; padding: 1rem; border-left: 5px solid #16a34a;">
+                            <h4 style="color: #16a34a;">Priority 4</h4>
+                            <p>Content creation and approval workflows</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Email Workflow Section -->
+            <section id="email-workflow" class="content-section">
+                <div class="section-header">
+                    <h1>Email Workflow</h1>
+                    <p>5-step process for managing all client and internal communications</p>
+                </div>
+
+                <div class="card">
+                    <h3>5-Step Email Process</h3>
+                    
+                    <div style="background: #f8f9fa; padding: 1.5rem; margin: 1rem 0;">
+                        <h4>Step 1: Categorize Email</h4>
+                        <ul>
+                            <li>Client Request</li>
+                            <li>Internal Communication</li>
+                            <li>FYI</li>
+                            <li>Emergency</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 1.5rem; margin: 1rem 0;">
+                        <h4>Step 2: Determine Urgency</h4>
+                        <ul>
+                            <li>Immediate response (within 1 hour)</li>
+                            <li>Same day response</li>
+                            <li>Within 24 hours</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 1.5rem; margin: 1rem 0;">
+                        <h4>Step 3: Create Zoho Projects Task</h4>
+                        <p>If actionable work is required, create a task with:</p>
+                        <ul>
+                            <li>Clear description</li>
+                            <li>Due date</li>
+                            <li>Priority level</li>
+                            <li>Client context</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 1.5rem; margin: 1rem 0;">
+                        <h4>Step 4: Send Acknowledgment</h4>
+                        <p>Reply with acknowledgment and timeline within 2 hours</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 1.5rem; margin: 1rem 0;">
+                        <h4>Step 5: Update CRM</h4>
+                        <p>Log communication in CRM with summary and next steps</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Client Communication Section -->
+            <section id="client-communication" class="content-section">
+                <div class="section-header">
+                    <h1>Client Communication</h1>
+                    <p>Structured approach to client calls and follow-up</p>
+                </div>
+
+                <div class="card">
+                    <h3>Call Workflow</h3>
+                    
+                    <h4>Pre-call (15 minutes)</h4>
+                    <ul>
+                        <li>Review recent performance data</li>
+                        <li>Check project status in Zoho</li>
+                        <li>Prepare key discussion points</li>
+                        <li>Review previous call notes</li>
+                    </ul>
+
+                    <h4>During call</h4>
+                    <ul>
+                        <li>Take detailed notes using structured format</li>
+                        <li>Ask clarifying questions</li>
+                        <li>Confirm action items and deadlines</li>
+                        <li>Set next communication date</li>
+                    </ul>
+
+                    <h4>Post-call (within 1 hour)</h4>
+                    <ul>
+                        <li>Upload notes to CRM</li>
+                        <li>Create specific tasks in Zoho Projects</li>
+                        <li>Send summary email with next steps</li>
+                        <li>Update project timelines</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Communication Schedule</h3>
+                    
+                    <div style="background: #dbeafe; padding: 1rem; border-left: 4px solid #2563eb;">
+                        <h4>Direct Clients (&lt; $1,000/month)</h4>
+                        <ul>
+                            <li>Monthly calls via phone</li>
+                            <li>Quarterly video calls</li>
+                            <li>Email support as needed</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #dcfce7; padding: 1rem; border-left: 4px solid #16a34a; margin-top: 1rem;">
+                        <h4>Premium Clients (&gt; $1,500/month)</h4>
+                        <ul>
+                            <li>Weekly/fortnightly contact</li>
+                            <li>Handled by Liam directly</li>
+                            <li>Enhanced reporting and strategy</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Weekly Tasks Section -->
+            <section id="weekly-tasks" class="content-section">
+                <div class="section-header">
+                    <h1>Weekly Tasks</h1>
+                    <p>Regular weekly responsibilities and routines</p>
+                </div>
+
+                <div class="card">
+                    <h3>Weekly Checklist</h3>
+                    <ul>
+                        <li><strong>Project review and task assignment</strong> - Review project status and assign tasks</li>
+                        <li><strong>Content approval outreach</strong> - Contact clients for content approvals</li>
+                        <li><strong>Content publishing</strong> - Publish approved content across platforms</li>
+                        <li><strong>Performance monitoring</strong> - Track and analyze client account performance</li>
+                        <li><strong>Team coordination</strong> - Coordinate with team members on shared projects</li>
+                        <li><strong>Client follow-up</strong> - Follow up on pending requests and approvals</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Monthly Tasks Section -->
+            <section id="monthly-tasks" class="content-section">
+                <div class="section-header">
+                    <h1>Monthly Tasks</h1>
+                    <p>Monthly activities and client management</p>
+                </div>
+
+                <div class="card">
+                    <h3>Monthly Responsibilities</h3>
+                    <ul>
+                        <li><strong>Client check-in calls</strong> - Conduct scheduled client communications</li>
+                        <li><strong>Performance review preparation</strong> - Prepare performance data and reports</li>
+                        <li><strong>Task management cleanup</strong> - Review and organize task management systems</li>
+                        <li><strong>SEO performance analysis</strong> - Analyze and report on SEO metrics</li>
+                        <li><strong>Content calendar planning</strong> - Plan content for upcoming month</li>
+                        <li><strong>Client satisfaction review</strong> - Assess client satisfaction and address concerns</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Quarterly Tasks Section -->
+            <section id="quarterly-tasks" class="content-section">
+                <div class="section-header">
+                    <h1>Quarterly Tasks</h1>
+                    <p>Quarterly planning and strategic activities</p>
+                </div>
+
+                <div class="card">
+                    <h3>Quarterly Responsibilities</h3>
+                    <ul>
+                        <li><strong>Strategic planning assistance</strong> - Support quarterly strategic planning processes</li>
+                        <li><strong>Quarterly report production</strong> - Create comprehensive quarterly performance reports</li>
+                        <li><strong>Client strategic meetings</strong> - Participate in or facilitate strategic planning sessions</li>
+                        <li><strong>Goal setting and review</strong> - Review and set goals for upcoming quarter</li>
+                        <li><strong>Quarterly strategic reviews</strong> - Conduct strategic reviews for clients &lt;$1000/month</li>
+                        <li><strong>Process optimization review</strong> - Review and optimize operational processes</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Escalation Procedures Section -->
+            <section id="escalation" class="content-section">
+                <div class="section-header">
+                    <h1>Escalation Procedures</h1>
+                    <p>When and how to escalate issues up the chain</p>
+                </div>
+
+                <div class="card">
+                    <h3>When to Escalate</h3>
+                    <ul>
+                        <li><strong>Client Emergencies:</strong> Performance issues affecting business operations</li>
+                        <li><strong>Technical Failures:</strong> Platform outages or campaign malfunctions</li>
+                        <li><strong>Scope Changes:</strong> Client requests beyond current agreement</li>
+                        <li><strong>Client Conflicts:</strong> Relationship issues or service complaints</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Escalation Responses</h3>
+                    
+                    <div style="background: #fee; padding: 1rem; border-left: 4px solid #dc2626;">
+                        <h4>Emergency Escalation (Alex Morrison)</h4>
+                        <p><strong>When:</strong> After-hours emergencies, critical system failures, urgent client crises</p>
+                        <p><strong>Method:</strong> Immediate phone call + follow-up email</p>
+                        <p><strong>Format:</strong> "URGENT - [Client Name] - [Brief Issue Description]"</p>
+                    </div>
+
+                    <div style="background: #fef9e7; padding: 1rem; border-left: 4px solid #d97706; margin-top: 1rem;">
+                        <h4>Client Conflict Escalation (Liam Clarkin)</h4>
+                        <p><strong>When:</strong> Client disputes, relationship issues, service complaints</p>
+                        <p><strong>Method:</strong> Email with full context + request for call</p>
+                        <p><strong>Format:</strong> "Client Escalation - [Client Name] - Relationship Support Needed"</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Standard Scope Change Responses</h3>
+                    <div class="highlight-box">
+                        Always use these phrases when clients request additional services:
+                    </div>
+                    <ul>
+                        <li><strong>"We'll quote on that"</strong></li>
+                        <li><strong>"We'll come back to you on that"</strong></li>
+                        <li><strong>Always escalate to Liam or Alex for approval</strong> before committing to new services</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Emergency Contacts Section -->
+            <section id="contacts" class="content-section">
+                <div class="section-header">
+                    <h1>Emergency Contacts</h1>
+                    <p>Key personnel and escalation contacts</p>
+                </div>
+
+                <div class="card">
+                    <h3>Key Personnel</h3>
+                    
+                    <div style="background: #dbeafe; padding: 1.5rem; margin: 1rem 0; border-left: 4px solid #2563eb;">
+                        <h4>Liam Clarkin - Customer Success Manager (CSM)</h4>
+                        <ul>
+                            <li>Client conflict escalation</li>
+                            <li>Premium client management (&gt; $1,500/month)</li>
+                            <li>Content approval for premium clients</li>
+                            <li>Team guidance and support</li>
+                            <li>Strategic decision consultation</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #dcfce7; padding: 1.5rem; margin: 1rem 0; border-left: 4px solid #16a34a;">
+                        <h4>Alex Morrison - Operations Manager</h4>
+                        <ul>
+                            <li>After-hours emergency escalation</li>
+                            <li>Technical issue resolution</li>
+                            <li>Process optimization</li>
+                            <li>System management</li>
+                            <li>Strategic planning support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Team Members</h3>
+                    <ul>
+                        <li><strong>Maddy Barette</strong> - Account Manager (Portfolio: $23,816/month)</li>
+                        <li><strong>James Vassiliou</strong> - Account Manager (Portfolio: $21,636/month)</li>
+                        <li><strong>John McQuaid</strong> - Account Manager (Portfolio: $26,219/month)</li>
+                    </ul>
+                    <p><strong>Total Portfolio Value:</strong> $71,671/month across 3 team members</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Navigation functionality
+        const sidebar = document.getElementById('sidebar');
+        const menuToggle = document.getElementById('menuToggle');
+        const navItems = document.querySelectorAll('.nav-item');
+        const contentSections = document.querySelectorAll('.content-section');
+        const breadcrumbText = document.getElementById('breadcrumbText');
+
+        // Mobile menu toggle
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+
+        // Navigation handling
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Remove active class from all nav items
+                navItems.forEach(nav => nav.classList.remove('active'));
+                
+                // Add active class to clicked item
+                item.classList.add('active');
+                
+                // Hide all content sections
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show target section
+                const targetSection = item.getAttribute('data-section');
+                const target = document.getElementById(targetSection);
+                if (target) {
+                    target.classList.add('active');
+                    
+                    // Update breadcrumb
+                    breadcrumbText.textContent = item.textContent.trim();
+                    
+                    // Close sidebar on mobile
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('open');
+                    }
+                }
+            });
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && 
+                !sidebar.contains(e.target) && 
+                !menuToggle.contains(e.target)) {
+                sidebar.classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>

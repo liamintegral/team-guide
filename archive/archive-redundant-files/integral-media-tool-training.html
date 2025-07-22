@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integral Media - Tool Training Hub</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/integral-style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-tools"></i> Tool Training Hub</h1>
+            <p>Master the tools that drive our success at Integral Media</p>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <span class="stat-number" id="completedCount">0</span>
+                    <div class="stat-label">Completed</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="totalCount">12</span>
+                    <div class="stat-label">Total Tools</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="progressPercentage">0%</span>
+                    <div class="stat-label">Progress</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Search tools..." id="searchInput">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">Complete tool training modules to track your progress</div>
+        </div>
+
+        <div class="tools-grid" id="toolsGrid">
+            <!-- Google Ads -->
+            <div class="tool-card" data-tool="google-ads">
+                <div class="tool-header">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #4285f4, #34a853);">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <div class="tool-info">
+                        <h3>Google Ads</h3>
+                        <p>Paid search and display advertising platform</p>
+                        <span class="tag high-priority">High Priority</span>
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                    <div class="completion-checkbox" data-tool="google-ads">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                </div>
+                <div class="tool-content">
+                    <div class="tool-details">
+                        <div class="detail-section">
+                            <h4><i class="fas fa-info-circle"></i> Platform Overview</h4>
+                            <p>Google Ads is our primary platform for search engine marketing, display advertising, and YouTube campaigns. It's essential for driving qualified traffic and generating leads for our clients.</p>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4><i class="fas fa-external-link-alt"></i> Platform Access</h4>
+                            <a href="https://ads.google.com" class="link-button" target="_blank">
+                                <i class="fas fa-link"></i> Google Ads Platform
+                            </a>
+                            <a href="https://support.google.com/google-ads" class="link-button" target="_blank">
+                                <i class="fas fa-question-circle"></i> Help Center
+                            </a>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-graduation-cap"></i> Training Resources</h4>
+                            <ul>
+                                <li><i class="fas fa-play-circle"></i> <a href="https://skillshop.exceedlms.com/student/catalog/list?category_ids=53-google-ads" target="_blank">Google Ads Skillshop</a></li>
+                                <li><i class="fas fa-certificate"></i> <a href="https://skillshop.exceedlms.com/student/path/18128-google-ads-search-certification" target="_blank">Search Certification</a></li>
+                                <li><i class="fas fa-video"></i> <a href="https://www.youtube.com/c/GoogleAds" target="_blank">Google Ads YouTube Channel</a></li>
+                                <li><i class="fas fa-book"></i> Internal Google Ads Playbook (Zoho Projects)</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-clipboard-list"></i> Integral Media Expectations</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Complete Google Ads Search and Display certifications</li>
+                                <li><i class="fas fa-check"></i> Daily campaign monitoring and optimization</li>
+                                <li><i class="fas fa-check"></i> Weekly performance reporting to clients</li>
+                                <li><i class="fas fa-check"></i> Follow our keyword research and ad copy guidelines</li>
+                                <li><i class="fas fa-check"></i> Maintain Quality Score above 7 for search campaigns</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-lightbulb"></i> Best Practices</h4>
+                            <ul>
+                                <li><i class="fas fa-star"></i> Use single keyword ad groups (SKAGs) for better relevance</li>
+                                <li><i class="fas fa-star"></i> Implement proper conversion tracking</li>
+                                <li><i class="fas fa-star"></i> Regular negative keyword list updates</li>
+                                <li><i class="fas fa-star"></i> A/B test ad copy variations weekly</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meta Business Suite -->
+            <div class="tool-card" data-tool="meta-business">
+                <div class="tool-header">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #1877f2, #42a5f5);">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <div class="tool-info">
+                        <h3>Meta Business Suite</h3>
+                        <p>Facebook and Instagram advertising platform</p>
+                        <span class="tag high-priority">High Priority</span>
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                    <div class="completion-checkbox" data-tool="meta-business">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                </div>
+                <div class="tool-content">
+                    <div class="tool-details">
+                        <div class="detail-section">
+                            <h4><i class="fas fa-info-circle"></i> Platform Overview</h4>
+                            <p>Meta Business Suite manages Facebook and Instagram advertising campaigns. Critical for social media marketing, brand awareness, and lead generation across Meta's family of apps.</p>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4><i class="fas fa-external-link-alt"></i> Platform Access</h4>
+                            <a href="https://business.facebook.com" class="link-button" target="_blank">
+                                <i class="fas fa-link"></i> Meta Business Suite
+                            </a>
+                            <a href="https://business.facebook.com/help" class="link-button" target="_blank">
+                                <i class="fas fa-question-circle"></i> Help Center
+                            </a>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-graduation-cap"></i> Training Resources</h4>
+                            <ul>
+                                <li><i class="fas fa-play-circle"></i> <a href="https://www.facebook.com/business/learn" target="_blank">Meta Blueprint</a></li>
+                                <li><i class="fas fa-certificate"></i> <a href="https://www.facebook.com/business/learn/certification" target="_blank">Meta Certified Digital Marketing Associate</a></li>
+                                <li><i class="fas fa-video"></i> <a href="https://www.youtube.com/c/FacebookBusiness" target="_blank">Meta Business YouTube</a></li>
+                                <li><i class="fas fa-book"></i> Internal Meta Advertising Strategy Guide</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-clipboard-list"></i> Integral Media Expectations</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Complete Meta Blueprint certification</li>
+                                <li><i class="fas fa-check"></i> Daily campaign monitoring and budget management</li>
+                                <li><i class="fas fa-check"></i> Creative refresh every 2 weeks to prevent ad fatigue</li>
+                                <li><i class="fas fa-check"></i> Audience testing and optimization</li>
+                                <li><i class="fas fa-check"></i> Proper pixel implementation and event tracking</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-lightbulb"></i> Best Practices</h4>
+                            <ul>
+                                <li><i class="fas fa-star"></i> Use video content for higher engagement</li>
+                                <li><i class="fas fa-star"></i> Test multiple audience segments</li>
+                                <li><i class="fas fa-star"></i> Monitor frequency to avoid ad fatigue</li>
+                                <li><i class="fas fa-star"></i> Utilize lookalike audiences for scaling</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LinkedIn Ads -->
+            <div class="tool-card" data-tool="linkedin-ads">
+                <div class="tool-header">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #0077b5, #00a0dc);">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="tool-info">
+                        <h3>LinkedIn Ads</h3>
+                        <p>Professional B2B advertising platform</p>
+                        <span class="tag medium-priority">Medium Priority</span>
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                    <div class="completion-checkbox" data-tool="linkedin-ads">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                </div>
+                <div class="tool-content">
+                    <div class="tool-details">
+                        <div class="detail-section">
+                            <h4><i class="fas fa-info-circle"></i> Platform Overview</h4>
+                            <p>LinkedIn Ads is our go-to platform for B2B lead generation, professional targeting, and thought leadership campaigns. Essential for reaching decision-makers and professionals.</p>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4><i class="fas fa-external-link-alt"></i> Platform Access</h4>
+                            <a href="https://www.linkedin.com/campaignmanager" class="link-button" target="_blank">
+                                <i class="fas fa-link"></i> LinkedIn Campaign Manager
+                            </a>
+                            <a href="https://business.linkedin.com/marketing-solutions/success" class="link-button" target="_blank">
+                                <i class="fas fa-question-circle"></i> Help Center
+                            </a>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-graduation-cap"></i> Training Resources</h4>
+                            <ul>
+                                <li><i class="fas fa-play-circle"></i> <a href="https://business.linkedin.com/marketing-solutions/training" target="_blank">LinkedIn Marketing Labs</a></li>
+                                <li><i class="fas fa-certificate"></i> <a href="https://business.linkedin.com/marketing-solutions/marketing-partners/become-a-partner" target="_blank">LinkedIn Marketing Partner Program</a></li>
+                                <li><i class="fas fa-video"></i> <a href="https://www.youtube.com/c/LinkedInMarketingSolutions" target="_blank">LinkedIn Marketing YouTube</a></li>
+                                <li><i class="fas fa-book"></i> B2B LinkedIn Advertising Playbook</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-clipboard-list"></i> Integral Media Expectations</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Complete LinkedIn Marketing Labs certification</li>
+                                <li><i class="fas fa-check"></i> Focus on lead quality over quantity</li>
+                                <li><i class="fas fa-check"></i> Professional ad creative that aligns with platform culture</li>
+                                <li><i class="fas fa-check"></i> Strategic use of LinkedIn's unique targeting options</li>
+                                <li><i class="fas fa-check"></i> Regular audience insights analysis</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-lightbulb"></i> Best Practices</h4>
+                            <ul>
+                                <li><i class="fas fa-star"></i> Use professional, native-style content</li>
+                                <li><i class="fas fa-star"></i> Target by job title and company size</li>
+                                <li><i class="fas fa-star"></i> Test different call-to-action buttons</li>
+                                <li><i class="fas fa-star"></i> Monitor cost per lead closely</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agency Analytics -->
+            <div class="tool-card" data-tool="agency-analytics">
+                <div class="tool-header">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #ff6b6b, #ee5a52);">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="tool-info">
+                        <h3>Agency Analytics</h3>
+                        <p>Comprehensive reporting and analytics platform</p>
+                        <span class="tag high-priority">High Priority</span>
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                    <div class="completion-checkbox" data-tool="agency-analytics">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                </div>
+                <div class="tool-content">
+                    <div class="tool-details">
+                        <div class="detail-section">
+                            <h4><i class="fas fa-info-circle"></i> Platform Overview</h4>
+                            <p>Agency Analytics consolidates data from all marketing channels into comprehensive client reports. Essential for demonstrating ROI and campaign performance to clients.</p>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4><i class="fas fa-external-link-alt"></i> Platform Access</h4>
+                            <a href="https://agencyanalytics.com" class="link-button" target="_blank">
+                                <i class="fas fa-link"></i> Agency Analytics Dashboard
+                            </a>
+                            <a href="https://support.agencyanalytics.com" class="link-button" target="_blank">
+                                <i class="fas fa-question-circle"></i> Support Center
+                            </a>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-graduation-cap"></i> Training Resources</h4>
+                            <ul>
+                                <li><i class="fas fa-play-circle"></i> <a href="https://agencyanalytics.com/academy" target="_blank">Agency Analytics Academy</a></li>
+                                <li><i class="fas fa-video"></i> <a href="https://www.youtube.com/c/AgencyAnalytics" target="_blank">Platform Tutorials</a></li>
+                                <li><i class="fas fa-book"></i> Report Template Library</li>
+                                <li><i class="fas fa-users"></i> Weekly internal training sessions</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-clipboard-list"></i> Integral Media Expectations</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Weekly client report generation and review</li>
+                                <li><i class="fas fa-check"></i> Custom dashboard creation for each client</li>
+                                <li><i class="fas fa-check"></i> Data accuracy verification before sending reports</li>
+                                <li><i class="fas fa-check"></i> Use branded report templates</li>
+                                <li><i class="fas fa-check"></i> Include actionable insights and recommendations</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-lightbulb"></i> Best Practices</h4>
+                            <ul>
+                                <li><i class="fas fa-star"></i> Always include month-over-month comparisons</li>
+                                <li><i class="fas fa-star"></i> Highlight key performance indicators prominently</li>
+                                <li><i class="fas fa-star"></i> Use annotations to explain significant changes</li>
+                                <li><i class="fas fa-star"></i> Schedule automated report delivery</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google Search Console -->
+            <div class="tool-card" data-tool="search-console">
+                <div class="tool-header">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #4285f4, #34a853);">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="tool-info">
+                        <h3>Google Search Console</h3>
+                        <p>SEO monitoring and optimization tool</p>
+                        <span class="tag medium-priority">Medium Priority</span>
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                    <div class="completion-checkbox" data-tool="search-console">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                </div>
+                <div class="tool-content">
+                    <div class="tool-details">
+                        <div class="detail-section">
+                            <h4><i class="fas fa-info-circle"></i> Platform Overview</h4>
+                            <p>Google Search Console provides insights into website performance in Google search results. Essential for SEO optimization, indexing issues, and organic traffic analysis.</p>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4><i class="fas fa-external-link-alt"></i> Platform Access</h4>
+                            <a href="https://search.google.com/search-console" class="link-button" target="_blank">
+                                <i class="fas fa-link"></i> Search Console
+                            </a>
+                            <a href="https://support.google.com/webmasters" class="link-button" target="_blank">
+                                <i class="fas fa-question-circle"></i> Help Center
+                            </a>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-graduation-cap"></i> Training Resources</h4>
+                            <ul>
+                                <li><i class="fas fa-play-circle"></i> <a href="https://developers.google.com/search/docs" target="_blank">Google Search Documentation</a></li>
+                                <li><i class="fas fa-video"></i> <a href="https://www.youtube.com/c/GoogleSearchCentral" target="_blank">Google Search Central YouTube</a></li>
+                                <li><i class="fas fa-book"></i> SEO Best Practices Guide</li>
+                                <li><i class="fas fa-podcast"></i> <a href="https://developers.google.com/search/podcasts/search-off-the-record" target="_blank">Search Off the Record Podcast</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-clipboard-list"></i> Integral Media Expectations</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Weekly performance monitoring for all client sites</li>
+                                <li><i class="fas fa-check"></i> Immediate response to critical indexing issues</li>
+                                <li><i class="fas fa-check"></i> Monthly keyword opportunity analysis</li>
+                                <li><i class="fas fa-check"></i> Core Web Vitals monitoring and optimization</li>
+                                <li><i class="fas fa-check"></i> Regular sitemap and robots.txt audits</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-lightbulb"></i> Best Practices</h4>
+                            <ul>
+                                <li><i class="fas fa-star"></i> Set up email alerts for critical issues</li>
+                                <li><i class="fas fa-star"></i> Regular coverage report analysis</li>
+                                <li><i class="fas fa-star"></i> Monitor click-through rates and optimize meta descriptions</li>
+                                <li><i class="fas fa-star"></i> Use URL inspection tool for troubleshooting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ahrefs -->
+            <div class="tool-card" data-tool="ahrefs">
+                <div class="tool-header">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #ff7675, #fd79a8);">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <div class="tool-info">
+                        <h3>Ahrefs</h3>
+                        <p>SEO research and backlink analysis tool</p>
+                        <span class="tag medium-priority">Medium Priority</span>
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                    <div class="completion-checkbox" data-tool="ahrefs">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                </div>
+                <div class="tool-content">
+                    <div class="tool-details">
+                        <div class="detail-section">
+                            <h4><i class="fas fa-info-circle"></i> Platform Overview</h4>
+                            <p>Ahrefs is our primary tool for SEO research, competitor analysis, keyword research, and backlink monitoring. Critical for developing effective SEO strategies.</p>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4><i class="fas fa-external-link-alt"></i> Platform Access</h4>
+                            <a href="https://ahrefs.com" class="link-button" target="_blank">
+                                <i class="fas fa-link"></i> Ahrefs Dashboard
+                            </a>
+                            <a href="https://help.ahrefs.com" class="link-button" target="_blank">
+                                <i class="fas fa-question-circle"></i> Help Center
+                            </a>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-graduation-cap"></i> Training Resources</h4>
+                            <ul>
+                                <li><i class="fas fa-play-circle"></i> <a href="https://ahrefs.com/academy" target="_blank">Ahrefs Academy</a></li>
+                                <li><i class="fas fa-video"></i> <a href="https://www.youtube.com/c/AhrefsCom" target="_blank">Ahrefs YouTube Channel</a></li>
+                                <li><i class="fas fa-blog"></i> <a href="https://ahrefs.com/blog" target="_blank">Ahrefs Blog</a></li>
+                                <li><i class="fas fa-book"></i> Internal SEO Research Templates</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-clipboard-list"></i> Integral Media Expectations</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Weekly keyword research for content planning</li>
+                                <li><i class="fas fa-check"></i> Monthly competitor backlink analysis</li>
+                                <li><i class="fas fa-check"></i> Site audit recommendations implementation</li>
+                                <li><i class="fas fa-check"></i> Keyword difficulty assessment for new targets</li>
+                                <li><i class="fas fa-check"></i> Content gap analysis quarterly</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-lightbulb"></i> Best Practices</h4>
+                            <ul>
+                                <li><i class="fas fa-star"></i> Focus on keywords with commercial intent</li>
+                                <li><i class="fas fa-star"></i> Monitor competitor content strategies</li>
+                                <li><i class="fas fa-star"></i> Track brand mentions for link building opportunities</li>
+                                <li><i class="fas fa-star"></i> Use batch analysis for efficiency</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Claude -->
+            <div class="tool-card" data-tool="claude">
+                <div class="tool-header">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #8b5cf6, #a855f7);">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="tool-info">
+                        <h3>Claude</h3>
+                        <p>AI assistant for content creation and analysis</p>
+                        <span class="tag low-priority">Low Priority</span>
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                    <div class="completion-checkbox" data-tool="claude">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                </div>
+                <div class="tool-content">
+                    <div class="tool-details">
+                        <div class="detail-section">
+                            <h4><i class="fas fa-info-circle"></i> Platform Overview</h4>
+                            <p>Claude AI assists with content creation, data analysis, strategy development, and automation tasks. Useful for enhancing productivity and creative output.</p>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4><i class="fas fa-external-link-alt"></i> Platform Access</h4>
+                            <a href="https://claude.ai" class="link-button" target="_blank">
+                                <i class="fas fa-link"></i> Claude AI
+                            </a>
+                            <a href="https://support.anthropic.com" class="link-button" target="_blank">
+                                <i class="fas fa-question-circle"></i> Support
+                            </a>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-graduation-cap"></i> Training Resources</h4>
+                            <ul>
+                                <li><i class="fas fa-book"></i> <a href="https://docs.anthropic.com" target="_blank">Claude Documentation</a></li>
+                                <li><i class="fas fa-lightbulb"></i> Internal AI Prompt Library</li>
+                                <li><i class="fas fa-users"></i> Monthly AI Workshop Sessions</li>
+                                <li><i class="fas fa-certificate"></i> AI for Marketing Professionals Course</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-clipboard-list"></i> Integral Media Expectations</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Use for content ideation and optimization</li>
+                                <li><i class="fas fa-check"></i> Assist with data analysis and insights</li>
+                                <li><i class="fas fa-check"></i> Always fact-check AI-generated content</li>
+                                <li><i class="fas fa-check"></i> Maintain client confidentiality when using AI tools</li>
+                                <li><i class="fas fa-check"></i> Follow company AI usage guidelines</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-lightbulb"></i> Best Practices</h4>
+                            <ul>
+                                <li><i class="fas fa-star"></i> Provide detailed context in prompts</li>
+                                <li><i class="fas fa-star"></i> Use for brainstorming and ideation</li>
+                                <li><i class="fas fa-star"></i> Verify all factual claims independently</li>
+                                <li><i class="fas fa-star"></i> Customize outputs to match brand voice</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gemini -->
+            <div class="tool-card" data-tool="gemini">
+                <div class="tool-header">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #4285f4, #34a853);">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="tool-info">
+                        <h3>Gemini</h3>
+                        <p>Google's AI assistant for research and analysis</p>
+                        <span class="tag low-priority">Low Priority</span>
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                    <div class="completion-checkbox" data-tool="gemini">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                </div>
+                <div class="tool-content">
+                    <div class="tool-details">
+                        <div class="detail-section">
+                            <h4><i class="fas fa-info-circle"></i> Platform Overview</h4>
+                            <p>Google Gemini provides AI-powered research capabilities, content analysis, and integration with Google Workspace tools for enhanced productivity.</p>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4><i class="fas fa-external-link-alt"></i> Platform Access</h4>
+                            <a href="https://gemini.google.com" class="link-button" target="_blank">
+                                <i class="fas fa-link"></i> Gemini
+                            </a>
+                            <a href="https://support.google.com/gemini" class="link-button" target="_blank">
+                                <i class="fas fa-question-circle"></i> Help Center
+                            </a>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-graduation-cap"></i> Training Resources</h4>
+                            <ul>
+                                <li><i class="fas fa-book"></i> <a href="https://ai.google/discover/generativeai" target="_blank">Google AI Documentation</a></li>
+                                <li><i class="fas fa-video"></i> <a href="https://www.youtube.com/c/GoogleAI" target="_blank">Google AI YouTube</a></li>
+                                <li><i class="fas fa-lightbulb"></i> Gemini Integration Workshop</li>
+                                <li><i class="fas fa-users"></i> Google Workspace AI Training</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-clipboard-list"></i> Integral Media Expectations</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Use for market research and trend analysis</li>
+                                <li><i class="fas fa-check"></i> Enhance Google Workspace productivity</li>
+                                <li><i class="fas fa-check"></i> Support client strategy development</li>
+                                <li><i class="fas fa-check"></i> Maintain data privacy standards</li>
+                                <li><i class="fas fa-check"></i> Cross-reference with other AI tools when needed</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-lightbulb"></i> Best Practices</h4>
+                            <ul>
+                                <li><i class="fas fa-star"></i> Leverage Google integrations effectively</li>
+                                <li><i class="fas fa-star"></i> Use for real-time data analysis</li>
+                                <li><i class="fas fa-star"></i> Combine with Google Analytics insights</li>
+                                <li><i class="fas fa-star"></i> Verify information accuracy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Creatopy -->
+            <div class="tool-card" data-tool="creatopy">
+                <div class="tool-header">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #ff6b6b, #ee5a52);">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="tool-info">
+                        <h3>Creatopy</h3>
+                        <p>Creative design and ad creation platform</p>
+                        <span class="tag medium-priority">Medium Priority</span>
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                    <div class="completion-checkbox" data-tool="creatopy">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                </div>
+                <div class="tool-content">
+                    <div class="tool-details">
+                        <div class="detail-section">
+                            <h4><i class="fas fa-info-circle"></i> Platform Overview</h4>
+                            <p>Creatopy enables rapid creation of display ads, social media graphics, and marketing materials at scale. Essential for maintaining consistent brand creative across campaigns.</p>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4><i class="fas fa-external-link-alt"></i> Platform Access</h4>
+                            <a href="https://creatopy.com" class="link-button" target="_blank">
+                                <i class="fas fa-link"></i> Creatopy Platform
+                            </a>
+                            <a href="https://help.creatopy.com" class="link-button" target="_blank">
+                                <i class="fas fa-question-circle"></i> Help Center
+                            </a>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-graduation-cap"></i> Training Resources</h4>
+                            <ul>
+                                <li><i class="fas fa-play-circle"></i> <a href="https://creatopy.com/academy" target="_blank">Creatopy Academy</a></li>
+                                <li><i class="fas fa-video"></i> <a href="https://www.youtube.com/c/Creatopy" target="_blank">Tutorial Videos</a></li>
+                                <li><i class="fas fa-book"></i> Brand Template Library</li>
+                                <li><i class="fas fa-users"></i> Creative Design Workshop</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-clipboard-list"></i> Integral Media Expectations</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Use brand-approved templates and assets</li>
+                                <li><i class="fas fa-check"></i> Create multiple ad variations for testing</li>
+                                <li><i class="fas fa-check"></i> Maintain consistent brand guidelines</li>
+                                <li><i class="fas fa-check"></i> Optimize creative for different platforms</li>
+                                <li><i class="fas fa-check"></i> Archive and organize creative assets properly</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-lightbulb"></i> Best Practices</h4>
+                            <ul>
+                                <li><i class="fas fa-star"></i> Start with proven templates</li>
+                                <li><i class="fas fa-star"></i> Test multiple creative concepts</li>
+                                <li><i class="fas fa-star"></i> Ensure mobile optimization</li>
+                                <li><i class="fas fa-star"></i> Use dynamic elements when possible</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zoho Projects -->
+            <div class="tool-card" data-tool="zoho-projects">
+                <div class="tool-header">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #3f8cff, #1e73be);">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="tool-info">
+                        <h3>Zoho Projects</h3>
+                        <p>Project management and collaboration platform</p>
+                        <span class="tag high-priority">High Priority</span>
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                    <div class="completion-checkbox" data-tool="zoho-projects">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                </div>
+                <div class="tool-content">
+                    <div class="tool-details">
+                        <div class="detail-section">
+                            <h4><i class="fas fa-info-circle"></i> Platform Overview</h4>
+                            <p>Zoho Projects is our central hub for project management, task tracking, time logging, and team collaboration. Essential for maintaining organized workflows and client deliverables.</p>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4><i class="fas fa-external-link-alt"></i> Platform Access</h4>
+                            <a href="https://projects.zoho.com" class="link-button" target="_blank">
+                                <i class="fas fa-link"></i> Zoho Projects
+                            </a>
+                            <a href="https://help.zoho.com/portal/en/community/topic/zoho-projects" class="link-button" target="_blank">
+                                <i class="fas fa-question-circle"></i> Help Center
+                            </a>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-graduation-cap"></i> Training Resources</h4>
+                            <ul>
+                                <li><i class="fas fa-play-circle"></i> <a href="https://www.zoho.com/projects/help/" target="_blank">Zoho Projects Help</a></li>
+                                <li><i class="fas fa-video"></i> <a href="https://www.youtube.com/c/ZohoProjects" target="_blank">Zoho Projects YouTube</a></li>
+                                <li><i class="fas fa-book"></i> Internal Project Management Guidelines</li>
+                                <li><i class="fas fa-users"></i> Weekly project planning sessions</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-clipboard-list"></i> Integral Media Expectations</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Daily task updates and time logging</li>
+                                <li><i class="fas fa-check"></i> Use project templates for consistency</li>
+                                <li><i class="fas fa-check"></i> Maintain accurate project timelines</li>
+                                <li><i class="fas fa-check"></i> Regular status updates to stakeholders</li>
+                                <li><i class="fas fa-check"></i> Proper file organization and version control</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-lightbulb"></i> Best Practices</h4>
+                            <ul>
+                                <li><i class="fas fa-star"></i> Break large projects into manageable tasks</li>
+                                <li><i class="fas fa-star"></i> Set realistic deadlines with buffer time</li>
+                                <li><i class="fas fa-star"></i> Use dependencies to manage task sequences</li>
+                                <li><i class="fas fa-star"></i> Regular milestone reviews</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zoho CRM -->
+            <div class="tool-card" data-tool="zoho-crm">
+                <div class="tool-header">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #3f8cff, #1e73be);">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="tool-info">
+                        <h3>Zoho CRM</h3>
+                        <p>Customer relationship management platform</p>
+                        <span class="tag high-priority">High Priority</span>
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                    <div class="completion-checkbox" data-tool="zoho-crm">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                </div>
+                <div class="tool-content">
+                    <div class="tool-details">
+                        <div class="detail-section">
+                            <h4><i class="fas fa-info-circle"></i> Platform Overview</h4>
+                            <p>Zoho CRM manages all client relationships, sales pipelines, and customer interactions. Critical for maintaining strong client relationships and driving business growth.</p>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4><i class="fas fa-external-link-alt"></i> Platform Access</h4>
+                            <a href="https://crm.zoho.com" class="link-button" target="_blank">
+                                <i class="fas fa-link"></i> Zoho CRM
+                            </a>
+                            <a href="https://help.zoho.com/portal/en/community/topic/zoho-crm" class="link-button" target="_blank">
+                                <i class="fas fa-question-circle"></i> Help Center
+                            </a>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-graduation-cap"></i> Training Resources</h4>
+                            <ul>
+                                <li><i class="fas fa-play-circle"></i> <a href="https://www.zoho.com/crm/help/" target="_blank">Zoho CRM Help</a></li>
+                                <li><i class="fas fa-certificate"></i> <a href="https://www.zoho.com/crm/certification/" target="_blank">Zoho CRM Certification</a></li>
+                                <li><i class="fas fa-video"></i> <a href="https://www.youtube.com/c/ZohoCRM" target="_blank">Zoho CRM YouTube</a></li>
+                                <li><i class="fas fa-book"></i> Client Management Best Practices Guide</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-clipboard-list"></i> Integral Media Expectations</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Daily client interaction logging</li>
+                                <li><i class="fas fa-check"></i> Accurate contact and company information</li>
+                                <li><i class="fas fa-check"></i> Regular pipeline updates and forecasting</li>
+                                <li><i class="fas fa-check"></i> Task and follow-up management</li>
+                                <li><i class="fas fa-check"></i> Integration with email and calendar systems</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-lightbulb"></i> Best Practices</h4>
+                            <ul>
+                                <li><i class="fas fa-star"></i> Log all client communications immediately</li>
+                                <li><i class="fas fa-star"></i> Set up automated follow-up reminders</li>
+                                <li><i class="fas fa-star"></i> Use tags and categories for easy filtering</li>
+                                <li><i class="fas fa-star"></i> Regular data cleanup and validation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CMS Platforms -->
+            <div class="tool-card" data-tool="cms-platforms">
+                <div class="tool-header">
+                    <div class="tool-icon" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="tool-info">
+                        <h3>CMS Platforms</h3>
+                        <p>WordPress, Shopify, Squarespace, and other content management systems</p>
+                        <span class="tag medium-priority">Medium Priority</span>
+                    </div>
+                    <i class="fas fa-chevron-down expand-icon"></i>
+                    <div class="completion-checkbox" data-tool="cms-platforms">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                </div>
+                <div class="tool-content">
+                    <div class="tool-details">
+                        <div class="detail-section">
+                            <h4><i class="fas fa-info-circle"></i> Platform Overview</h4>
+                            <p>Various CMS platforms including WordPress, Shopify, Squarespace, and others. Essential for managing client websites, implementing tracking codes, and content optimization.</p>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4><i class="fas fa-external-link-alt"></i> Platform Access</h4>
+                            <a href="https://wordpress.org" class="link-button" target="_blank">
+                                <i class="fas fa-link"></i> WordPress
+                            </a>
+                            <a href="https://shopify.com" class="link-button" target="_blank">
+                                <i class="fas fa-link"></i> Shopify
+                            </a>
+                            <a href="https://squarespace.com" class="link-button" target="_blank">
+                                <i class="fas fa-link"></i> Squarespace
+                            </a>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-graduation-cap"></i> Training Resources</h4>
+                            <ul>
+                                <li><i class="fas fa-play-circle"></i> <a href="https://learn.wordpress.org" target="_blank">WordPress Learning Hub</a></li>
+                                <li><i class="fas fa-graduation-cap"></i> <a href="https://academy.shopify.com" target="_blank">Shopify Academy</a></li>
+                                <li><i class="fas fa-video"></i> <a href="https://support.squarespace.com" target="_blank">Squarespace Support</a></li>
+                                <li><i class="fas fa-book"></i> CMS Management Best Practices</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-clipboard-list"></i> Integral Media Expectations</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Proper tracking code implementation</li>
+                                <li><i class="fas fa-check"></i> SEO optimization (meta tags, structure, speed)</li>
+                                <li><i class="fas fa-check"></i> Regular security updates and backups</li>
+                                <li><i class="fas fa-check"></i> Mobile responsiveness verification</li>
+                                <li><i class="fas fa-check"></i> Performance monitoring and optimization</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4><i class="fas fa-lightbulb"></i> Best Practices</h4>
+                            <ul>
+                                <li><i class="fas fa-star"></i> Always test changes in staging first</li>
+                                <li><i class="fas fa-star"></i> Keep plugins and themes updated</li>
+                                <li><i class="fas fa-star"></i> Implement proper caching strategies</li>
+                                <li><i class="fas fa-star"></i> Regular performance audits</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class ToolTrainingHub {
+            constructor() {
+                this.completedTools = new Set(JSON.parse(localStorage.getItem('completedTools') || '[]'));
+                this.searchInput = document.getElementById('searchInput');
+                this.toolsGrid = document.getElementById('toolsGrid');
+                this.progressFill = document.getElementById('progressFill');
+                this.progressText = document.getElementById('progressText');
+                this.completedCount = document.getElementById('completedCount');
+                this.totalCount = document.getElementById('totalCount');
+                this.progressPercentage = document.getElementById('progressPercentage');
+                
+                this.totalTools = document.querySelectorAll('.tool-card').length;
+                this.totalCount.textContent = this.totalTools;
+                
+                this.init();
+            }
+
+            init() {
+                this.updateProgress();
+                this.setupEventListeners();
+                this.initializeCompletionStates();
+            }
+
+            setupEventListeners() {
+                // Search functionality
+                this.searchInput.addEventListener('input', (e) => {
+                    this.filterTools(e.target.value);
+                });
+
+                // Tool card expansion
+                document.querySelectorAll('.tool-header').forEach(header => {
+                    header.addEventListener('click', (e) => {
+                        if (!e.target.classList.contains('completion-checkbox') && 
+                            !e.target.closest('.completion-checkbox')) {
+                            this.toggleToolCard(e.currentTarget.closest('.tool-card'));
+                        }
+                    });
+                });
+
+                // Completion checkboxes
+                document.querySelectorAll('.completion-checkbox').forEach(checkbox => {
+                    checkbox.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        this.toggleCompletion(checkbox.dataset.tool);
+                    });
+                });
+
+                // External links
+                document.querySelectorAll('.link-button').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                    });
+                });
+            }
+
+            initializeCompletionStates() {
+                this.completedTools.forEach(toolId => {
+                    const checkbox = document.querySelector(`[data-tool="${toolId}"].completion-checkbox`);
+                    if (checkbox) {
+                        checkbox.classList.add('completed');
+                        checkbox.querySelector('i').style.display = 'block';
+                    }
+                });
+            }
+
+            toggleToolCard(card) {
+                const isExpanded = card.classList.contains('expanded');
+                
+                // Close all other cards
+                document.querySelectorAll('.tool-card.expanded').forEach(otherCard => {
+                    if (otherCard !== card) {
+                        otherCard.classList.remove('expanded');
+                    }
+                });
+
+                // Toggle current card
+                card.classList.toggle('expanded', !isExpanded);
+            }
+
+            toggleCompletion(toolId) {
+                const checkbox = document.querySelector(`[data-tool="${toolId}"].completion-checkbox`);
+                const checkIcon = checkbox.querySelector('i');
+                
+                if (this.completedTools.has(toolId)) {
+                    this.completedTools.delete(toolId);
+                    checkbox.classList.remove('completed');
+                    checkIcon.style.display = 'none';
+                } else {
+                    this.completedTools.add(toolId);
+                    checkbox.classList.add('completed');
+                    checkIcon.style.display = 'block';
+                    
+                    // Add completion animation
+                    checkbox.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        checkbox.style.transform = 'scale(1)';
+                    }, 200);
+                }
+                
+                this.saveProgress();
+                this.updateProgress();
+            }
+
+            saveProgress() {
+                localStorage.setItem('completedTools', JSON.stringify([...this.completedTools]));
+            }
+
+            updateProgress() {
+                const completed = this.completedTools.size;
+                const percentage = Math.round((completed / this.totalTools) * 100);
+                
+                this.completedCount.textContent = completed;
+                this.progressPercentage.textContent = `${percentage}%`;
+                this.progressFill.style.width = `${percentage}%`;
+                
+                if (completed === 0) {
+                    this.progressText.textContent = 'Complete tool training modules to track your progress';
+                } else if (completed === this.totalTools) {
+                    this.progressText.textContent = '🎉 Congratulations! You\'ve completed all tool training modules!';
+                } else {
+                    this.progressText.textContent = `${completed} of ${this.totalTools} tools completed - Keep going!`;
+                }
+            }
+
+            filterTools(searchTerm) {
+                const cards = document.querySelectorAll('.tool-card');
+                const term = searchTerm.toLowerCase();
+                
+                cards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('.tool-info p').textContent.toLowerCase();
+                    const content = card.querySelector('.tool-details')?.textContent.toLowerCase() || '';
+                    
+                    const matches = title.includes(term) || 
+                                  description.includes(term) || 
+                                  content.includes(term);
+                    
+                    card.style.display = matches || term === '' ? 'block' : 'none';
+                });
+                
+                // Show message if no results
+                const visibleCards = document.querySelectorAll('.tool-card[style*="block"], .tool-card:not([style*="none"])');
+                if (visibleCards.length === 0 && term !== '') {
+                    this.showNoResults();
+                } else {
+                    this.hideNoResults();
+                }
+            }
+
+            showNoResults() {
+                if (!document.querySelector('.no-results')) {
+                    const noResults = document.createElement('div');
+                    noResults.className = 'no-results';
+                    noResults.style.cssText = `
+                        text-align: center;
+                        padding: 60px 20px;
+                        color: #6c757d;
+                        font-size: 1.2rem;
+                        grid-column: 1 / -1;
+                    `;
+                    noResults.innerHTML = `
+                        <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
+                        <p>No tools found matching your search.</p>
+                        <p style="font-size: 1rem; margin-top: 10px;">Try a different search term or browse all tools.</p>
+                    `;
+                    this.toolsGrid.appendChild(noResults);
+                }
+            }
+
+            hideNoResults() {
+                const noResults = document.querySelector('.no-results');
+                if (noResults) {
+                    noResults.remove();
+                }
+            }
+        }
+
+        // Initialize the application when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new ToolTrainingHub();
+        });
+
+        // Add some visual enhancements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add hover effects to tool icons
+            document.querySelectorAll('.tool-icon').forEach(icon => {
+                icon.addEventListener('mouseenter', () => {
+                    icon.style.transform = 'scale(1.1) rotate(5deg)';
+                });
+                
+                icon.addEventListener('mouseleave', () => {
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+
+            // Add smooth scrolling to links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

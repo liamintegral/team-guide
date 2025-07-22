@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integral Media Workflow Diagram</title>
+    <link rel="stylesheet" href="../styles/integral-style.css">
+</head>
+<body>
+    <div class="workflow-container">
+        <div class="workflow-header">
+            <h1>Integral Media Workflow Ecosystem</h1>
+            <p>Comprehensive Task Flow & Team Responsibilities</p>
+        </div>
+
+        <div class="workflow-content">
+            <!-- Main Timeline -->
+            <div class="timeline-container">
+                <div class="timeline-axis">
+                    <div class="timeline-line"></div>
+                    <div class="connections" id="connections"></div>
+
+                    <!-- Daily Tasks -->
+                    <div class="timeline-item daily left" style="top: 50px;" onclick="openModal('dailyModal')">
+                        <div class="timeline-card">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-frequency">Daily</div>
+                            <h3 class="timeline-title">Daily Operations</h3>
+                            <ul class="task-list">
+                                <li>Email monitoring & triage</li>
+                                <li>Task acknowledgment & updates</li>
+                                <li>Content creation</li>
+                                <li>Zoho Projects review</li>
+                            </ul>
+                            <div class="responsibility-tags">
+                                <span class="responsibility-tag">Maddy</span>
+                                <span class="responsibility-tag">James</span>
+                                <span class="responsibility-tag">John</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Weekly Tasks -->
+                    <div class="timeline-item weekly right" style="top: 150px;" onclick="openModal('weeklyModal')">
+                        <div class="timeline-card">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-frequency">Weekly</div>
+                            <h3 class="timeline-title">Weekly Reviews</h3>
+                            <ul class="task-list">
+                                <li>Project status reviews</li>
+                                <li>Content approvals</li>
+                                <li>Content publishing</li>
+                                <li>Performance monitoring</li>
+                            </ul>
+                            <div class="responsibility-tags">
+                                <span class="responsibility-tag">Team + Liam</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Monthly Tasks -->
+                    <div class="timeline-item monthly left" style="top: 280px;" onclick="openModal('monthlyModal')">
+                        <div class="timeline-card">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-frequency">Monthly</div>
+                            <h3 class="timeline-title">Monthly Check-ins</h3>
+                            <ul class="task-list">
+                                <li>Client relationship calls</li>
+                                <li>Performance data review</li>
+                                <li>Task closeouts & creation</li>
+                                <li>SEO performance analysis</li>
+                            </ul>
+                            <div class="responsibility-tags">
+                                <span class="responsibility-tag">Standard Clients</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quarterly Tasks -->
+                    <div class="timeline-item quarterly right" style="top: 410px;" onclick="openModal('quarterlyModal')">
+                        <div class="timeline-card">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-frequency">Quarterly</div>
+                            <h3 class="timeline-title">Strategic Planning</h3>
+                            <ul class="task-list">
+                                <li>Strategy development</li>
+                                <li>Quarterly reports</li>
+                                <li>Strategic client meetings</li>
+                                <li>Goal setting & review</li>
+                            </ul>
+                            <div class="responsibility-tags">
+                                <span class="responsibility-tag">All Clients</span>
+                                <span class="responsibility-tag">Leadership</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Six-Monthly Tasks -->
+                    <div class="timeline-item biannual left" style="top: 510px;" onclick="openModal('biannualModal')">
+                        <div class="timeline-card">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-frequency">Six-Monthly</div>
+                            <h3 class="timeline-title">System Audits</h3>
+                            <ul class="task-list">
+                                <li>Website technical audits</li>
+                                <li>Dashboard & reporting audits</li>
+                                <li>Process optimization</li>
+                                <li>Tool evaluation</li>
+                            </ul>
+                            <div class="responsibility-tags">
+                                <span class="responsibility-tag">Technical Review</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="legend">
+                <div class="legend-item daily">
+                    <div class="legend-dot"></div>
+                    <span>Daily Tasks</span>
+                </div>
+                <div class="legend-item weekly">
+                    <div class="legend-dot"></div>
+                    <span>Weekly Reviews</span>
+                </div>
+                <div class="legend-item monthly">
+                    <div class="legend-dot"></div>
+                    <span>Monthly Check-ins</span>
+                </div>
+                <div class="legend-item quarterly">
+                    <div class="legend-dot"></div>
+                    <span>Quarterly Planning</span>
+                </div>
+                <div class="legend-item biannual">
+                    <div class="legend-dot"></div>
+                    <span>Six-Monthly Audits</span>
+                </div>
+            </div>
+
+            <!-- Team Assignments -->
+            <div class="team-assignments">
+                <div class="team-member">
+                    <h3>
+                        <div class="team-member-avatar">M</div>
+                        Maddy Barette
+                    </h3>
+                    <ul class="task-list">
+                        <li>integralmediaau@gmail.com monitoring</li>
+                        <li>Standard client portfolio management</li>
+                        <li>Premium client support (Liam oversight)</li>
+                        <li>Content publishing & approvals</li>
+                        <li>Monthly client check-ins</li>
+                    </ul>
+                    <div class="responsibility-tags">
+                        <span class="responsibility-tag">Portfolio: $23,816/month</span>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <h3>
+                        <div class="team-member-avatar">J</div>
+                        James Vassiliou
+                    </h3>
+                    <ul class="task-list">
+                        <li>Higher Ranking Gmail monitoring</li>
+                        <li>HR reseller client management</li>
+                        <li>Direct client relationship building</li>
+                        <li>Content publishing coordination</li>
+                        <li>Premium client task execution</li>
+                    </ul>
+                    <div class="responsibility-tags">
+                        <span class="responsibility-tag">Portfolio: $21,636/month</span>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <h3>
+                        <div class="team-member-avatar">J</div>
+                        John McQuaid
+                    </h3>
+                    <ul class="task-list">
+                        <li>Purpose Gmail monitoring</li>
+                        <li>Purpose reseller client coordination</li>
+                        <li>Direct client relationship management</li>
+                        <li>Premium client support</li>
+                        <li>Technical implementation focus</li>
+                    </ul>
+                    <div class="responsibility-tags">
+                        <span class="responsibility-tag">Portfolio: $26,219/month</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Client Communication Touchpoints -->
+            <div class="client-touchpoints">
+                <h3>📞 Client Communication Schedule</h3>
+                <div class="touchpoint-timeline">
+                    <div class="touchpoint">
+                        <div>Daily</div>
+                        <div>Email</div>
+                    </div>
+                    <div class="touchpoint">
+                        <div>Weekly</div>
+                        <div>Updates</div>
+                    </div>
+                    <div class="touchpoint">
+                        <div>Monthly</div>
+                        <div>Calls</div>
+                    </div>
+                    <div class="touchpoint">
+                        <div>Quarterly</div>
+                        <div>Strategy</div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    <strong>Note:</strong> Premium clients (managed by Liam) have weekly/fortnightly video calls
+                </div>
+            </div>
+
+            <!-- Performance Review Cycle -->
+            <div class="performance-cycle">
+                <h3>📈 Performance Review Cycle</h3>
+                <div class="cycle-steps">
+                    <div class="cycle-step">
+                        <h4>Data Collection</h4>
+                        <p>Weekly performance monitoring across all platforms</p>
+                    </div>
+                    <div class="cycle-step">
+                        <h4>Analysis</h4>
+                        <p>Monthly data review before client check-ins</p>
+                    </div>
+                    <div class="cycle-step">
+                        <h4>Reporting</h4>
+                        <p>Quarterly comprehensive reports</p>
+                    </div>
+                    <div class="cycle-step">
+                        <h4>Strategy</h4>
+                        <p>Six-monthly strategic planning sessions</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Escalation Paths -->
+            <div class="escalation-paths">
+                <h3>🚨 Escalation & Decision Points</h3>
+                <div class="escalation-grid">
+                    <div class="escalation-item">
+                        <h4>Technical Issues</h4>
+                        <p>Cliq → Zoho Projects Comments → Liam/Alex</p>
+                    </div>
+                    <div class="escalation-item">
+                        <h4>Client Conflicts</h4>
+                        <p>Immediate escalation to Liam Clarkin (CSM)</p>
+                    </div>
+                    <div class="escalation-item">
+                        <h4>After Hours Emergencies</h4>
+                        <p>Direct escalation to Alex Morrison</p>
+                    </div>
+                    <div class="escalation-item">
+                        <h4>Scope Changes</h4>
+                        <p>"We'll quote on that" → Vet with Liam/Alex</p>
+                    </div>
+                    <div class="escalation-item">
+                        <h4>New Service Requests</h4>
+                        <p>Must vet with Liam or Alex before proposing</p>
+                    </div>
+                    <div class="escalation-item">
+                        <h4>Performance Issues</h4>
+                        <p>Document → Monthly review → Quarterly strategy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals for Detailed Information -->
+    <div id="dailyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="color: #28a745; margin-bottom: 1rem;">Daily Operations Detail</h2>
+            <div style="background: linear-gradient(135deg, #f8fff9 0%, #e8f5e8 100%); padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                <h3>Email Monitoring</h3>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li><strong>Maddy:</strong> integralmediaau@gmail.com</li>
+                    <li><strong>James:</strong> Higher Ranking Gmail</li>
+                    <li><strong>John:</strong> Purpose Gmail</li>
+                </ul>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                <h3>Task Triage Process</h3>
+                <ol style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Review all tasks in Zoho Projects</li>
+                    <li>Prioritize by urgency and client importance</li>
+                    <li>Work through oldest/most urgent first</li>
+                    <li>Apply common sense to dependencies</li>
+                </ol>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px;">
+                <h3>Task Updates Requirements</h3>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Acknowledge tasks immediately upon handover</li>
+                    <li>Ask clarifying questions promptly</li>
+                    <li>Adjust due dates if needed</li>
+                    <li>Keep task comments updated with progress</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="weeklyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="color: #17a2b8; margin-bottom: 1rem;">Weekly Reviews Detail</h2>
+            <div style="background: linear-gradient(135deg, #f0fdff 0%, #e0f7f7 100%); padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                <h3>Project Review Process</h3>
+                <p>Review all tasks in client projects to ensure:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>All tasks have assigned owners</li>
+                    <li>Start dates are realistic</li>
+                    <li>End dates are achievable</li>
+                    <li>Dependencies are clearly marked</li>
+                </ul>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                <h3>Content Approval Workflow</h3>
+                <p><strong>Note:</strong> Liam handles premium clients (see Column O in Google Sheet)</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Reach out to clients for content approvals</li>
+                    <li>Follow up on pending approvals</li>
+                    <li>Track approval timelines</li>
+                </ul>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px;">
+                <h3>Performance Monitoring</h3>
+                <p>Check performance across all advertising platforms:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Google Ads account performance</li>
+                    <li>Meta Ads campaign metrics</li>
+                    <li>LinkedIn Ads performance data</li>
+                    <li>Identify trends and anomalies</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="monthlyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="color: #ffc107; margin-bottom: 1rem;">Monthly Check-ins Detail</h2>
+            <div style="background: linear-gradient(135deg, #fffef8 0%, #fef5e0 100%); padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                <h3>Client Communication Schedule</h3>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li><strong>Standard Clients (&lt;$1000/month):</strong> Monthly calls by team members</li>
+                    <li><strong>Premium Clients:</strong> Liam handles directly</li>
+                    <li>Quarterly strategic reviews for all clients</li>
+                </ul>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                <h3>Performance Review Process</h3>
+                <ol style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Review client performance data before calls</li>
+                    <li>Prepare talking points and insights</li>
+                    <li>Document key metrics and trends</li>
+                    <li>Identify optimization opportunities</li>
+                </ol>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px;">
+                <h3>SEO Performance Analysis</h3>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Review Search Console data</li>
+                    <li>Analyze ranking changes</li>
+                    <li>Monitor traffic trends</li>
+                    <li>Assess content performance</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="quarterlyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="color: #fd7e14; margin-bottom: 1rem;">Quarterly Planning Detail</h2>
+            <div style="background: linear-gradient(135deg, #fff8f5 0%, #feeee5 100%); padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                <h3>Strategic Planning Process</h3>
+                <p>Comprehensive quarterly strategy development:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Review previous quarter performance</li>
+                    <li>Identify growth opportunities</li>
+                    <li>Set goals for next quarter</li>
+                    <li>Adjust service offerings as needed</li>
+                </ul>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                <h3>Quarterly Reports</h3>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Comprehensive performance analysis</li>
+                    <li>ROI calculations and insights</li>
+                    <li>Strategic recommendations</li>
+                    <li>Goal setting for next quarter</li>
+                </ul>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px;">
+                <h3>Client Meetings</h3>
+                <p><strong>Team Role:</strong> Assist with quarterly meetings</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Prepare performance data and insights</li>
+                    <li>Support Liam in client presentations</li>
+                    <li>Document meeting outcomes and action items</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="biannualModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="color: #dc3545; margin-bottom: 1rem;">Six-Monthly Audits Detail</h2>
+            <div style="background: linear-gradient(135deg, #fff5f5 0%, #fee5e5 100%); padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                <h3>Website Technical Audits</h3>
+                <p>Comprehensive website health checks:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Test all website forms for functionality</li>
+                    <li>Check conversion tracking implementation</li>
+                    <li>Identify and fix technical errors</li>
+                    <li>Review site speed and performance</li>
+                    <li>Assess mobile responsiveness</li>
+                </ul>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px;">
+                <h3>Dashboard & Reporting Audits</h3>
+                <p>Ensure reporting accuracy and delivery:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Verify Agency Analytics reports are configured correctly</li>
+                    <li>Confirm reports are reaching correct recipients</li>
+                    <li>Check data accuracy across all metrics</li>
+                    <li>Update client contact information as needed</li>
+                    <li>Review and optimize report templates</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        // Close modal when clicking close button or outside modal
+        document.addEventListener('DOMContentLoaded', function() {
+            const modals = document.querySelectorAll('.modal');
+            const closeButtons = document.querySelectorAll('.close');
+
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.closest('.modal').style.display = 'none';
+                });
+            });
+
+            modals.forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.style.display = 'none';
+                    }
+                });
+            });
+
+            // Add connection lines between timeline items
+            addConnectionLines();
+        });
+
+        function addConnectionLines() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const connectionsContainer = document.getElementById('connections');
+
+            timelineItems.forEach((item, index) => {
+                if (index < timelineItems.length - 1) {
+                    const nextItem = timelineItems[index + 1];
+                    createConnectionLine(item, nextItem, connectionsContainer);
+                }
+            });
+        }
+
+        function createConnectionLine(item1, item2, container) {
+            const line = document.createElement('div');
+            line.className = 'connection-line';
+            
+            const rect1 = item1.getBoundingClientRect();
+            const rect2 = item2.getBoundingClientRect();
+            const containerRect = container.getBoundingClientRect();
+
+            const x1 = rect1.left + rect1.width / 2 - containerRect.left;
+            const y1 = rect1.top + rect1.height / 2 - containerRect.top;
+            const x2 = rect2.left + rect2.width / 2 - containerRect.left;
+            const y2 = rect2.top + rect2.height / 2 - containerRect.top;
+
+            const length = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+            const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+
+            line.style.width = length + 'px';
+            line.style.left = x1 + 'px';
+            line.style.top = y1 + 'px';
+            line.style.transform = `rotate(${angle}deg)`;
+            line.style.transformOrigin = '0 50%';
+
+            container.appendChild(line);
+
+            // Add hover effects
+            item1.addEventListener('mouseenter', () => line.style.opacity = '1');
+            item1.addEventListener('mouseleave', () => line.style.opacity = '0');
+            item2.addEventListener('mouseenter', () => line.style.opacity = '1');
+            item2.addEventListener('mouseleave', () => line.style.opacity = '0');
+        }
+
+        // Add subtle animations on scroll
+        window.addEventListener('scroll', function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const windowHeight = window.innerHeight;
+
+            timelineItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                } else {
+                    item.style.opacity = '0.7';
+                    item.style.transform = 'translateY(20px)';
+                }
+            });
+        });
+
+        // Initialize on load
+        window.addEventListener('load', function() {
+            // Trigger scroll event to set initial states
+            window.dispatchEvent(new Event('scroll'));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integral Media - Client Communication Templates</title>
+    <link rel="stylesheet" href="../styles/integral-style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Integral Media Communication Templates</h1>
+            <p>Professional communication templates for consistent client interactions across all portfolios. Designed for monthly check-ins, quarterly reviews, performance updates, and more.</p>
+        </div>
+
+        <div class="stats-section">
+            <h2 style="margin-bottom: 20px; color: #2d3748;">Template Usage Analytics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">156</div>
+                    <div class="stat-label">Templates Used This Month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">94%</div>
+                    <div class="stat-label">Email Open Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">78%</div>
+                    <div class="stat-label">Response Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">23</div>
+                    <div class="stat-label">Custom Templates Created</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search templates by name, description, or tags...">
+            </div>
+            <select class="filter-select" id="categoryFilter">
+                <option value="">All Categories</option>
+                <option value="monthly">Monthly Check-ins</option>
+                <option value="quarterly">Quarterly Reviews</option>
+                <option value="performance">Performance Updates</option>
+                <option value="kickoff">Project Kickoff</option>
+                <option value="resolution">Issue Resolution</option>
+                <option value="renewal">Contract Renewal</option>
+                <option value="upselling">Upselling/Cross-selling</option>
+                <option value="onboarding">Client Onboarding</option>
+            </select>
+            <select class="filter-select" id="clientTypeFilter">
+                <option value="">All Client Types</option>
+                <option value="reseller">Reseller Clients</option>
+                <option value="direct">Direct IM Clients</option>
+                <option value="premium">Premium Clients</option>
+            </select>
+            <select class="filter-select" id="serviceFilter">
+                <option value="">All Services</option>
+                <option value="seo">SEO</option>
+                <option value="google-ads">Google Ads</option>
+                <option value="meta">Meta Advertising</option>
+                <option value="general">General</option>
+            </select>
+        </div>
+
+        <div class="saved-templates">
+            <h2 style="margin-bottom: 20px; color: #2d3748;">My Saved Templates</h2>
+            <div id="savedTemplatesList">
+                <div class="saved-template-item">
+                    <span>Monthly SEO Check-in - Purpose Digital</span>
+                    <button class="copy-button" onclick="copySavedTemplate('seo-monthly-purpose')">Use Template</button>
+                </div>
+                <div class="saved-template-item">
+                    <span>Q1 Performance Review - Higher Ranking</span>
+                    <button class="copy-button" onclick="copySavedTemplate('q1-performance-hr')">Use Template</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="templates-grid" id="templatesGrid">
+            <!-- Templates will be dynamically generated here -->
+        </div>
+    </div>
+
+    <!-- Modal for template details -->
+    <div id="templateModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script>
+        // Template data
+        const templates = [
+            {
+                id: 'monthly-checkin-reseller',
+                category: 'monthly',
+                title: 'Monthly Check-in Call - Reseller Clients',
+                description: 'Professional monthly check-in template for Purpose Digital and Higher Ranking clients with performance highlights and next steps.',
+                tags: ['reseller', 'purpose', 'higher-ranking', 'monthly', 'call'],
+                clientType: 'reseller',
+                service: 'general',
+                content: {
+                    subject: 'Monthly Performance Check-in - {CLIENT_NAME} ({MONTH} {YEAR})',
+                    emailTemplate: `Hi {CLIENT_CONTACT_NAME},
+
+I hope this email finds you well. As we wrap up {MONTH}, I wanted to schedule our monthly check-in call to review {CLIENT_NAME}'s performance and discuss upcoming opportunities.
+
+**This Month's Highlights:**
+• {METRIC_1}: {VALUE_1} ({CHANGE_1})
+• {METRIC_2}: {VALUE_2} ({CHANGE_2})
+• {METRIC_3}: {VALUE_3} ({CHANGE_3})
+
+**Key Wins:**
+• {WIN_1}
+• {WIN_2}
+
+**Areas for Discussion:**
+• {DISCUSSION_POINT_1}
+• {DISCUSSION_POINT_2}
+
+I've prepared a comprehensive review of all campaigns and would love to discuss the strategic direction for {NEXT_MONTH}. 
+
+Would {DAY_1} at {TIME_1} or {DAY_2} at {TIME_2} work better for a 30-minute call?
+
+Looking forward to connecting,
+{YOUR_NAME}
+Integral Media`,
+                    meetingAgenda: `Monthly Check-in Call Agenda - {CLIENT_NAME}
+Date: {CALL_DATE}
+Duration: 30 minutes
+Attendees: {ATTENDEES}
+
+1. Welcome & Quick Updates (5 min)
+   - Recent developments
+   - Any urgent items
+
+2. Performance Review (15 min)
+   - Traffic & Rankings Overview
+   - Conversion Metrics
+   - ROI Analysis
+   - Month-over-month comparisons
+
+3. Strategy Discussion (8 min)
+   - Upcoming campaign adjustments
+   - New opportunities identified
+   - Seasonal considerations
+   - Budget optimization
+
+4. Next Steps & Action Items (2 min)
+   - Immediate priorities
+   - Next month's focus areas
+   - Follow-up timeline
+
+**Key Questions to Ask:**
+- How has the recent traffic increase impacted your business?
+- Are there any new service areas you'd like to target?
+- Any concerns about current performance?
+- Budget considerations for next quarter?`,
+                    followUpTemplate: `Hi {CLIENT_CONTACT_NAME},
+
+Thank you for taking the time to connect today. Here's a summary of our discussion and next steps:
+
+**Key Takeaways:**
+• {TAKEAWAY_1}
+• {TAKEAWAY_2}
+• {TAKEAWAY_3}
+
+**Action Items:**
+• {ACTION_1} - {RESPONSIBLE_PARTY} - {DUE_DATE}
+• {ACTION_2} - {RESPONSIBLE_PARTY} - {DUE_DATE}
+
+**Next Month's Priorities:**
+• {PRIORITY_1}
+• {PRIORITY_2}
+
+I'll send over the detailed performance report by {REPORT_DATE}. Our next check-in is scheduled for {NEXT_CALL_DATE}.
+
+Please don't hesitate to reach out if you have any questions in the meantime.
+
+Best regards,
+{YOUR_NAME}`
+                }
+            },
+            {
+                id: 'quarterly-review-premium',
+                category: 'quarterly',
+                title: 'Quarterly Strategic Review - Premium Clients',
+                description: 'Comprehensive quarterly review template for high-value clients with strategic insights and growth planning.',
+                tags: ['premium', 'quarterly', 'strategic', 'growth'],
+                clientType: 'premium',
+                service: 'general',
+                content: {
+                    subject: 'Q{QUARTER} {YEAR} Strategic Review - {CLIENT_NAME}',
+                    emailTemplate: `Dear {CLIENT_CONTACT_NAME},
+
+As we conclude Q{QUARTER} {YEAR}, I'm excited to share {CLIENT_NAME}'s comprehensive quarterly performance review and discuss our strategic roadmap for Q{NEXT_QUARTER}.
+
+**Quarter Highlights:**
+🎯 Primary Goals Achievement: {GOAL_ACHIEVEMENT}%
+📈 Revenue Impact: {REVENUE_IMPACT}
+🔍 Key Performance Metrics:
+   • {KPI_1}: {VALUE_1} ({QOQ_CHANGE_1})
+   • {KPI_2}: {VALUE_2} ({QOQ_CHANGE_2})
+   • {KPI_3}: {VALUE_3} ({QOQ_CHANGE_3})
+
+**Strategic Wins This Quarter:**
+• {STRATEGIC_WIN_1}
+• {STRATEGIC_WIN_2}
+• {STRATEGIC_WIN_3}
+
+I've prepared a detailed presentation covering market analysis, competitive positioning, and Q{NEXT_QUARTER} growth opportunities. 
+
+Could we schedule a 60-minute strategic review meeting for next week? I have availability on:
+• {OPTION_1}
+• {OPTION_2}
+• {OPTION_3}
+
+Looking forward to our continued partnership,
+{YOUR_NAME}
+Senior Account Manager, Integral Media`,
+                    meetingAgenda: `Quarterly Strategic Review - {CLIENT_NAME}
+Q{QUARTER} {YEAR} Performance & Q{NEXT_QUARTER} Planning
+
+Meeting Details:
+Date: {MEETING_DATE}
+Duration: 60 minutes
+Attendees: {ATTENDEES}
+Location: {MEETING_LOCATION}
+
+**AGENDA**
+
+1. Executive Summary (10 min)
+   - Quarter overview
+   - Goal achievement review
+   - Key metrics dashboard
+
+2. Performance Deep Dive (20 min)
+   - Channel performance analysis
+   - ROI by campaign/initiative
+   - Competitive landscape update
+   - Market trends impact
+
+3. Strategic Analysis (15 min)
+   - SWOT analysis update
+   - Opportunity identification
+   - Challenge assessment
+   - Resource allocation review
+
+4. Q{NEXT_QUARTER} Planning (10 min)
+   - Strategic priorities
+   - Budget recommendations
+   - Timeline and milestones
+   - Success metrics definition
+
+5. Partnership Discussion (5 min)
+   - Service expansion opportunities
+   - Process improvements
+   - Communication preferences
+   - Support needs
+
+**Pre-Meeting Preparation:**
+- Review attached performance report
+- Prepare internal goal priorities for Q{NEXT_QUARTER}
+- Consider budget parameters for new initiatives`,
+                    followUpTemplate: `Dear {CLIENT_CONTACT_NAME},
+
+Thank you for the productive quarterly review meeting today. I'm energized by our discussion and the strategic direction we've outlined for Q{NEXT_QUARTER}.
+
+**Meeting Summary:**
+**Performance Highlights:**
+• {PERFORMANCE_HIGHLIGHT_1}
+• {PERFORMANCE_HIGHLIGHT_2}
+
+**Strategic Decisions Made:**
+• {DECISION_1}
+• {DECISION_2}
+• {DECISION_3}
+
+**Q{NEXT_QUARTER} Action Plan:**
+• {ACTION_1} - Owner: {OWNER_1} - Target: {DATE_1}
+• {ACTION_2} - Owner: {OWNER_2} - Target: {DATE_2}
+• {ACTION_3} - Owner: {OWNER_3} - Target: {DATE_3}
+
+**Next Steps:**
+• Detailed implementation plan: {PLAN_DATE}
+• Budget proposal: {BUDGET_DATE}
+• Next quarterly review: {NEXT_REVIEW_DATE}
+
+**Attachments:**
+- Q{QUARTER} Performance Report
+- Q{NEXT_QUARTER} Strategic Roadmap
+- Competitive Analysis Summary
+
+I'm committed to delivering exceptional results this quarter. Please reach out anytime with questions or additional insights.
+
+Best regards,
+{YOUR_NAME}`
+                }
+            },
+            {
+                id: 'performance-update-seo',
+                category: 'performance',
+                title: 'SEO Performance Update Email',
+                description: 'Monthly SEO performance email template with rankings, traffic, and conversion data.',
+                tags: ['seo', 'performance', 'rankings', 'traffic'],
+                clientType: 'direct',
+                service: 'seo',
+                content: {
+                    subject: '{CLIENT_NAME} SEO Performance Update - {MONTH} {YEAR}',
+                    emailTemplate: `Hi {CLIENT_CONTACT_NAME},
+
+I hope you're having a great {DAY_OF_WEEK}! I'm excited to share {CLIENT_NAME}'s SEO performance highlights for {MONTH}.
+
+**📊 Key Performance Metrics:**
+
+**Rankings & Visibility:**
+• Total Keywords Tracked: {TOTAL_KEYWORDS}
+• Top 10 Rankings: {TOP_10_COUNT} (+{TOP_10_CHANGE} from last month)
+• Average Position: {AVG_POSITION} ({POSITION_CHANGE})
+• Visibility Score: {VISIBILITY_SCORE}% ({VISIBILITY_CHANGE})
+
+**Traffic & Engagement:**
+• Organic Sessions: {ORGANIC_SESSIONS} ({SESSIONS_CHANGE})
+• Organic Users: {ORGANIC_USERS} ({USERS_CHANGE})
+• Pages per Session: {PAGES_SESSION} ({ENGAGEMENT_CHANGE})
+• Average Session Duration: {SESSION_DURATION} ({DURATION_CHANGE})
+
+**Conversions & ROI:**
+• Goal Completions: {GOAL_COMPLETIONS} ({CONVERSIONS_CHANGE})
+• Conversion Rate: {CONVERSION_RATE}% ({RATE_CHANGE})
+• Revenue Attributed: ${REVENUE_ATTRIBUTED} ({REVENUE_CHANGE})
+
+**🎯 This Month's Achievements:**
+• {ACHIEVEMENT_1}
+• {ACHIEVEMENT_2}
+• {ACHIEVEMENT_3}
+
+**🔍 Key Insights:**
+• {INSIGHT_1}
+• {INSIGHT_2}
+
+**📈 Next Month's Focus:**
+• {FOCUS_1}
+• {FOCUS_2}
+• {FOCUS_3}
+
+The full detailed report with charts and analysis is attached. If you'd like to discuss any specific aspects of the performance or have questions about the upcoming strategy, I'm always available.
+
+Best regards,
+{YOUR_NAME}
+SEO Specialist, Integral Media
+
+P.S. I noticed {PERSONAL_NOTE} - congratulations on that milestone!`,
+                    reportTemplate: `SEO Performance Report - {CLIENT_NAME}
+{MONTH} {YEAR}
+
+**EXECUTIVE SUMMARY**
+{CLIENT_NAME} showed strong SEO performance in {MONTH} with {OVERALL_TREND}. Key highlights include {MAIN_HIGHLIGHT} and {SECONDARY_HIGHLIGHT}.
+
+**RANKING PERFORMANCE**
+Target Keywords Analysis:
+• Primary Keywords (Top Priority): {PRIMARY_PERFORMANCE}
+• Secondary Keywords: {SECONDARY_PERFORMANCE}
+• Long-tail Keywords: {LONGTAIL_PERFORMANCE}
+
+Top Ranking Improvements:
+1. "{KEYWORD_1}" - Position {OLD_POS_1} → {NEW_POS_1}
+2. "{KEYWORD_2}" - Position {OLD_POS_2} → {NEW_POS_2}
+3. "{KEYWORD_3}" - Position {OLD_POS_3} → {NEW_POS_3}
+
+**TRAFFIC ANALYSIS**
+Organic Traffic Breakdown:
+• Desktop: {DESKTOP_TRAFFIC} ({DESKTOP_CHANGE})
+• Mobile: {MOBILE_TRAFFIC} ({MOBILE_CHANGE})
+• Tablet: {TABLET_TRAFFIC} ({TABLET_CHANGE})
+
+Top Performing Pages:
+1. {PAGE_1} - {SESSIONS_1} sessions
+2. {PAGE_2} - {SESSIONS_2} sessions
+3. {PAGE_3} - {SESSIONS_3} sessions
+
+**TECHNICAL SEO HEALTH**
+• Page Load Speed: {LOAD_SPEED} ({SPEED_CHANGE})
+• Core Web Vitals: {CWV_STATUS}
+• Mobile Usability: {MOBILE_SCORE}/100
+• Crawl Errors: {CRAWL_ERRORS} ({ERROR_CHANGE})
+
+**CONTENT PERFORMANCE**
+Recent Content Impact:
+• {CONTENT_1} - {CONTENT_IMPACT_1}
+• {CONTENT_2} - {CONTENT_IMPACT_2}
+
+**COMPETITIVE ANALYSIS**
+Market Position: {MARKET_POSITION}
+Share of Voice: {VOICE_SHARE}% ({VOICE_CHANGE})
+
+Key Competitor Movements:
+• {COMPETITOR_1}: {COMP_MOVEMENT_1}
+• {COMPETITOR_2}: {COMP_MOVEMENT_2}
+
+**RECOMMENDATIONS**
+Immediate Actions (This Month):
+1. {RECOMMENDATION_1}
+2. {RECOMMENDATION_2}
+
+Strategic Initiatives (Next 3 Months):
+1. {STRATEGIC_REC_1}
+2. {STRATEGIC_REC_2}
+
+**CONCLUSION**
+{CONCLUSION_SUMMARY}
+
+Next Report Date: {NEXT_REPORT_DATE}`
+                }
+            },
+            {
+                id: 'project-kickoff-google-ads',
+                category: 'kickoff',
+                title: 'Google Ads Campaign Kickoff',
+                description: 'Comprehensive project kickoff template for new Google Ads campaigns with timeline and expectations.',
+                tags: ['google-ads', 'kickoff', 'campaign', 'setup'],
+                clientType: 'direct',
+                service: 'google-ads',
+                content: {
+                    subject: 'Welcome to Integral Media - {CLIENT_NAME} Google Ads Campaign Kickoff',
+                    emailTemplate: `Hi {CLIENT_CONTACT_NAME},
+
+Welcome to the Integral Media family! I'm thrilled to be working with {CLIENT_NAME} on your Google Ads campaigns.
+
+**🚀 Campaign Overview:**
+Campaign Type: {CAMPAIGN_TYPE}
+Monthly Budget: ${MONTHLY_BUDGET}
+Target Audience: {TARGET_AUDIENCE}
+Primary Goals: {PRIMARY_GOALS}
+Launch Date: {LAUNCH_DATE}
+
+**📋 What Happens Next:**
+
+**Week 1 - Account Setup & Strategy:**
+• Google Ads account audit and optimization
+• Keyword research and competitive analysis
+• Ad copy creation and testing strategy
+• Landing page recommendations
+• Conversion tracking implementation
+
+**Week 2 - Campaign Build & Review:**
+• Campaign structure development
+• Ad group creation and keyword organization
+• Ad copy variations (minimum 3 per ad group)
+• Bid strategy configuration
+• Client review and approval process
+
+**Week 3 - Launch & Initial Optimization:**
+• Campaign launch and monitoring
+• Initial performance assessment
+• Quick wins implementation
+• Budget allocation adjustments
+
+**📊 Reporting & Communication:**
+• Weekly performance snapshots (first month)
+• Bi-weekly optimization calls
+• Monthly comprehensive reports
+• Quarterly strategy reviews
+
+**🔑 Access & Tools:**
+You'll receive access to:
+• Client dashboard for real-time performance
+• Google Ads account (view access)
+• Monthly report portal
+• Direct line to your account manager
+
+**Next Steps:**
+1. I'll send over the initial strategy document by {STRATEGY_DATE}
+2. Let's schedule a kickoff call for {KICKOFF_CALL_DATE}
+3. Please review and approve the strategy by {APPROVAL_DATE}
+
+I'm excited to drive meaningful results for {CLIENT_NAME}. Feel free to reach out with any questions!
+
+Best regards,
+{YOUR_NAME}
+Google Ads Specialist, Integral Media
+
+📞 Direct: {PHONE_NUMBER}
+📧 Email: {EMAIL}`,
+                    kickoffCallAgenda: `Google Ads Campaign Kickoff Call
+Client: {CLIENT_NAME}
+Date: {CALL_DATE}
+Duration: 45 minutes
+
+**AGENDA**
+
+1. Introductions & Expectations (10 min)
+   - Team introductions
+   - Communication preferences
+   - Reporting schedules
+   - Success metrics alignment
+
+2. Campaign Strategy Review (20 min)
+   - Target audience validation
+   - Keyword strategy discussion
+   - Budget allocation plan
+   - Landing page optimization
+   - Competitive landscape
+
+3. Technical Setup Discussion (10 min)
+   - Conversion tracking requirements
+   - Google Analytics integration
+   - Call tracking setup
+   - Remarketing audiences
+
+4. Timeline & Next Steps (5 min)
+   - Campaign build timeline
+   - Approval process
+   - Launch date confirmation
+   - First check-in scheduling
+
+**Pre-Call Preparation:**
+- Review strategy document
+- Prepare target audience insights
+- Gather conversion goals/values
+- List any specific requirements or concerns
+
+**Questions for Client:**
+1. What does success look like for this campaign?
+2. Are there any seasonal considerations?
+3. Do you have existing customer data we can leverage?
+4. Any geographical restrictions or preferences?
+5. Brand guidelines for ad copy?`,
+                    timelineTemplate: `{CLIENT_NAME} Google Ads Campaign Timeline
+
+**Project Kickoff: {START_DATE}**
+
+**PHASE 1: DISCOVERY & STRATEGY (Week 1)**
+Day 1-2: Account Audit & Analysis
+• Historical performance review
+• Account structure assessment
+• Conversion tracking audit
+
+Day 3-4: Market Research
+• Competitor analysis
+• Keyword research
+• Audience insights gathering
+
+Day 5-7: Strategy Development
+• Campaign strategy document
+• Budget allocation plan
+• Timeline finalization
+
+**Deliverable:** Strategy Document - {STRATEGY_DELIVERY_DATE}
+
+**PHASE 2: CAMPAIGN DEVELOPMENT (Week 2)**
+Day 8-10: Campaign Architecture
+• Account structure setup
+• Campaign and ad group creation
+• Keyword organization
+
+Day 11-12: Creative Development
+• Ad copy creation (3+ variations per ad group)
+• Extension setup
+• Landing page optimization recommendations
+
+Day 13-14: Technical Implementation
+• Conversion tracking setup
+• Remarketing audience creation
+• Bid strategy configuration
+
+**Deliverable:** Campaign Preview - {PREVIEW_DATE}
+
+**PHASE 3: REVIEW & OPTIMIZATION (Week 3)**
+Day 15-16: Client Review Period
+• Campaign approval process
+• Final adjustments based on feedback
+• Launch preparation
+
+Day 17: Campaign Launch
+• Live monitoring
+• Initial performance assessment
+• Quick optimization opportunities
+
+Day 18-21: Early Optimization
+• Keyword bid adjustments
+• Ad copy performance analysis
+• Search term review and expansion
+
+**Deliverable:** Launch Report - {LAUNCH_REPORT_DATE}
+
+**ONGOING: MANAGEMENT & OPTIMIZATION**
+Daily: Performance monitoring
+Weekly: Optimization implementations
+Bi-weekly: Performance calls
+Monthly: Comprehensive reporting
+
+**Key Milestones:**
+✅ Strategy Approval: {STRATEGY_APPROVAL}
+✅ Campaign Build Complete: {BUILD_COMPLETE}
+✅ Campaign Launch: {LAUNCH_DATE}
+✅ First Performance Review: {FIRST_REVIEW}
+✅ 30-Day Optimization: {OPTIMIZATION_DATE}
+
+**Success Metrics Timeline:**
+Week 1-2: Account setup quality score
+Week 3-4: Initial performance benchmarks
+Month 2: Optimization impact measurement
+Month 3: Full performance assessment`
+                }
+            },
+            {
+                id: 'issue-resolution-technical',
+                category: 'resolution',
+                title: 'Technical Issue Resolution',
+                description: 'Professional template for addressing and resolving technical issues with clients.',
+                tags: ['technical', 'resolution', 'problem-solving', 'support'],
+                clientType: 'direct',
+                service: 'general',
+                content: {
+                    subject: 'Resolution Update - {ISSUE_DESCRIPTION} [{TICKET_ID}]',
+                    emailTemplate: `Hi {CLIENT_CONTACT_NAME},
+
+I wanted to provide you with an immediate update on the {ISSUE_TYPE} issue you reported on {REPORT_DATE}.
+
+**Issue Summary:**
+{ISSUE_DESCRIPTION}
+
+**Current Status:** {STATUS}
+**Priority Level:** {PRIORITY}
+**Assigned To:** {ASSIGNED_TEAM_MEMBER}
+
+**What We've Done So Far:**
+• {ACTION_1} - Completed {COMPLETION_DATE_1}
+• {ACTION_2} - Completed {COMPLETION_DATE_2}
+• {ACTION_3} - In Progress
+
+**Root Cause Analysis:**
+{ROOT_CAUSE_DESCRIPTION}
+
+**Solution Implemented:**
+{SOLUTION_DESCRIPTION}
+
+**Testing & Verification:**
+• {TEST_1} - ✅ Passed
+• {TEST_2} - ✅ Passed
+• {TEST_3} - 🔄 In Progress
+
+**Immediate Impact:**
+{IMMEDIATE_IMPACT}
+
+**Prevention Measures:**
+To prevent similar issues in the future, we're implementing:
+• {PREVENTION_1}
+• {PREVENTION_2}
+
+**Next Steps:**
+• {NEXT_STEP_1} - Target: {TARGET_DATE_1}
+• {NEXT_STEP_2} - Target: {TARGET_DATE_2}
+
+I'll continue monitoring the situation closely and will send another update by {NEXT_UPDATE_DATE}. Please don't hesitate to reach out if you notice any ongoing issues or have questions.
+
+Thank you for your patience as we worked through this together.
+
+Best regards,
+{YOUR_NAME}
+{YOUR_TITLE}, Integral Media
+
+Direct Line: {PHONE_NUMBER}
+Urgent Issues: {URGENT_CONTACT}`,
+                    incidentReport: `Technical Incident Report - {CLIENT_NAME}
+Incident ID: {INCIDENT_ID}
+Date: {INCIDENT_DATE}
+
+**INCIDENT OVERVIEW**
+Reported By: {REPORTER_NAME}
+Reported Date: {REPORT_DATE}
+Issue Type: {ISSUE_TYPE}
+Severity: {SEVERITY_LEVEL}
+Service Affected: {AFFECTED_SERVICE}
+
+**IMPACT ASSESSMENT**
+Business Impact: {BUSINESS_IMPACT}
+Users Affected: {AFFECTED_USERS}
+Revenue Impact: {REVENUE_IMPACT}
+Duration: {ISSUE_DURATION}
+
+**TIMELINE OF EVENTS**
+{TIME_1}: {EVENT_1}
+{TIME_2}: {EVENT_2}
+{TIME_3}: {EVENT_3}
+{TIME_4}: Resolution implemented
+{TIME_5}: Verification completed
+
+**ROOT CAUSE ANALYSIS**
+Primary Cause: {PRIMARY_CAUSE}
+Contributing Factors:
+• {FACTOR_1}
+• {FACTOR_2}
+• {FACTOR_3}
+
+Technical Details: {TECHNICAL_DETAILS}
+
+**RESOLUTION STEPS**
+1. {RESOLUTION_STEP_1}
+2. {RESOLUTION_STEP_2}
+3. {RESOLUTION_STEP_3}
+4. {RESOLUTION_STEP_4}
+
+**PREVENTION MEASURES**
+Immediate Actions:
+• {IMMEDIATE_ACTION_1}
+• {IMMEDIATE_ACTION_2}
+
+Long-term Improvements:
+• {LONGTERM_ACTION_1}
+• {LONGTERM_ACTION_2}
+
+**LESSONS LEARNED**
+• {LESSON_1}
+• {LESSON_2}
+
+**POST-INCIDENT ACTIONS**
+• {POST_ACTION_1} - Owner: {OWNER_1} - Due: {DUE_1}
+• {POST_ACTION_2} - Owner: {OWNER_2} - Due: {DUE_2}
+
+Report Prepared By: {REPORT_AUTHOR}
+Date: {REPORT_DATE}
+Reviewed By: {REVIEWER}`
+                }
+            },
+            {
+                id: 'contract-renewal-premium',
+                category: 'renewal',
+                title: 'Premium Contract Renewal Discussion',
+                description: 'Strategic contract renewal template for high-value clients with value reinforcement.',
+                tags: ['renewal', 'premium', 'contract', 'retention'],
+                clientType: 'premium',
+                service: 'general',
+                content: {
+                    subject: 'Partnership Renewal Discussion - {CLIENT_NAME} ({RENEWAL_YEAR})',
+                    emailTemplate: `Dear {CLIENT_CONTACT_NAME},
+
+I hope this message finds you well. As we approach the renewal period for our partnership agreement (expiring {EXPIRY_DATE}), I wanted to reach out personally to discuss our continued collaboration.
+
+**Reflecting on Our Partnership:**
+Over the past {CONTRACT_DURATION}, it's been an absolute pleasure working with {CLIENT_NAME}. Together, we've achieved remarkable results that have directly contributed to your business growth.
+
+**Key Achievements This Year:**
+🎯 {ACHIEVEMENT_1}
+📈 {ACHIEVEMENT_2}
+💼 {ACHIEVEMENT_3}
+🏆 {ACHIEVEMENT_4}
+
+**Measurable Impact:**
+• Revenue Growth: {REVENUE_GROWTH}
+• ROI Improvement: {ROI_IMPROVEMENT}
+• Market Share Increase: {MARKET_SHARE_GROWTH}
+• Efficiency Gains: {EFFICIENCY_GAINS}
+
+**Looking Ahead - {NEXT_YEAR} Opportunities:**
+As we move into {NEXT_YEAR}, I see tremendous opportunities to build on our success:
+
+**Strategic Initiatives:**
+• {INITIATIVE_1}
+• {INITIATIVE_2}
+• {INITIATIVE_3}
+
+**Enhanced Service Offerings:**
+• {NEW_SERVICE_1}
+• {NEW_SERVICE_2}
+• {ENHANCED_FEATURE}
+
+**Your Dedicated Team:**
+For the upcoming term, you'll continue working with our senior team:
+• {TEAM_MEMBER_1} - {ROLE_1}
+• {TEAM_MEMBER_2} - {ROLE_2}
+• {TEAM_MEMBER_3} - {ROLE_3}
+
+**Renewal Benefits:**
+As a valued long-term partner, your renewal includes:
+✅ {BENEFIT_1}
+✅ {BENEFIT_2}
+✅ {BENEFIT_3}
+✅ Locked-in rates despite market increases
+✅ Priority access to new features and services
+✅ Dedicated account management
+
+I'd love to schedule a renewal discussion meeting to explore how we can make {NEXT_YEAR} even more successful. I have availability:
+• {OPTION_1}
+• {OPTION_2}
+• {OPTION_3}
+
+Thank you for being such an incredible partner. I'm excited about what we can accomplish together in {NEXT_YEAR}.
+
+Warm regards,
+{YOUR_NAME}
+Senior Account Manager, Integral Media
+
+P.S. I've attached our {NEXT_YEAR} strategic proposal outline for your preliminary review.`,
+                    renewalMeetingAgenda: `Contract Renewal Strategy Meeting
+Client: {CLIENT_NAME}
+Date: {MEETING_DATE}
+Duration: 60 minutes
+Attendees: {ATTENDEES}
+
+**MEETING OBJECTIVES**
+1. Review partnership performance and value delivered
+2. Discuss business objectives for {NEXT_YEAR}
+3. Present enhanced service options
+4. Negotiate renewal terms
+5. Finalize partnership agreement
+
+**AGENDA**
+
+1. Partnership Review (15 min)
+   **Performance Highlights:**
+   - ROI analysis and business impact
+   - Goal achievement summary
+   - Success stories and case studies
+   
+   **Value Delivered:**
+   - Quantified results
+   - Strategic guidance provided
+   - Problem-solving examples
+
+2. Market Outlook & Opportunities (15 min)
+   **Industry Trends:**
+   - Market developments affecting {CLIENT_INDUSTRY}
+   - Competitive landscape changes
+   - Emerging opportunities
+   
+   **Strategic Recommendations:**
+   - {NEXT_YEAR} growth strategies
+   - New channel opportunities
+   - Innovation areas
+
+3. Enhanced Service Presentation (20 min)
+   **New Capabilities:**
+   - {NEW_CAPABILITY_1}
+   - {NEW_CAPABILITY_2}
+   - {NEW_CAPABILITY_3}
+   
+   **Service Enhancements:**
+   - Improved reporting and analytics
+   - Additional team resources
+   - Premium support features
+   
+   **Technology Upgrades:**
+   - Platform improvements
+   - New tool integrations
+   - Automation capabilities
+
+4. Renewal Discussion (10 min)
+   **Contract Terms:**
+   - Service scope and deliverables
+   - Performance guarantees
+   - Investment levels
+   
+   **Special Provisions:**
+   - Loyalty benefits
+   - Performance bonuses
+   - Flexible terms
+
+**PRE-MEETING MATERIALS**
+- Partnership performance report
+- {NEXT_YEAR} strategic proposal
+- Market analysis summary
+- Competitive comparison
+- ROI calculator
+
+**DESIRED OUTCOMES**
+- Agreement on {NEXT_YEAR} objectives
+- Service package confirmation
+- Preliminary contract terms
+- Timeline for agreement finalization
+
+**FOLLOW-UP ACTIONS**
+- Formal proposal delivery: {PROPOSAL_DATE}
+- Contract review period: {REVIEW_PERIOD}
+- Final agreement target: {AGREEMENT_DATE}`
+                }
+            },
+            {
+                id: 'upselling-meta-ads',
+                category: 'upselling',
+                title: 'Meta Advertising Upsell Opportunity',
+                description: 'Strategic upselling template for introducing Meta advertising to existing clients.',
+                tags: ['upselling', 'meta', 'facebook', 'instagram', 'growth'],
+                clientType: 'direct',
+                service: 'meta',
+                content: {
+                    subject: 'Exciting Growth Opportunity - Meta Advertising for {CLIENT_NAME}',
+                    emailTemplate: `Hi {CLIENT_CONTACT_NAME},
+
+I've been analyzing {CLIENT_NAME}'s performance data, and I'm excited to share an opportunity that could significantly amplify your current results.
+
+**The Opportunity:**
+Based on your {CURRENT_SERVICE} success, I believe Meta advertising (Facebook & Instagram) could be a game-changer for reaching your ideal customers where they spend most of their time.
+
+**Why Meta Ads Make Sense for {CLIENT_NAME}:**
+🎯 **Perfect Audience Match**: Your target demographic ({TARGET_DEMO}) is highly active on Meta platforms
+📊 **Proven ROI**: Similar clients see average ROAS of {AVERAGE_ROAS}x
+🔄 **Synergy Effect**: Meta ads + your current {CURRENT_SERVICE} = {SYNERGY_BENEFIT}
+📱 **Mobile-First Reach**: 98% of Meta users access via mobile
+
+**Real Results from Similar Businesses:**
+• {CASE_STUDY_CLIENT_1}: {RESULT_1}
+• {CASE_STUDY_CLIENT_2}: {RESULT_2}
+• {CASE_STUDY_CLIENT_3}: {RESULT_3}
+
+**Custom Strategy for {CLIENT_NAME}:**
+Based on your current performance, I'd recommend:
+
+**Phase 1 - Foundation (Month 1):**
+• Audience research and persona development
+• Creative asset creation (video/image ads)
+• Conversion tracking setup
+• Initial campaign launch
+
+**Phase 2 - Optimization (Month 2-3):**
+• Performance data analysis
+• Audience refinement
+• Creative optimization
+• Scale successful campaigns
+
+**Projected Results:**
+With a monthly investment of ${RECOMMENDED_BUDGET}, conservative projections show:
+• Additional {LEADS_PROJECTION} qualified leads/month
+• Estimated revenue impact: ${REVENUE_PROJECTION}/month
+• Target ROAS: {TARGET_ROAS}x
+
+**Integration Benefits:**
+• Cross-platform remarketing opportunities
+• Enhanced customer journey mapping
+• Comprehensive performance analytics
+• Unified reporting dashboard
+
+**Your Investment:**
+Meta Advertising Management: ${META_MANAGEMENT_FEE}/month
+Ad Spend Budget: ${RECOMMENDED_AD_SPEND}/month
+Setup & Strategy: ${SETUP_FEE} (one-time)
+
+**Special Offer for Existing Clients:**
+As a valued partner, I can offer:
+✅ 50% off setup fees
+✅ First month management fee waived
+✅ Free creative asset development
+✅ Priority onboarding (next available slot)
+
+I'd love to discuss this opportunity in detail. Are you available for a 20-minute strategy call this week?
+
+Available times:
+• {TIME_OPTION_1}
+• {TIME_OPTION_2}
+• {TIME_OPTION_3}
+
+Let's unlock this growth potential together!
+
+Best regards,
+{YOUR_NAME}
+Digital Marketing Strategist, Integral Media`,
+                    proposalTemplate: `Meta Advertising Proposal - {CLIENT_NAME}
+Date: {PROPOSAL_DATE}
+
+**EXECUTIVE SUMMARY**
+This proposal outlines a strategic Meta advertising initiative designed to complement {CLIENT_NAME}'s existing {CURRENT_SERVICE} efforts and drive incremental growth through targeted social media advertising.
+
+**SITUATION ANALYSIS**
+Current Performance:
+• {CURRENT_METRIC_1}: {CURRENT_VALUE_1}
+• {CURRENT_METRIC_2}: {CURRENT_VALUE_2}
+• {CURRENT_METRIC_3}: {CURRENT_VALUE_3}
+
+Opportunity Assessment:
+• Target audience analysis shows {AUDIENCE_INSIGHT}
+• Competitive gap identified in {COMPETITIVE_GAP}
+• Market trends indicate {MARKET_TREND}
+
+**STRATEGIC APPROACH**
+
+**Campaign Objectives:**
+Primary: {PRIMARY_OBJECTIVE}
+Secondary: {SECONDARY_OBJECTIVE}
+Tertiary: {TERTIARY_OBJECTIVE}
+
+**Target Audience Strategy:**
+**Primary Audience**: {PRIMARY_AUDIENCE}
+- Demographics: {DEMOGRAPHICS}
+- Interests: {INTERESTS}
+- Behaviors: {BEHAVIORS}
+
+**Secondary Audience**: {SECONDARY_AUDIENCE}
+- Characteristics: {SECONDARY_CHARACTERISTICS}
+- Targeting approach: {SECONDARY_TARGETING}
+
+**Remarketing Audiences:**
+• Website visitors (30, 60, 90-day windows)
+• {CURRENT_SERVICE} engaged users
+• Video engagement audiences
+• Custom audiences from customer data
+
+**CAMPAIGN STRUCTURE**
+
+**Campaign 1: Brand Awareness**
+Objective: Reach and brand recognition
+Budget Allocation: {AWARENESS_BUDGET}%
+Platforms: Facebook, Instagram
+Creative Format: Video, carousel, single image
+
+**Campaign 2: Traffic & Engagement**
+Objective: Website traffic and engagement
+Budget Allocation: {TRAFFIC_BUDGET}%
+Platforms: Facebook, Instagram, Messenger
+Creative Format: Interactive ads, collection ads
+
+**Campaign 3: Lead Generation**
+Objective: Qualified lead acquisition
+Budget Allocation: {LEAD_GEN_BUDGET}%
+Platforms: Facebook, Instagram
+Creative Format: Lead forms, video ads
+
+**Campaign 4: Conversions**
+Objective: Sales and conversion optimization
+Budget Allocation: {CONVERSION_BUDGET}%
+Platforms: Facebook, Instagram
+Creative Format: Dynamic product ads, retargeting
+
+**CREATIVE STRATEGY**
+
+**Brand Guidelines Integration:**
+• Consistent visual identity
+• Brand voice and messaging
+• Logo and color scheme usage
+
+**Content Themes:**
+• {CONTENT_THEME_1}
+• {CONTENT_THEME_2}
+• {CONTENT_THEME_3}
+
+**Creative Assets (Included):**
+• {ASSET_COUNT_1} video ads (15-30 seconds)
+• {ASSET_COUNT_2} static image ads
+• {ASSET_COUNT_3} carousel ads
+• {ASSET_COUNT_4} story ads
+• Ad copy variations for A/B testing
+
+**IMPLEMENTATION TIMELINE**
+
+**Week 1: Setup & Preparation**
+• Account audit and optimization
+• Pixel installation and verification
+• Audience research and creation
+• Creative asset development brief
+
+**Week 2: Campaign Development**
+• Campaign structure build
+• Creative asset production
+• Ad copy creation and approval
+• Landing page optimization review
+
+**Week 3: Testing & Launch**
+• Campaign testing and QA
+• Soft launch with limited budget
+• Initial performance monitoring
+• Quick optimization adjustments
+
+**Week 4: Scale & Optimize**
+• Budget increase for winning campaigns
+• Audience expansion
+• Creative performance analysis
+• Comprehensive reporting
+
+**PERFORMANCE METRICS & REPORTING**
+
+**Key Performance Indicators:**
+• Return on Ad Spend (ROAS): Target {TARGET_ROAS}x
+• Cost Per Lead (CPL): Target ${TARGET_CPL}
+• Cost Per Acquisition (CPA): Target ${TARGET_CPA}
+• Click-Through Rate (CTR): Target {TARGET_CTR}%
+• Conversion Rate: Target {TARGET_CONVERSION_RATE}%
+
+**Reporting Schedule:**
+• Weekly performance snapshots
+• Bi-weekly optimization calls
+• Monthly comprehensive reports
+• Quarterly strategic reviews
+
+**INVESTMENT & ROI PROJECTIONS**
+
+**Monthly Investment:**
+Management Fee: ${MANAGEMENT_FEE}
+Recommended Ad Spend: ${AD_SPEND}
+Total Monthly Investment: ${TOTAL_MONTHLY}
+
+**Projected Results (Month 3):**
+• Qualified Leads: {PROJECTED_LEADS}
+• Estimated Conversions: {PROJECTED_CONVERSIONS}
+• Projected Revenue: ${PROJECTED_REVENUE}
+• Estimated ROAS: {ESTIMATED_ROAS}x
+
+**12-Month ROI Projection:**
+Total Investment: ${ANNUAL_INVESTMENT}
+Projected Revenue: ${ANNUAL_REVENUE}
+Net ROI: {NET_ROI}%
+
+**NEXT STEPS**
+1. Proposal review and approval
+2. Contract execution
+3. Campaign planning session
+4. Creative brief development
+5. Campaign launch preparation
+
+**SPECIAL OFFER**
+This proposal includes:
+✅ 50% off setup and onboarding fees
+✅ First month management fee waived
+✅ Complimentary creative asset development
+✅ Free landing page optimization review
+
+Offer valid until: {OFFER_EXPIRY_DATE}
+
+Ready to amplify your digital presence? Let's discuss next steps.`
+                }
+            },
+            {
+                id: 'client-onboarding-direct',
+                category: 'onboarding',
+                title: 'Direct Client Onboarding Sequence',
+                description: 'Comprehensive onboarding template for new direct Integral Media clients.',
+                tags: ['onboarding', 'welcome', 'direct-client', 'setup'],
+                clientType: 'direct',
+                service: 'general',
+                content: {
+                    subject: 'Welcome to Integral Media - Let\'s Get Started! 🚀',
+                    emailTemplate: `Dear {CLIENT_CONTACT_NAME},
+
+Welcome to the Integral Media family! We're absolutely thrilled to have {CLIENT_NAME} as our newest partner, and I'm excited to begin this journey together.
+
+**👋 Your Dedicated Team:**
+I'm {YOUR_NAME}, your dedicated Account Manager, and I'll be your primary point of contact throughout our partnership. Here's your complete team:
+
+**Account Manager**: {ACCOUNT_MANAGER} - {AM_EMAIL} - {AM_PHONE}
+**{SERVICE_SPECIALIST}**: {SPECIALIST_NAME} - {SPECIALIST_EMAIL}
+**Strategic Advisor**: {ADVISOR_NAME} - {ADVISOR_EMAIL}
+
+**🎯 What We've Committed To:**
+Service Package: {SERVICE_PACKAGE}
+Primary Objectives: {PRIMARY_OBJECTIVES}
+Success Metrics: {SUCCESS_METRICS}
+Reporting Schedule: {REPORTING_SCHEDULE}
+
+**📋 Your Onboarding Journey:**
+
+**This Week - Foundation Setting:**
+✅ Welcome call scheduling (see calendar link below)
+✅ Account access setup and credentials
+✅ Initial strategy document delivery
+✅ Technical requirements assessment
+
+**Week 2 - Strategy & Implementation:**
+🔄 Comprehensive account audit
+🔄 Competitive analysis completion
+🔄 Custom strategy presentation
+🔄 Campaign/project initiation
+
+**Week 3 - Launch & Optimization:**
+⏳ Initial implementation launch
+⏳ Performance monitoring setup
+⏳ First optimization round
+⏳ Progress review meeting
+
+**Week 4 - Review & Refinement:**
+⏳ 30-day performance assessment
+⏳ Strategy refinement based on data
+⏳ Long-term roadmap development
+⏳ Ongoing management transition
+
+**🚀 Immediate Next Steps:**
+
+**1. Welcome Call** - Let's schedule our 45-minute onboarding call:
+[Calendar Link: {CALENDAR_LINK}]
+Available times this week:
+• {TIME_OPTION_1}
+• {TIME_OPTION_2}
+• {TIME_OPTION_3}
+
+**2. Information Gathering** - Please complete our client questionnaire:
+[Questionnaire Link: {QUESTIONNAIRE_LINK}]
+(Takes approximately 15 minutes)
+
+**3. Access Setup** - You'll receive separate emails with:
+• Client portal access credentials
+• Reporting dashboard login
+• Direct team contact information
+
+**📞 Communication Preferences:**
+• Preferred contact method: {PREFERRED_CONTACT}
+• Best times to reach you: {BEST_CONTACT_TIMES}
+• Reporting format preference: {REPORTING_PREFERENCE}
+• Meeting frequency: {MEETING_FREQUENCY}
+
+**💼 Resources for You:**
+• Client Portal: {PORTAL_LINK}
+• Knowledge Base: {KNOWLEDGE_BASE_LINK}
+• FAQ Section: {FAQ_LINK}
+• Direct Support: {SUPPORT_EMAIL} | {SUPPORT_PHONE}
+
+**🎉 Welcome Gift:**
+As a thank you for choosing Integral Media, we've prepared:
+• Comprehensive industry report for {CLIENT_INDUSTRY}
+• Custom competitive analysis (delivered within 48 hours)
+• 30-minute strategy session with our Senior Strategist
+• Priority support for your first month
+
+I'm personally committed to your success and can't wait to show you what we can achieve together. Please don't hesitate to reach out with any questions - no matter how small.
+
+Here's to a successful partnership!
+
+Warm regards,
+{YOUR_NAME}
+Account Manager, Integral Media
+
+📱 Direct: {DIRECT_PHONE}
+📧 Email: {DIRECT_EMAIL}
+🗓️ Schedule time with me: {PERSONAL_CALENDAR_LINK}
+
+P.S. I've already started working on your competitive analysis and should have some interesting insights to share on our welcome call!`,
+                    onboardingChecklist: `Client Onboarding Checklist - {CLIENT_NAME}
+Start Date: {START_DATE}
+Account Manager: {ACCOUNT_MANAGER}
+
+**PRE-ONBOARDING (Day -3 to 0)**
+□ Contract signed and filed
+□ Payment processing setup complete
+□ Client information entered in CRM
+□ Team assignments confirmed
+□ Welcome package prepared
+□ Calendar links generated
+□ Portal access credentials created
+
+**WEEK 1: FOUNDATION (Days 1-7)**
+
+**Day 1: Welcome Communication**
+□ Welcome email sent
+□ Welcome call scheduled
+□ Questionnaire link sent
+□ Portal access email sent
+□ Team introduction email sent
+
+**Day 2-3: Information Gathering**
+□ Client questionnaire completed
+□ Access credentials provided by client
+□ Technical requirements documented
+□ Goals and expectations clarified
+□ Competitive landscape researched
+
+**Day 4-5: Initial Assessment**
+□ Account/website audit completed
+□ Current performance baseline established
+□ Competitive analysis conducted
+□ Opportunity assessment documented
+□ Initial strategy draft created
+
+**Day 6-7: Welcome Call Execution**
+□ Welcome call conducted
+□ Strategy discussion completed
+□ Timeline and expectations set
+□ Questions addressed
+□ Next steps confirmed
+
+**WEEK 2: STRATEGY DEVELOPMENT (Days 8-14)**
+
+**Strategy Creation:**
+□ Comprehensive strategy document created
+□ Competitive analysis completed
+□ Keyword/audience research conducted
+□ Campaign/project plan developed
+□ Timeline and milestones defined
+
+**Client Review:**
+□ Strategy document delivered
+□ Strategy presentation scheduled
+□ Client feedback collected
+□ Revisions made if necessary
+□ Strategy approval received
+
+**Technical Setup:**
+□ Tracking implementation
+□ Account setup/optimization
+□ Tool integrations completed
+□ Reporting dashboard configured
+□ Team access permissions set
+
+**WEEK 3: IMPLEMENTATION (Days 15-21)**
+
+**Launch Preparation:**
+□ All assets created/optimized
+□ Campaigns built and tested
+□ Launch checklist completed
+□ Client final approval received
+□ Launch date confirmed
+
+**Go-Live:**
+□ Campaigns/initiatives launched
+□ Initial monitoring protocol activated
+□ Daily check-ins scheduled
+□ Performance tracking initiated
+□ Quick wins identified and implemented
+
+**Communication:**
+□ Launch notification sent
+□ Daily updates provided
+□ Weekly summary prepared
+□ Any issues addressed immediately
+□ Client feedback collected
+
+**WEEK 4: OPTIMIZATION & REVIEW (Days 22-30)**
+
+**Performance Analysis:**
+□ 30-day performance review conducted
+□ Key metrics analyzed
+□ Optimization opportunities identified
+□ ROI assessment completed
+□ Competitive position evaluated
+
+**Strategy Refinement:**
+□ Data-driven adjustments made
+□ Strategy refinements implemented
+□ Long-term roadmap updated
+□ Budget optimization completed
+□ Future opportunities identified
+
+**Relationship Transition:**
+□ 30-day review meeting conducted
+□ Ongoing management rhythm established
+□ Regular reporting schedule confirmed
+□ Client satisfaction assessed
+□ Success metrics validated
+
+**CLIENT SATISFACTION CHECKPOINTS**
+□ Day 7: Welcome call feedback
+□ Day 14: Strategy approval and satisfaction
+□ Day 21: Launch experience evaluation
+□ Day 30: Overall onboarding assessment
+
+**SUCCESS METRICS**
+□ Client satisfaction score: {TARGET_SATISFACTION}+
+□ Time to value: {TARGET_TIME_TO_VALUE} days
+□ Initial performance vs. baseline: {TARGET_IMPROVEMENT}%
+□ Client engagement level: {TARGET_ENGAGEMENT}
+
+**HANDOFF TO ONGOING MANAGEMENT**
+□ Account manager transition completed
+□ Ongoing strategy confirmed
+□ Regular meeting schedule established
+□ Reporting rhythm finalized
+□ Long-term partnership expectations set
+
+**Notes:**
+{ONBOARDING_NOTES}
+
+Completed by: {COMPLETED_BY}
+Date: {COMPLETION_DATE}
+Client feedback: {CLIENT_FEEDBACK}`
+                }
+            }
+        ];
+
+        // Initialize the application
+        let filteredTemplates = [...templates];
+
+        function renderTemplates(templatesToRender) {
+            const grid = document.getElementById('templatesGrid');
+            grid.innerHTML = '';
+
+            templatesToRender.forEach(template => {
+                const card = document.createElement('div');
+                card.className = 'template-card';
+                card.onclick = () => openTemplate(template);
+
+                card.innerHTML = `
+                    <div class="template-category">${getCategoryName(template.category)}</div>
+                    <h3 class="template-title">${template.title}</h3>
+                    <p class="template-description">${template.description}</p>
+                    <div class="template-tags">
+                        ${template.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-primary">Use Template</button>
+                        <button class="btn btn-secondary" onclick="event.stopPropagation(); previewTemplate('${template.id}')">Preview</button>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        function getCategoryName(category) {
+            const categoryNames = {
+                'monthly': 'Monthly Check-in',
+                'quarterly': 'Quarterly Review',
+                'performance': 'Performance Update',
+                'kickoff': 'Project Kickoff',
+                'resolution': 'Issue Resolution',
+                'renewal': 'Contract Renewal',
+                'upselling': 'Upselling/Cross-selling',
+                'onboarding': 'Client Onboarding'
+            };
+            return categoryNames[category] || category;
+        }
+
+        function openTemplate(template) {
+            const modal = document.getElementById('templateModal');
+            const content = document.getElementById('modalContent');
+            
+            content.innerHTML = `
+                <h2>${template.title}</h2>
+                <p style="color: #4a5568; margin-bottom: 20px;">${template.description}</p>
+                
+                <div class="customization-panel">
+                    <h3>Customize Your Template</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="field-label">Client Name</label>
+                            <input type="text" id="clientName" placeholder="Enter client name">
+                        </div>
+                        <div class="form-group">
+                            <label class="field-label">Contact Name</label>
+                            <input type="text" id="contactName" placeholder="Enter contact name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="field-label">Your Name</label>
+                            <input type="text" id="yourName" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label class="field-label">Your Title</label>
+                            <input type="text" id="yourTitle" placeholder="Enter your title">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="customizeTemplate('${template.id}')">Apply Customizations</button>
+                </div>
+
+                <div class="template-content">
+                    ${generateTemplateContent(template)}
+                </div>
+
+                <div style="margin-top: 30px; text-align: center;">
+                    <button class="btn btn-primary" onclick="saveTemplate('${template.id}')">Save Template</button>
+                    <button class="btn btn-secondary" onclick="copyToClipboard()">Copy to Clipboard</button>
+                    <button class="btn btn-secondary" onclick="exportTemplate('${template.id}')">Export</button>
+                </div>
+            `;
+            
+            modal.style.display = 'block';
+        }
+
+        function generateTemplateContent(template) {
+            let content = '';
+            
+            if (template.content.subject) {
+                content += `
+                    <div class="content-section">
+                        <h3>📧 Email Subject</h3>
+                        <textarea class="editable-field" data-field="subject">${template.content.subject}</textarea>
+                    </div>
+                `;
+            }
+
+            if (template.content.emailTemplate) {
+                content += `
+                    <div class="content-section">
+                        <h3>📝 Email Template</h3>
+                        <textarea class="editable-field" data-field="emailTemplate" style="min-height: 300px;">${template.content.emailTemplate}</textarea>
+                    </div>
+                `;
+            }
+
+            if (template.content.meetingAgenda) {
+                content += `
+                    <div class="content-section">
+                        <h3>📋 Meeting Agenda</h3>
+                        <textarea class="editable-field" data-field="meetingAgenda" style="min-height: 250px;">${template.content.meetingAgenda}</textarea>
+                    </div>
+                `;
+            }
+
+            if (template.content.followUpTemplate) {
+                content += `
+                    <div class="content-section">
+                        <h3>📤 Follow-up Template</h3>
+                        <textarea class="editable-field" data-field="followUpTemplate" style="min-height: 200px;">${template.content.followUpTemplate}</textarea>
+                    </div>
+                `;
+            }
+
+            if (template.content.reportTemplate) {
+                content += `
+                    <div class="content-section">
+                        <h3>📊 Report Template</h3>
+                        <textarea class="editable-field" data-field="reportTemplate" style="min-height: 300px;">${template.content.reportTemplate}</textarea>
+                    </div>
+                `;
+            }
+
+            if (template.content.kickoffCallAgenda) {
+                content += `
+                    <div class="content-section">
+                        <h3>🚀 Kickoff Call Agenda</h3>
+                        <textarea class="editable-field" data-field="kickoffCallAgenda" style="min-height: 250px;">${template.content.kickoffCallAgenda}</textarea>
+                    </div>
+                `;
+            }
+
+            if (template.content.timelineTemplate) {
+                content += `
+                    <div class="content-section">
+                        <h3>⏰ Project Timeline</h3>
+                        <textarea class="editable-field" data-field="timelineTemplate" style="min-height: 300px;">${template.content.timelineTemplate}</textarea>
+                    </div>
+                `;
+            }
+
+            if (template.content.incidentReport) {
+                content += `
+                    <div class="content-section">
+                        <h3>📋 Incident Report</h3>
+                        <textarea class="editable-field" data-field="incidentReport" style="min-height: 300px;">${template.content.incidentReport}</textarea>
+                    </div>
+                `;
+            }
+
+            if (template.content.renewalMeetingAgenda) {
+                content += `
+                    <div class="content-section">
+                        <h3>🤝 Renewal Meeting Agenda</h3>
+                        <textarea class="editable-field" data-field="renewalMeetingAgenda" style="min-height: 250px;">${template.content.renewalMeetingAgenda}</textarea>
+                    </div>
+                `;
+            }
+
+            if (template.content.proposalTemplate) {
+                content += `
+                    <div class="content-section">
+                        <h3>📄 Proposal Template</h3>
+                        <textarea class="editable-field" data-field="proposalTemplate" style="min-height: 400px;">${template.content.proposalTemplate}</textarea>
+                    </div>
+                `;
+            }
+
+            if (template.content.onboardingChecklist) {
+                content += `
+                    <div class="content-section">
+                        <h3>✅ Onboarding Checklist</h3>
+                        <textarea class="editable-field" data-field="onboardingChecklist" style="min-height: 300px;">${template.content.onboardingChecklist}</textarea>
+                    </div>
+                `;
+            }
+
+            return content;
+        }
+
+        function customizeTemplate(templateId) {
+            const clientName = document.getElementById('clientName').value;
+            const contactName = document.getElementById('contactName').value;
+            const yourName = document.getElementById('yourName').value;
+            const yourTitle = document.getElementById('yourTitle').value;
+
+            const editableFields = document.querySelectorAll('.editable-field');
+            
+            editableFields.forEach(field => {
+                let content = field.value;
+                
+                // Replace common placeholders
+                content = content.replace(/{CLIENT_NAME}/g, clientName || '{CLIENT_NAME}');
+                content = content.replace(/{CLIENT_CONTACT_NAME}/g, contactName || '{CLIENT_CONTACT_NAME}');
+                content = content.replace(/{YOUR_NAME}/g, yourName || '{YOUR_NAME}');
+                content = content.replace(/{YOUR_TITLE}/g, yourTitle || '{YOUR_TITLE}');
+                
+                // Add current date placeholders
+                const now = new Date();
+                const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                    'July', 'August', 'September', 'October', 'November', 'December'];
+                
+                content = content.replace(/{MONTH}/g, monthNames[now.getMonth()]);
+                content = content.replace(/{YEAR}/g, now.getFullYear());
+                content = content.replace(/{QUARTER}/g, Math.ceil((now.getMonth() + 1) / 3));
+                
+                field.value = content;
+            });
+        }
+
+        function closeModal() {
+            document.getElementById('templateModal').style.display = 'none';
+        }
+
+        function filterTemplates() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            const clientTypeFilter = document.getElementById('clientTypeFilter').value;
+            const serviceFilter = document.getElementById('serviceFilter').value;
+
+            filteredTemplates = templates.filter(template => {
+                const matchesSearch = template.title.toLowerCase().includes(searchTerm) ||
+                                    template.description.toLowerCase().includes(searchTerm) ||
+                                    template.tags.some(tag => tag.toLowerCase().includes(searchTerm));
+                
+                const matchesCategory = !categoryFilter || template.category === categoryFilter;
+                const matchesClientType = !clientTypeFilter || template.clientType === clientTypeFilter;
+                const matchesService = !serviceFilter || template.service === serviceFilter;
+
+                return matchesSearch && matchesCategory && matchesClientType && matchesService;
+            });
+
+            renderTemplates(filteredTemplates);
+        }
+
+        function saveTemplate(templateId) {
+            const editableFields = document.querySelectorAll('.editable-field');
+            const templateData = {};
+            
+            editableFields.forEach(field => {
+                const fieldName = field.getAttribute('data-field');
+                templateData[fieldName] = field.value;
+            });
+
+            // Save to localStorage (in a real application, this would be saved to a database)
+            const savedTemplates = JSON.parse(localStorage.getItem('savedTemplates') || '{}');
+            const saveKey = `${templateId}_${Date.now()}`;
+            savedTemplates[saveKey] = {
+                templateId,
+                data: templateData,
+                savedAt: new Date().toISOString(),
+                name: `Custom ${templates.find(t => t.id === templateId).title}`
+            };
+            localStorage.setItem('savedTemplates', JSON.stringify(savedTemplates));
+
+            alert('Template saved successfully!');
+            updateSavedTemplatesList();
+        }
+
+        function copyToClipboard() {
+            const editableFields = document.querySelectorAll('.editable-field');
+            let content = '';
+            
+            editableFields.forEach(field => {
+                const fieldName = field.getAttribute('data-field');
+                content += `=== ${fieldName.toUpperCase()} ===\n\n${field.value}\n\n`;
+            });
+
+            navigator.clipboard.writeText(content).then(() => {
+                alert('Template copied to clipboard!');
+            }).catch(() => {
+                alert('Failed to copy to clipboard. Please try again.');
+            });
+        }
+
+        function exportTemplate(templateId) {
+            const editableFields = document.querySelectorAll('.editable-field');
+            const templateData = {};
+            
+            editableFields.forEach(field => {
+                const fieldName = field.getAttribute('data-field');
+                templateData[fieldName] = field.value;
+            });
+
+            const exportData = {
+                templateId,
+                exportedAt: new Date().toISOString(),
+                data: templateData
+            };
+
+            const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `integral-media-template-${templateId}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function updateSavedTemplatesList() {
+            const savedTemplates = JSON.parse(localStorage.getItem('savedTemplates') || '{}');
+            const list = document.getElementById('savedTemplatesList');
+            
+            list.innerHTML = Object.entries(savedTemplates).map(([key, template]) => `
+                <div class="saved-template-item">
+                    <span>${template.name}</span>
+                    <button class="copy-button" onclick="copySavedTemplate('${key}')">Use Template</button>
+                </div>
+            `).join('');
+        }
+
+        function copySavedTemplate(saveKey) {
+            const savedTemplates = JSON.parse(localStorage.getItem('savedTemplates') || '{}');
+            const template = savedTemplates[saveKey];
+            
+            if (template) {
+                const originalTemplate = templates.find(t => t.id === template.templateId);
+                if (originalTemplate) {
+                    openTemplate(originalTemplate);
+                    
+                    // Wait for modal to open, then populate with saved data
+                    setTimeout(() => {
+                        Object.entries(template.data).forEach(([fieldName, value]) => {
+                            const field = document.querySelector(`[data-field="${fieldName}"]`);
+                            if (field) {
+                                field.value = value;
+                            }
+                        });
+                    }, 100);
+                }
+            }
+        }
+
+        function previewTemplate(templateId) {
+            event.stopPropagation();
+            const template = templates.find(t => t.id === templateId);
+            if (template) {
+                openTemplate(template);
+            }
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', filterTemplates);
+        document.getElementById('categoryFilter').addEventListener('change', filterTemplates);
+        document.getElementById('clientTypeFilter').addEventListener('change', filterTemplates);
+        document.getElementById('serviceFilter').addEventListener('change', filterTemplates);
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('templateModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Initialize the application
+        renderTemplates(filteredTemplates);
+        updateSavedTemplatesList();
+
+        // Simulate some analytics data updates
+        setInterval(() => {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                if (Math.random() > 0.95) { // 5% chance to update
+                    const currentValue = parseInt(stat.textContent);
+                    if (!isNaN(currentValue)) {
+                        stat.textContent = currentValue + Math.floor(Math.random() * 3);
+                    }
+                }
+            });
+        }, 5000);
+    </script>
+</body>
+</html>

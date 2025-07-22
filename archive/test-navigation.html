@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation & CSS Test - Integral Media</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/integral-style.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1>Test Navigation</h1>
+            <p>CSS & Navigation Testing</p>
+        </div>
+        
+        <div class="nav-menu">
+            <div class="nav-section">
+                <div class="nav-section-title">Test Sections</div>
+                <a href="#highlight-test" class="nav-item active" data-section="highlight-test">
+                    <i class="fas fa-star"></i>Highlight Box Test
+                </a>
+                <a href="#tools-test" class="nav-item" data-section="tools-test">
+                    <i class="fas fa-tools"></i>Tools Grid Test
+                </a>
+                <a href="#expectations-test" class="nav-item" data-section="expectations-test">
+                    <i class="fas fa-check"></i>Expectation Cards Test
+                </a>
+                <a href="#layout-test" class="nav-item" data-section="layout-test">
+                    <i class="fas fa-layout"></i>Layout Test
+                </a>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-section-title">Navigation Test</div>
+                <a href="#navigation-test" class="nav-item" data-section="navigation-test">
+                    <i class="fas fa-navigation"></i>Navigation Behavior
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container" id="mainContainer">
+        <!-- Top Header with Menu Toggle -->
+        <header class="top-header">
+            <div class="top-header-content">
+                <button class="menu-toggle" id="menuToggle" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="breadcrumb">
+                    <span>Test Navigation</span>
+                    <i class="fas fa-chevron-right"></i>
+                    <span id="currentSection">Highlight Box Test</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Search Container -->
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search test content..." id="searchBox">
+        </div>
+
+        <!-- Content Area -->
+        <main class="content-area">
+            <!-- Highlight Box Test Section -->
+            <section class="content-section active" id="highlight-test">
+                <div class="section-header">
+                    <h1>Highlight Box Test</h1>
+                    <p>Testing the highlight-box CSS class functionality</p>
+                </div>
+
+                <div class="highlight-box">
+                    This is a highlight box test! It should have the Integral Media accent color background.
+                </div>
+
+                <div class="card">
+                    <h3>Test Information</h3>
+                    <p>This section tests the highlight-box component to ensure it displays correctly with proper styling, colors, and positioning.</p>
+                    
+                    <div class="highlight-box">
+                        Another highlight box to test multiple instances on the same page.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tools Grid Test Section -->
+            <section class="content-section" id="tools-test">
+                <div class="section-header">
+                    <h1>Tools Grid Test</h1>
+                    <p>Testing the tools-grid and tool-card CSS classes</p>
+                </div>
+
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="resource-title">Analytics Tool</div>
+                        <div class="resource-description">
+                            Test tool card for analytics and reporting functionality.
+                        </div>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="resource-title">Marketing Platform</div>
+                        <div class="resource-description">
+                            Test tool card for marketing campaign management.
+                        </div>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="resource-title">Team Collaboration</div>
+                        <div class="resource-description">
+                            Test tool card for team communication and project management.
+                        </div>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="resource-title">Automation Suite</div>
+                        <div class="resource-description">
+                            Test tool card for workflow automation and efficiency tools.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Expectation Cards Test Section -->
+            <section class="content-section" id="expectations-test">
+                <div class="section-header">
+                    <h1>Expectation Cards Test</h1>
+                    <p>Testing the expectation-card CSS class functionality</p>
+                </div>
+
+                <div class="expectation-card">
+                    <h4>Performance Expectation</h4>
+                    <p>This expectation card should display with proper hover effects, shadows, and Integral Media styling. Test the hover state by moving your cursor over this card.</p>
+                </div>
+
+                <div class="expectation-card">
+                    <h4>Quality Standards</h4>
+                    <p>Another expectation card to test multiple instances. The cards should have consistent spacing and styling throughout the page.</p>
+                </div>
+
+                <div class="expectation-card">
+                    <h4>Timeline Requirements</h4>
+                    <p>Third expectation card to verify grid layout and responsive behavior. Check how these cards adapt to different screen sizes.</p>
+                </div>
+
+                <div class="highlight-box">
+                    Mixed content test: Highlight box within the expectation cards section.
+                </div>
+            </section>
+
+            <!-- Layout Test Section -->
+            <section class="content-section" id="layout-test">
+                <div class="section-header">
+                    <h1>Layout Test</h1>
+                    <p>Testing overall layout, spacing, and content positioning</p>
+                </div>
+
+                <div class="card">
+                    <h3>Content Positioning Test</h3>
+                    <p>This content should not be hidden behind the sidebar when it's open. The main container should adjust its width and margin appropriately.</p>
+                    
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <h4>Layout Tool 1</h4>
+                            <p>Testing mixed layout components.</p>
+                        </div>
+                        <div class="tool-card">
+                            <h4>Layout Tool 2</h4>
+                            <p>Ensuring proper grid behavior.</p>
+                        </div>
+                    </div>
+
+                    <div class="expectation-card">
+                        <h4>Layout Expectation</h4>
+                        <p>This expectation card is within the layout test to verify component mixing works correctly.</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <strong>Layout Test Info:</strong> This info box tests the call-out styling and ensures proper spacing around other components.
+                </div>
+            </section>
+
+            <!-- Navigation Test Section -->
+            <section class="content-section" id="navigation-test">
+                <div class="section-header">
+                    <h1>Navigation Behavior Test</h1>
+                    <p>Testing sidebar toggle, navigation links, and responsive behavior</p>
+                </div>
+
+                <div class="card">
+                    <h3>Navigation Functionality</h3>
+                    <p>Use this section to test:</p>
+                    <ul>
+                        <li><strong>Sidebar Toggle:</strong> Click the hamburger menu to show/hide the sidebar</li>
+                        <li><strong>Navigation Links:</strong> Click different nav items to switch between sections</li>
+                        <li><strong>Active States:</strong> Current section should be highlighted in the sidebar</li>
+                        <li><strong>Responsive Behavior:</strong> Resize the window to test mobile/desktop behavior</li>
+                        <li><strong>Content Positioning:</strong> Ensure content isn't hidden behind the sidebar</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    Sidebar is currently: <span id="sidebarStatus">open</span>
+                </div>
+
+                <div class="expectation-card">
+                    <h4>Expected Behavior</h4>
+                    <p>When the sidebar is open, this content should be visible and properly positioned to the right of the sidebar. The main container should resize accordingly.</p>
+                </div>
+
+                <div class="warning-box">
+                    <strong>Test Warning:</strong> If content appears behind the sidebar or navigation doesn't work, there may be CSS issues to resolve.
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- JavaScript for Navigation Testing -->
+    <script>
+        // Toggle sidebar functionality
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContainer = document.getElementById('mainContainer');
+            const sidebarStatus = document.getElementById('sidebarStatus');
+            
+            sidebar.classList.toggle('closed');
+            mainContainer.classList.toggle('sidebar-closed');
+            
+            // Update status indicator
+            if (sidebar.classList.contains('closed')) {
+                sidebarStatus.textContent = 'closed';
+            } else {
+                sidebarStatus.textContent = 'open';
+            }
+        }
+
+        // Navigation link functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.nav-item');
+            const contentSections = document.querySelectorAll('.content-section');
+            const currentSectionSpan = document.getElementById('currentSection');
+
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all nav items
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    
+                    // Add active class to clicked item
+                    this.classList.add('active');
+                    
+                    // Hide all content sections
+                    contentSections.forEach(section => section.classList.remove('active'));
+                    
+                    // Show target section
+                    const targetSection = this.getAttribute('data-section');
+                    const targetElement = document.getElementById(targetSection);
+                    if (targetElement) {
+                        targetElement.classList.add('active');
+                        
+                        // Update breadcrumb
+                        currentSectionSpan.textContent = this.textContent.trim();
+                    }
+
+                    // Auto-close sidebar on mobile after navigation
+                    if (window.innerWidth <= 768) {
+                        const sidebar = document.getElementById('sidebar');
+                        const mainContainer = document.getElementById('mainContainer');
+                        sidebar.classList.add('closed');
+                        mainContainer.classList.add('sidebar-closed');
+                        document.getElementById('sidebarStatus').textContent = 'closed';
+                    }
+                });
+            });
+
+            // Search functionality (basic filter)
+            const searchBox = document.getElementById('searchBox');
+            searchBox.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const cards = document.querySelectorAll('.tool-card, .expectation-card, .card');
+                
+                cards.forEach(card => {
+                    const text = card.textContent.toLowerCase();
+                    if (searchTerm === '' || text.includes(searchTerm)) {
+                        card.style.display = 'block';
+                        card.style.opacity = '1';
+                    } else {
+                        card.style.opacity = '0.3';
+                    }
+                });
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                // Press 'M' to toggle menu
+                if (e.key.toLowerCase() === 'm' && !e.target.matches('input')) {
+                    toggleSidebar();
+                }
+                
+                // Press 'Escape' to close sidebar
+                if (e.key === 'Escape') {
+                    const sidebar = document.getElementById('sidebar');
+                    const mainContainer = document.getElementById('mainContainer');
+                    sidebar.classList.add('closed');
+                    mainContainer.classList.add('sidebar-closed');
+                    document.getElementById('sidebarStatus').textContent = 'closed';
+                }
+            });
+
+            // Update sidebar status on page load and set initial state
+            const sidebar = document.getElementById('sidebar');
+            const mainContainer = document.getElementById('mainContainer');
+            const sidebarStatus = document.getElementById('sidebarStatus');
+            
+            // Set initial state based on screen size
+            if (window.innerWidth <= 768) {
+                // Mobile: sidebar hidden by default
+                sidebar.classList.add('closed');
+                mainContainer.classList.add('sidebar-closed');
+                sidebarStatus.textContent = 'closed';
+            } else {
+                // Desktop: sidebar visible by default
+                sidebar.classList.remove('closed');
+                mainContainer.classList.remove('sidebar-closed');
+                sidebarStatus.textContent = 'open';
+            }
+        });
+
+        // Test responsive behavior
+        window.addEventListener('resize', function() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContainer = document.getElementById('mainContainer');
+            const sidebarStatus = document.getElementById('sidebarStatus');
+            
+            // Adjust sidebar state based on screen size
+            if (window.innerWidth <= 768) {
+                // Mobile: hide sidebar by default
+                sidebar.classList.add('closed');
+                mainContainer.classList.add('sidebar-closed');
+                sidebarStatus.textContent = 'closed';
+            } else {
+                // Desktop: show sidebar by default unless explicitly closed
+                if (!sidebar.classList.contains('closed')) {
+                    mainContainer.classList.remove('sidebar-closed');
+                    sidebarStatus.textContent = 'open';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
