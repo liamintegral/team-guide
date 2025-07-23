@@ -1362,7 +1362,7 @@
                 this.currentSectionTitle.textContent = `${section.category}: ${section.title}`;
                 
                 // Load existing feedback if any
-                const existingFeedback = this.feedback[sectionId];
+                const existingFeedback = this.sectionFeedback[sectionId];
                 if (existingFeedback) {
                     this.sectionFeedbackText.value = existingFeedback.comment || '';
                     this.selectRatingBtn(existingFeedback.rating);
@@ -1375,10 +1375,14 @@
                 this.updateSectionListUI();
             }
             
-            selectRating(btn) {
+            selectRating(rating) {
                 // Clear previous selection
                 document.querySelectorAll('.feedback-quick-btn').forEach(b => b.classList.remove('selected'));
-                btn.classList.add('selected');
+                const selectedBtn = document.querySelector(`[data-rating="${rating}"]`);
+                if (selectedBtn) {
+                    selectedBtn.classList.add('selected');
+                }
+                this.selectedRating = rating;
             }
             
             selectRatingBtn(rating) {
@@ -1404,7 +1408,7 @@
                 }
                 
                 // Save feedback
-                this.feedback[this.currentSectionId] = {
+                this.sectionFeedback[this.currentSectionId] = {
                     rating: rating,
                     comment: comment,
                     timestamp: new Date().toISOString()
@@ -1482,7 +1486,7 @@
                     
                     item.classList.remove('completed', 'active');
                     
-                    if (this.feedback[sectionId]) {
+                    if (this.sectionFeedback[sectionId]) {
                         item.classList.add('completed');
                         status.textContent = 'Done';
                     } else if (sectionId === this.currentSectionId) {
@@ -1495,7 +1499,7 @@
             }
             
             updateProgress() {
-                const completedCount = Object.keys(this.feedback).length;
+                const completedCount = Object.keys(this.sectionFeedback).length;
                 this.progressCount.textContent = completedCount;
                 this.badge.textContent = completedCount;
                 
@@ -1506,90 +1510,6 @@
                 this.submitAllBtn.disabled = completedCount === 0;
             }
             
-            submitAllFeedback() {
-                if (Object.keys(this.feedback).length === 0) {
-                    alert('Please provide feedback for at least one section.');
-                    return;
-                }
-                
-                // Disable submit button and show loading state
-                this.submitAllBtn.disabled = true;
-                this.submitAllBtn.textContent = 'Sending...';
-                
-                // Prepare email content
-                const subject = `Team Guide Feedback from ${this.userInfo.name}`;
-                let emailBody = `Team Guide Feedback Submission\n`;
-                emailBody += `From: ${this.userInfo.name} (${this.userInfo.email})\n`;
-                emailBody += `Date: ${new Date().toLocaleString()}\n`;
-                emailBody += `Sections Completed: ${Object.keys(this.feedback).length} of ${this.sections.length}\n\n`;
-                
-                emailBody += `FEEDBACK SUMMARY:\n`;
-                emailBody += `==================\n\n`;
-                
-                // Group feedback by category
-                const categories = {};
-                this.sections.forEach(section => {
-                    if (!categories[section.category]) {
-                        categories[section.category] = [];
-                    }
-                    categories[section.category].push(section);
-                });
-                
-                Object.keys(categories).forEach(category => {
-                    emailBody += `${category.toUpperCase()}\n`;
-                    emailBody += `${'-'.repeat(category.length)}\n`;
-                    
-                    categories[category].forEach(section => {
-                        const feedback = this.feedback[section.id];
-                        if (feedback) {
-                            emailBody += `\n• ${section.title}\n`;
-                            emailBody += `  Rating: ${this.formatRating(feedback.rating)}\n`;
-                            if (feedback.comment) {
-                                emailBody += `  Comment: ${feedback.comment}\n`;
-                            }
-                        }
-                    });
-                    emailBody += `\n`;
-                });
-                
-                emailBody += `---\nThis feedback was submitted via the Integral Media Team Guide feedback widget.`;
-                
-                // Prepare EmailJS template parameters
-                const templateParams = {
-                    from_name: this.userInfo.name,
-                    from_email: this.userInfo.email,
-                    to_name: 'Liam Clarkin',
-                    to_email: 'liam@integralmedia.com.au',
-                    subject: subject,
-                    message: emailBody,
-                    sections_completed: Object.keys(this.feedback).length,
-                    total_sections: this.sections.length
-                };
-                
-                // Send email via EmailJS
-                emailjs.send('service_p2fplrx', 'template_35rncws', templateParams)
-                    .then((response) => {
-                        console.log('SUCCESS!', response.status, response.text);
-                        alert('✅ Feedback sent successfully! Thank you for your input.');
-                        this.resetWidget();
-                    })
-                    .catch((error) => {
-                        console.error('FAILED...', error);
-                        alert('❌ Failed to send feedback. Please try again or contact support.');
-                        
-                        // Re-enable button on error
-                        this.submitAllBtn.disabled = false;
-                        this.submitAllBtn.textContent = 'Submit All Feedback';
-                        
-                        // Fallback to mailto if EmailJS fails
-                        const mailtoLink = `mailto:liam@integralmedia.com.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-                        console.log('Fallback to mailto:', mailtoLink);
-                        
-                        if (confirm('Would you like to try sending via your email client instead?')) {
-                            window.location.href = mailtoLink;
-                        }
-                    });
-            }
             
             formatRating(rating) {
                 const ratings = {
@@ -1601,7 +1521,7 @@
             }
             
             resetWidget() {
-                this.feedback = {};
+                this.sectionFeedback = {};
                 this.currentSectionId = null;
                 this.userInfo = { name: '', email: '' };
                 
@@ -1652,21 +1572,6 @@
                 const count = Object.keys(this.sectionFeedback).length;
                 this.badge.textContent = count;
                 this.badge.style.display = count > 0 ? 'block' : 'none';
-            }
-            
-            selectRating(rating) {
-                this.ratingBtns.forEach(btn => btn.classList.remove('active'));
-                const selectedBtn = document.querySelector(`[data-rating="${rating}"]`);
-                if (selectedBtn) {
-                    selectedBtn.classList.add('active');
-                }
-                this.selectedRating = rating;
-            }
-            
-            clearRatingSelection() {
-                this.ratingBtns.forEach(btn => btn.classList.remove('active'));
-                this.selectedRating = null;
-                this.sectionFeedbackText.value = '';
             }
             
             showSectionFeedback(sectionId, sectionTitle) {
