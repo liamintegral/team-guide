@@ -1668,8 +1668,14 @@
                 const feedbackSummary = this.generateFeedbackSummary();
                 
                 const templateParams = {
-                    user_name: this.userInfo.name,
-                    user_email: this.userInfo.email,
+                    from_name: this.userInfo.name || 'Anonymous',
+                    from_email: this.userInfo.email || 'no-email@provided.com',
+                    to_name: 'Liam Clarkin',
+                    to_email: 'liam@integralmedia.com.au',
+                    subject: `Team Guide Feedback from ${this.userInfo.name}`,
+                    message: feedbackSummary,
+                    user_name: this.userInfo.name || 'Anonymous',
+                    user_email: this.userInfo.email || 'no-email@provided.com',
                     feedback_summary: feedbackSummary,
                     sections_completed: `${Object.keys(this.sectionFeedback).length} sections`,
                     submission_date: new Date().toLocaleString()
@@ -1679,14 +1685,43 @@
                 this.submitAllBtn.disabled = true;
                 this.submitAllBtn.textContent = 'Submitting...';
                 
+                console.log('Attempting to send email with template params:', templateParams);
+                
+                // Check if EmailJS is available
+                if (typeof emailjs === 'undefined') {
+                    console.error('EmailJS is not loaded');
+                    alert('Email service not available. Please refresh the page and try again.');
+                    this.submitAllBtn.disabled = false;
+                    this.submitAllBtn.textContent = 'Submit Feedback';
+                    return;
+                }
+                
                 emailjs.send('service_p2fplrx', 'template_35rncws', templateParams)
                     .then((response) => {
+                        console.log('EmailJS Success:', response);
                         alert('Thank you! Your feedback has been submitted successfully.');
                         this.resetForm();
                     })
                     .catch((error) => {
-                        alert('Sorry, there was an error submitting your feedback. Please try again.');
-                        console.error('EmailJS error:', error);
+                        console.error('EmailJS Error Details:', error);
+                        console.error('Error status:', error.status);
+                        console.error('Error text:', error.text);
+                        
+                        let errorMessage = 'Sorry, there was an error submitting your feedback. Please try again.';
+                        if (error.status === 422) {
+                            errorMessage += ' (Template parameter error - please check the form data)';
+                        } else if (error.status === 403) {
+                            errorMessage += ' (Authentication error - please contact support)';
+                        }
+                        
+                        alert(errorMessage);
+                        
+                        // Offer alternative contact method
+                        if (confirm('Would you like to copy your feedback to email the team directly instead?')) {
+                            const mailtoBody = encodeURIComponent(feedbackSummary);
+                            const mailtoLink = `mailto:liam@integralmedia.com.au?subject=${encodeURIComponent('Team Guide Feedback from ' + this.userInfo.name)}&body=${mailtoBody}`;
+                            window.location.href = mailtoLink;
+                        }
                         
                         // Re-enable submit button
                         this.submitAllBtn.disabled = false;
