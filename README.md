@@ -1,6 +1,6 @@
-# Integral Media Client Facing Team Guide
+# Integral Media Essential Operations Guide
 
-> **Modern, comprehensive Client Facing Team guide** with interactive feedback system and professional three-column layouts for operational excellence.
+> **Streamlined, focused guide** providing essential daily operations and quick reference materials for efficient workflow management.
 
 [![Production Ready](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)](https://github.com/liamintegral/team-guide)
 [![Deployment](https://img.shields.io/badge/Deploy-Vercel%20Ready-blue)](https://vercel.com)
@@ -8,7 +8,7 @@
 
 ## 🎯 Project Overview
 
-Interactive single-page application providing **daily operational guidance** and **comprehensive reference materials** for Integral Media Client Facing Team members. Features modern responsive design, direct feedback collection, and professional three-column layouts.
+Streamlined single-page application providing **essential daily operations** and **quick reference materials** for efficient workflow management. Features clean, focused design with core operational guidance.
 
 ### ✨ **Key Features**
 - **🎨 Modern Flat Design**: Clean, consistent three-column layouts with professional icons and no distracting shadows
