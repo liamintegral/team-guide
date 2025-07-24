@@ -1,6 +1,6 @@
 # 🏗️ Architecture Documentation
 
-> **Complete technical architecture overview for Integral Media Project**
+> **Complete technical architecture overview for Integral Media Client Facing Team Project**
 
 ## 📋 Table of Contents
 - [🎯 System Overview](#-system-overview)

@@ -1,6 +1,6 @@
-# Integral Media Team Guide
+# Integral Media Client Facing Team Guide
 
-> **Modern, comprehensive team guide** with interactive feedback system and professional three-column layouts for operational excellence.
+> **Modern, comprehensive Client Facing Team guide** with interactive feedback system and professional three-column layouts for operational excellence.
 
 [![Production Ready](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)](https://github.com/liamintegral/team-guide)
 [![Deployment](https://img.shields.io/badge/Deploy-Vercel%20Ready-blue)](https://vercel.com)
@@ -8,7 +8,7 @@
 
 ## 🎯 Project Overview
 
-Interactive single-page application providing **daily operational guidance** and **comprehensive reference materials** for Integral Media team members. Features modern responsive design, direct feedback collection, and professional three-column layouts.
+Interactive single-page application providing **daily operational guidance** and **comprehensive reference materials** for Integral Media Client Facing Team members. Features modern responsive design, direct feedback collection, and professional three-column layouts.
 
 ### ✨ **Key Features**
 - **🎨 Modern Flat Design**: Clean, consistent three-column layouts with professional icons and no distracting shadows
@@ -122,7 +122,7 @@ open index.html
 - **Feedback Widget**: Clean floating widget with flat design principles
 - **Icons**: Font Awesome 6.0.0 for consistent visual language
 
-## 👥 Team Information
+## 👥 Client Facing Team Information
 
 ### **Account Managers**
 - **Maddy Barette** - Account Manager (Portfolio: $23,816/month)
@@ -217,4 +217,4 @@ This project uses **British English spelling exclusively** throughout all conten
 **Status**: ✅ Production Ready  
 **Version**: 2.0 (Modern Design System)
 
-*Built with ❤️ for the Integral Media team*
+*Built with ❤️ for the Integral Media Client Facing Team*

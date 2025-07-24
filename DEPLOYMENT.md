@@ -1,6 +1,6 @@
 # 🚀 Deployment & Maintenance Guide
 
-> **Complete deployment workflows and maintenance procedures for Integral Media Project**
+> **Complete deployment workflows and maintenance procedures for Integral Media Client Facing Team Project**
 
 ## 📋 Table of Contents
 - [🎯 Quick Deployment](#-quick-deployment)

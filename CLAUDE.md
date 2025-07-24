@@ -1,7 +1,7 @@
-# Integral Media Project - Claude Development Notes
+# Integral Media Client Facing Team Project - Claude Development Notes
 
 ## Project Overview
-**Modern, comprehensive team guide** for Integral Media with targeted feedback system, flat design principles, comprehensive section summaries, and professional three-column layouts. Provides daily operational guidance and reference materials for all team members with enhanced UX and visual consistency.
+**Modern, comprehensive Client Facing Team guide** for Integral Media with targeted feedback system, flat design principles, comprehensive section summaries, and professional three-column layouts. Provides daily operational guidance and reference materials for all Client Facing Team members with enhanced UX and visual consistency.
 
 ## Current Project State (2025-07-22)
 

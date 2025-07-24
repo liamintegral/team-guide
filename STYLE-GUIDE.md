@@ -1,4 +1,4 @@
-# 🎨 Integral Media Project - Style Guide
+# 🎨 Integral Media Client Facing Team Project - Style Guide
 
 > **Comprehensive design system and development guidelines for Claude Code sessions**
 
