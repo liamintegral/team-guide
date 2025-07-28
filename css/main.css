@@ -72,14 +72,14 @@ body {
 .sidebar-header {
     padding: 1.5rem 2rem;
     background: var(--integral-blue-dark);
-    height: 101.27px;
+    height: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .sidebar-logo {
-    max-height: 50px;
+    max-height: 100px;
     width: auto;
     object-fit: contain;
     display: block;
@@ -159,7 +159,7 @@ body {
 .top-header {
     background: var(--neutral-white);
     padding: 1.5rem 2rem;
-    height: 101.27px;
+    height: 140px;
     display: flex;
     align-items: center;
 }
