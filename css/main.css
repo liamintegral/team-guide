@@ -79,9 +79,10 @@ body {
 }
 
 .sidebar-logo {
-    max-height: 40px;
+    max-height: 50px;
     width: auto;
     object-fit: contain;
+    display: block;
 }
 
 .nav-menu {
