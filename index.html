@@ -6,10 +6,42 @@
     <title>Integral Media - Client Facing Team Guide</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23214e9c'/><text x='50%25' y='50%25' font-family='Arial' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'>IM</text></svg>">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css?v=logo-fix-4">
+    <link rel="stylesheet" href="css/main.css?v=splash-login-1">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
+    <!-- Splash Page Login -->
+    <div id="splashPage" class="splash-page">
+        <div class="splash-container">
+            <div class="splash-logo">
+                <img src="assets/images/im_brandmark_colour.png" alt="Integral Media" class="splash-brand">
+            </div>
+            <div class="splash-content">
+                <h1>Client Facing Team Guide</h1>
+                <p>Please enter your credentials to access the team guide</p>
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Access Guide
+                    </button>
+                    <div id="loginError" class="login-error" style="display: none;">
+                        Invalid credentials. Please try again.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application (hidden initially) -->
+    <div id="mainApp" class="main-app" style="display: none;">
     <!-- Sidebar Navigation -->
     <nav class="sidebar" id="sidebar">
         <div class="sidebar-header">
@@ -1794,6 +1826,83 @@
             feedbackWidget = new FeedbackWidget();
         });
 
+        // Login Authentication System
+        class LoginAuth {
+            constructor() {
+                this.validCredentials = {
+                    'maddy': 'integral2024',
+                    'james': 'integral2024', 
+                    'john': 'integral2024',
+                    'liam': 'admin2024',
+                    'alex': 'integral2024'
+                };
+                
+                this.initializeAuth();
+            }
+            
+            initializeAuth() {
+                // Check if already authenticated
+                if (sessionStorage.getItem('integralAuth') === 'true') {
+                    this.showMainApp();
+                    return;
+                }
+                
+                // Bind login form
+                const loginForm = document.getElementById('loginForm');
+                loginForm.addEventListener('submit', (e) => this.handleLogin(e));
+            }
+            
+            handleLogin(e) {
+                e.preventDefault();
+                
+                const username = document.getElementById('username').value.toLowerCase().trim();
+                const password = document.getElementById('password').value;
+                const errorDiv = document.getElementById('loginError');
+                
+                // Simple authentication check
+                if (this.validCredentials[username] && this.validCredentials[username] === password) {
+                    // Store authentication in session
+                    sessionStorage.setItem('integralAuth', 'true');
+                    sessionStorage.setItem('integralUser', username);
+                    
+                    this.showMainApp();
+                } else {
+                    // Show error
+                    errorDiv.style.display = 'block';
+                    setTimeout(() => {
+                        errorDiv.style.display = 'none';
+                    }, 3000);
+                    
+                    // Clear form
+                    document.getElementById('password').value = '';
+                }
+            }
+            
+            showMainApp() {
+                document.getElementById('splashPage').style.display = 'none';
+                document.getElementById('mainApp').style.display = 'block';
+                
+                // Initialize feedback widget after main app is shown
+                if (typeof feedbackWidget === 'undefined') {
+                    feedbackWidget = new FeedbackWidget();
+                }
+            }
+            
+            logout() {
+                sessionStorage.removeItem('integralAuth');
+                sessionStorage.removeItem('integralUser');
+                document.getElementById('splashPage').style.display = 'flex';
+                document.getElementById('mainApp').style.display = 'none';
+            }
+        }
+        
+        // Initialize authentication when page loads
+        let loginAuth;
+        document.addEventListener('DOMContentLoaded', () => {
+            loginAuth = new LoginAuth();
+        });
+
     </script>
+    </div> <!-- Close mainApp div -->
 </body>
 </html>
