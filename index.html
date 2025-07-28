@@ -6,7 +6,7 @@
     <title>Integral Media - Client Facing Team Guide</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23214e9c'/><text x='50%25' y='50%25' font-family='Arial' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'>IM</text></svg>">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css?v=splash-login-1">
+    <link rel="stylesheet" href="css/main.css?v=email-auth-1">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
@@ -14,28 +14,51 @@
     <div id="splashPage" class="splash-page">
         <div class="splash-container">
             <div class="splash-logo">
-                <img src="assets/images/im_brandmark_colour.png" alt="Integral Media" class="splash-brand">
+                <img src="assets/images/im_brandmark_colour.png?v=20250728" alt="Integral Media" class="splash-brand">
             </div>
             <div class="splash-content">
                 <h1>Client Facing Team Guide</h1>
-                <p>Please enter your credentials to access the team guide</p>
-                <form id="loginForm" class="login-form">
+                <p>Enter your Integral Media email to receive a one-time access code</p>
+                
+                <!-- Email Entry Form -->
+                <form id="emailForm" class="login-form">
                     <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" id="username" name="username" required>
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="name@integralmedia.com.au" required>
                     </div>
+                    <button type="submit" class="login-btn" id="sendCodeBtn">
+                        <i class="fas fa-envelope"></i>
+                        Send Access Code
+                    </button>
+                    <div id="emailError" class="login-error" style="display: none;">
+                        Please use a valid @integralmedia.com.au email address.
+                    </div>
+                </form>
+
+                <!-- Code Entry Form (hidden initially) -->
+                <form id="codeForm" class="login-form" style="display: none;">
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" required>
+                        <label for="accessCode">Enter Access Code</label>
+                        <input type="text" id="accessCode" name="accessCode" placeholder="6-digit code" maxlength="6" required>
                     </div>
-                    <button type="submit" class="login-btn">
+                    <button type="submit" class="login-btn" id="verifyCodeBtn">
                         <i class="fas fa-sign-in-alt"></i>
                         Access Guide
                     </button>
-                    <div id="loginError" class="login-error" style="display: none;">
-                        Invalid credentials. Please try again.
+                    <button type="button" class="back-btn" id="backToEmail">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to Email
+                    </button>
+                    <div id="codeError" class="login-error" style="display: none;">
+                        Invalid or expired code. Please try again.
                     </div>
                 </form>
+
+                <!-- Success Message -->
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <i class="fas fa-check-circle"></i>
+                    Access code sent! Check your email and enter the 6-digit code below.
+                </div>
             </div>
         </div>
     </div>
@@ -1826,16 +1849,12 @@
             feedbackWidget = new FeedbackWidget();
         });
 
-        // Login Authentication System
-        class LoginAuth {
+        // Email-based One-Time Code Authentication System
+        class EmailAuth {
             constructor() {
-                this.validCredentials = {
-                    'maddy': 'integral2024',
-                    'james': 'integral2024', 
-                    'john': 'integral2024',
-                    'liam': 'admin2024',
-                    'alex': 'integral2024'
-                };
+                this.currentCode = null;
+                this.currentEmail = null;
+                this.codeExpiry = null;
                 
                 this.initializeAuth();
             }
@@ -1847,35 +1866,118 @@
                     return;
                 }
                 
-                // Bind login form
-                const loginForm = document.getElementById('loginForm');
-                loginForm.addEventListener('submit', (e) => this.handleLogin(e));
+                // Bind forms
+                document.getElementById('emailForm').addEventListener('submit', (e) => this.handleEmailSubmit(e));
+                document.getElementById('codeForm').addEventListener('submit', (e) => this.handleCodeSubmit(e));
+                document.getElementById('backToEmail').addEventListener('click', () => this.showEmailForm());
             }
             
-            handleLogin(e) {
+            generateCode() {
+                return Math.floor(100000 + Math.random() * 900000).toString();
+            }
+            
+            validateEmail(email) {
+                return email.toLowerCase().endsWith('@integralmedia.com.au');
+            }
+            
+            async handleEmailSubmit(e) {
                 e.preventDefault();
                 
-                const username = document.getElementById('username').value.toLowerCase().trim();
-                const password = document.getElementById('password').value;
-                const errorDiv = document.getElementById('loginError');
+                const email = document.getElementById('email').value.toLowerCase().trim();
+                const errorDiv = document.getElementById('emailError');
+                const sendBtn = document.getElementById('sendCodeBtn');
                 
-                // Simple authentication check
-                if (this.validCredentials[username] && this.validCredentials[username] === password) {
+                // Validate email domain
+                if (!this.validateEmail(email)) {
+                    this.showError(errorDiv, 'Please use a valid @integralmedia.com.au email address.');
+                    return;
+                }
+                
+                // Generate and store code
+                this.currentCode = this.generateCode();
+                this.currentEmail = email;
+                this.codeExpiry = Date.now() + (10 * 60 * 1000); // 10 minutes
+                
+                // Disable button and show loading
+                sendBtn.disabled = true;
+                sendBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                
+                try {
+                    await this.sendCodeViaEmail(email, this.currentCode);
+                    this.showCodeForm();
+                } catch (error) {
+                    console.error('Failed to send code:', error);
+                    this.showError(errorDiv, 'Failed to send code. Please try again.');
+                } finally {
+                    // Re-enable button
+                    sendBtn.disabled = false;
+                    sendBtn.innerHTML = '<i class="fas fa-envelope"></i> Send Access Code';
+                }
+            }
+            
+            async sendCodeViaEmail(email, code) {
+                const templateParams = {
+                    to_email: email,
+                    to_name: email.split('@')[0],
+                    access_code: code,
+                    expiry_time: '10 minutes',
+                    current_time: new Date().toLocaleString()
+                };
+                
+                return emailjs.send('service_p2fplrx', 'template_access_code', templateParams);
+            }
+            
+            handleCodeSubmit(e) {
+                e.preventDefault();
+                
+                const enteredCode = document.getElementById('accessCode').value.trim();
+                const errorDiv = document.getElementById('codeError');
+                
+                // Check if code is expired
+                if (Date.now() > this.codeExpiry) {
+                    this.showError(errorDiv, 'Code has expired. Please request a new code.');
+                    this.showEmailForm();
+                    return;
+                }
+                
+                // Validate code
+                if (enteredCode === this.currentCode) {
                     // Store authentication in session
                     sessionStorage.setItem('integralAuth', 'true');
-                    sessionStorage.setItem('integralUser', username);
+                    sessionStorage.setItem('integralUser', this.currentEmail);
                     
                     this.showMainApp();
                 } else {
-                    // Show error
-                    errorDiv.style.display = 'block';
-                    setTimeout(() => {
-                        errorDiv.style.display = 'none';
-                    }, 3000);
-                    
-                    // Clear form
-                    document.getElementById('password').value = '';
+                    this.showError(errorDiv, 'Invalid code. Please check your email and try again.');
+                    document.getElementById('accessCode').value = '';
                 }
+            }
+            
+            showEmailForm() {
+                document.getElementById('emailForm').style.display = 'block';
+                document.getElementById('codeForm').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'none';
+                this.clearErrors();
+            }
+            
+            showCodeForm() {
+                document.getElementById('emailForm').style.display = 'none';
+                document.getElementById('codeForm').style.display = 'block';
+                document.getElementById('successMessage').style.display = 'block';
+                this.clearErrors();
+            }
+            
+            showError(errorDiv, message) {
+                errorDiv.textContent = message;
+                errorDiv.style.display = 'block';
+                setTimeout(() => {
+                    errorDiv.style.display = 'none';
+                }, 5000);
+            }
+            
+            clearErrors() {
+                document.getElementById('emailError').style.display = 'none';
+                document.getElementById('codeError').style.display = 'none';
             }
             
             showMainApp() {
@@ -1893,13 +1995,17 @@
                 sessionStorage.removeItem('integralUser');
                 document.getElementById('splashPage').style.display = 'flex';
                 document.getElementById('mainApp').style.display = 'none';
+                this.showEmailForm();
+                this.currentCode = null;
+                this.currentEmail = null;
+                this.codeExpiry = null;
             }
         }
         
         // Initialize authentication when page loads
-        let loginAuth;
+        let emailAuth;
         document.addEventListener('DOMContentLoaded', () => {
-            loginAuth = new LoginAuth();
+            emailAuth = new EmailAuth();
         });
 
     </script>
