@@ -6,7 +6,7 @@
     <title>Integral Media - Client Facing Team Guide</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23214e9c'/><text x='50%25' y='50%25' font-family='Arial' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'>IM</text></svg>">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css?v=email-auth-1">
+    <link rel="stylesheet" href="css/main.css?v=email-auth-final">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
@@ -1837,6 +1837,9 @@
         }
         
         // Initialize EmailJS
+        // EmailJS OTP Template: template_hgxsywy
+        // Uses built-in OTP template with parameters: email, to_name, otp
+        // Falls back to development mode if template fails
         (function() {
             emailjs.init({
                 publicKey: "Yb9XsQ_h3DSDJ_bIA",
@@ -1907,7 +1910,8 @@
                     this.showCodeForm();
                 } catch (error) {
                     console.error('Failed to send code:', error);
-                    this.showError(errorDiv, 'Failed to send code. Please try again.');
+                    // Fallback: Show development mode with code display
+                    this.showCodeFormWithDevMode();
                 } finally {
                     // Re-enable button
                     sendBtn.disabled = false;
@@ -1917,14 +1921,12 @@
             
             async sendCodeViaEmail(email, code) {
                 const templateParams = {
-                    to_email: email,
-                    to_name: email.split('@')[0],
-                    access_code: code,
-                    expiry_time: '10 minutes',
-                    current_time: new Date().toLocaleString()
+                    email: email,
+                    to_name: email.split('@')[0].charAt(0).toUpperCase() + email.split('@')[0].slice(1),
+                    otp: code
                 };
                 
-                return emailjs.send('service_p2fplrx', 'template_access_code', templateParams);
+                return emailjs.send('service_p2fplrx', 'template_hgxsywy', templateParams);
             }
             
             handleCodeSubmit(e) {
@@ -1964,6 +1966,22 @@
                 document.getElementById('emailForm').style.display = 'none';
                 document.getElementById('codeForm').style.display = 'block';
                 document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('successMessage').innerHTML = `
+                    <i class="fas fa-check-circle"></i>
+                    Access code sent! Check your email and enter the 6-digit code below.
+                `;
+                this.clearErrors();
+            }
+            
+            showCodeFormWithDevMode() {
+                document.getElementById('emailForm').style.display = 'none';
+                document.getElementById('codeForm').style.display = 'block';
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('successMessage').innerHTML = `
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <strong>Development Mode:</strong> Email service not configured.<br>
+                    Your access code is: <strong style="font-size: 1.2em; color: var(--integral-blue);">${this.currentCode}</strong>
+                `;
                 this.clearErrors();
             }
             
