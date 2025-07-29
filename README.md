@@ -1,32 +1,40 @@
 # Integral Media Client Facing Team Guide
 
-> **Modern, comprehensive Client Facing Team guide** with interactive feedback system and professional three-column layouts for operational excellence.
+> **Secure, comprehensive Client Facing Team guide** with email authentication and interactive feedback system for operational excellence.
 
 [![Production Ready](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)](https://github.com/liamintegral/team-guide)
+[![Security](https://img.shields.io/badge/Security-Email%20OTP-red)](https://github.com/liamintegral/team-guide)
 [![Deployment](https://img.shields.io/badge/Deploy-Vercel%20Ready-blue)](https://vercel.com)
-[![Feedback System](https://img.shields.io/badge/Feedback-EmailJS%20Active-orange)](https://emailjs.com)
+[![EmailJS](https://img.shields.io/badge/EmailJS-OTP%20%2B%20Feedback-orange)](https://emailjs.com)
 
 ## 🎯 Project Overview
 
-Interactive single-page application providing **daily operational guidance** and **comprehensive reference materials** for Integral Media Client Facing Team members. Features modern responsive design, direct feedback collection, and professional three-column layouts.
+Secure single-page application providing **daily operational guidance** and **comprehensive reference materials** for Integral Media Client Facing Team members. Features email-based authentication, modern responsive design, direct feedback collection, and professional three-column layouts.
 
 ### ✨ **Key Features**
-- **🎨 Modern Flat Design**: Clean, consistent three-column layouts with professional icons and no distracting shadows
-- **📋 Comprehensive Section Summaries**: Every section includes contextual introduction paragraphs for better understanding
+- **🔐 Email Authentication**: Secure OTP system restricted to `@integralmedia.com.au` domain
+- **📧 Professional OTP Emails**: Branded one-time password delivery with 10-minute expiry
+- **🎨 Modern Flat Design**: Clean, consistent three-column layouts with professional icons
+- **🖼️ Enhanced Branding**: Proper IM brandmark logos with optimised sizing
+- **📋 Comprehensive Section Summaries**: Every section includes contextual introduction paragraphs
 - **📱 Fully Responsive**: Mobile-optimised design (3 columns → 1 on mobile)
-- **💬 Targeted Feedback System**: Section-specific feedback buttons with floating widget integration
-- **📧 One-Click Submission**: EmailJS integration for direct feedback delivery
+- **💬 Targeted Feedback System**: Section-specific feedback buttons with floating widget
+- **📧 Dual EmailJS Integration**: Separate templates for OTP authentication and feedback
 - **🧭 Smart Navigation**: Hierarchical sidebar with smooth scrolling
-- **⚡ Optimised Performance**: ~65KB main file, <2s load time
+- **⚡ Optimised Performance**: ~75KB main file, <2s load time
 
 ## 📁 Project Structure
 
 ```
 📁 Integral Media Project/
-├── 📄 index.html                    # 🎯 Main application (single-page)
+├── 📄 index.html                    # 🎯 Main application with authentication
 ├── 📁 css/
-│   └── 📄 main.css                  # 🎨 Consolidated stylesheet
-├── 📁 assets/                       # 📸 Static assets (if needed)
+│   └── 📄 main.css                  # 🎨 Consolidated stylesheet with splash page
+├── 📁 assets/
+│   └── 📁 images/                   # 🖼️ Logo assets
+│       ├── 📄 im_brandmark_white.png    # Sidebar logo
+│       ├── 📄 im_brandmark_colour.png   # Splash page logo
+│       └── 📄 [3 other logo variants]   # Additional branding
 ├── 📁 documentation/                # 📚 Specialized content
 │   ├── 📄 industry-specific-considerations.html
 │   └── 📄 kind-kitchens-remarketing-brief.html
@@ -38,6 +46,21 @@ Interactive single-page application providing **daily operational guidance** and
 └── 📄 CLAUDE.md                     # 🔧 Development documentation
 ```
 
+## 🔐 Authentication & Security
+
+### **Email-Based Access Control**
+- **Domain Restriction**: Only `@integralmedia.com.au` emails accepted
+- **One-Time Passwords**: 6-digit codes with 10-minute expiry
+- **Professional Emails**: Branded OTP delivery with Integral Media styling
+- **Session Management**: Persistent authentication during browser session
+- **Development Fallback**: Graceful degradation when email service unavailable
+
+### **How to Access**
+1. **Enter Email**: Use any valid `@integralmedia.com.au` address
+2. **Check Email**: Receive professionally branded OTP code
+3. **Enter Code**: Input 6-digit code within 10 minutes
+4. **Access Guide**: Full access to team guide content
+
 ## 🚀 Quick Start
 
 ### **Option 1: Local Development**
@@ -46,19 +69,21 @@ Interactive single-page application providing **daily operational guidance** and
 git clone https://github.com/liamintegral/team-guide.git
 cd team-guide
 
-# Open in browser
+# Open in browser (authentication required)
 open index.html
 ```
 
 ### **Option 2: Direct Access**
 - Open **`index.html`** in any modern browser
+- Complete email authentication process
 - Navigate using the sidebar menu
 - Use feedback widget (top-right) for suggestions
 
 ### **Option 3: Deploy to Vercel**
 1. Connect GitHub repository to [Vercel](https://vercel.com)
-2. Auto-deployment configured (static site)
-3. Custom domain available in Vercel settings
+2. Configure EmailJS environment variables
+3. Auto-deployment configured (static site)
+4. Custom domain available in Vercel settings
 
 ## 📋 Content Sections
 
@@ -95,12 +120,38 @@ open index.html
 - **📱 Mobile Optimised**: Responsive design for all devices
 
 ### **Feedback Collection Process**
-1. **Click floating widget** (top-right corner)
-2. **Enter details once** (name and email) - this enables section feedback buttons
-3. **Click feedback buttons** next to section titles you want to provide feedback on
-4. **Provide ratings** (Good/Needs Work/Suggestion) + optional comments
-5. **Review collected feedback** in the widget panel (edit/remove as needed)
-6. **One-click submit** - email delivered instantly with all section feedback
+1. **Authenticate first** with your `@integralmedia.com.au` email
+2. **Click floating widget** (top-right corner)
+3. **Enter details once** (name and email) - this enables section feedback buttons
+4. **Click feedback buttons** next to section titles you want to provide feedback on
+5. **Provide ratings** (Good/Needs Work/Suggestion) + optional comments
+6. **Review collected feedback** in the widget panel (edit/remove as needed)
+7. **One-click submit** - email delivered instantly with all section feedback
+
+## ⚙️ EmailJS Configuration
+
+### **Required Templates**
+- **OTP Template**: `template_hgxsywy` (One-Time Password emails)
+- **Feedback Template**: `template_35rncws` (Feedback submissions)
+
+### **Service Configuration**
+```javascript
+EmailJS Settings:
+- Service ID: service_p2fplrx
+- Public Key: Yb9XsQ_h3DSDJ_bIA
+- OTP Template: template_hgxsywy
+- Feedback Template: template_35rncws
+```
+
+### **Template Parameters**
+**OTP Template (`template_hgxsywy`):**
+- `email` - Recipient email address
+- `to_name` - Recipient name
+- `otp` - 6-digit access code
+
+**Feedback Template (`template_35rncws`):**
+- Standard feedback form parameters
+- Comprehensive feedback collection
 
 ## 🎨 Design System
 

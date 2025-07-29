@@ -15,19 +15,28 @@
 ## 🎯 System Overview
 
 ### **Application Type**
-- **Single Page Application (SPA)** - No routing, all content in one HTML file
-- **Static Site** - No server-side processing, deployable to any web host
-- **Progressive Enhancement** - Core functionality works without JavaScript
+- **Secure Single Page Application (SPA)** - Email-authenticated, all content in one HTML file
+- **Static Site with Authentication** - Client-side security, deployable to any web host
+- **Progressive Enhancement** - Core functionality with graceful degradation
 
 ### **Technology Stack**
 ```
 Frontend:
-├── HTML5 (Semantic structure)
-├── CSS3 (Custom properties, Grid, Flexbox)
-└── Vanilla JavaScript (ES6+, EmailJS integration)
+├── HTML5 (Semantic structure with authentication UI)
+├── CSS3 (Custom properties, Grid, Flexbox, splash page styling)
+└── Vanilla JavaScript (ES6+, EmailJS OTP integration)
 
 External Services:
-├── EmailJS (Direct email submission)
+├── EmailJS (OTP delivery + feedback submission)
+│   ├── Service: service_p2fplrx
+│   ├── OTP Template: template_hgxsywy
+│   └── Feedback Template: template_35rncws
+
+Security:
+├── Email domain validation (@integralmedia.com.au)
+├── One-time password system (6-digit codes)
+├── Session-based authentication (sessionStorage)
+└── 10-minute code expiry
 ├── Font Awesome 6.0.0 (Icon system)
 └── Google Fonts (Typography fallbacks)
 
@@ -300,7 +309,7 @@ Screen Size → CSS Rules Applied → Grid Reorganization → Mobile UX
 
 ## 🔌 External Integrations
 
-### **1. EmailJS Integration**
+### **1. EmailJS Integration - Dual Template System**
 
 #### **Configuration**
 ```javascript
@@ -310,24 +319,44 @@ emailjs.init({
 
 // Service and template configuration
 const SERVICE_ID = 'service_p2fplrx';
-const TEMPLATE_ID = 'template_35rncws';
+const OTP_TEMPLATE_ID = 'template_hgxsywy';      // OTP emails
+const FEEDBACK_TEMPLATE_ID = 'template_35rncws'; // Feedback emails
 ```
 
-#### **Data Structure**
+#### **OTP Authentication Data Structure**
 ```javascript
-// Template parameters sent to EmailJS
+// OTP template parameters
 {
-    user_name: "User's Name",
-    user_email: "user@example.com", 
-    feedback_summary: "Aggregated feedback from all sections",
-    sections_completed: "25/33",
-    submission_date: "2025-07-22 14:30:00"
+    email: "user@integralmedia.com.au",
+    to_name: "User",
+    otp: "123456"
 }
 ```
 
+#### **Feedback Data Structure**
+```javascript
+// Feedback template parameters
+{
+    user_name: "User's Name",
+    user_email: "user@integralmedia.com.au", 
+    feedback_summary: "Aggregated feedback from all sections",
+    sections_completed: "25/33",
+    submission_date: "2025-07-28 14:30:00"
+}
+```
+
+#### **Authentication Flow**
+1. **Email Validation**: Domain check for `@integralmedia.com.au`
+2. **OTP Generation**: 6-digit random code with 10-minute expiry
+3. **Email Delivery**: Professional branded email via `template_hgxsywy`
+4. **Code Verification**: Client-side validation with session storage
+5. **Access Granted**: Full application access with persistent session
+
 #### **Error Handling**
-- Network failure fallback messages
-- Validation for required fields
+- Network failure fallback with development mode
+- Email domain validation with clear error messages
+- Code expiry handling with automatic reset
+- Graceful degradation when EmailJS unavailable
 - User feedback for successful submissions
 - Retry mechanisms for failed sends
 

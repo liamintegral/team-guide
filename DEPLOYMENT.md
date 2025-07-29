@@ -1,9 +1,10 @@
 # 🚀 Deployment & Maintenance Guide
 
-> **Complete deployment workflows and maintenance procedures for Integral Media Client Facing Team Project**
+> **Complete deployment workflows and maintenance procedures for Integral Media Client Facing Team Project with Email Authentication**
 
 ## 📋 Table of Contents
 - [🎯 Quick Deployment](#-quick-deployment)
+- [🔐 EmailJS Setup](#-emailjs-setup)
 - [🔧 Platform Setup](#-platform-setup)
 - [⚙️ Configuration](#️-configuration)
 - [📊 Monitoring](#-monitoring)
@@ -27,14 +28,73 @@ cd team-guide
 ls -la
 # Should see: index.html, css/, documentation/, etc.
 
-# 3. Test locally
+# 3. Test locally (requires EmailJS setup)
 open index.html
-# Verify all sections load and feedback widget works
+# Complete email authentication to verify system works
 
-# 4. Deploy to Vercel
+# 4. Configure EmailJS templates (see EmailJS Setup section)
+
+# 5. Deploy to Vercel
 npm install -g vercel  # If not already installed
 vercel --prod
 ```
+
+---
+
+## 🔐 EmailJS Setup
+
+> **CRITICAL: Email authentication requires proper EmailJS configuration before deployment**
+
+### **Step 1: EmailJS Account Setup**
+1. **Visit**: https://dashboard.emailjs.com
+2. **Create account** or sign in
+3. **Create service** with ID: `service_p2fplrx`
+4. **Note public key**: `Yb9XsQ_h3DSDJ_bIA`
+
+### **Step 2: OTP Template Creation**
+1. **Go to**: https://dashboard.emailjs.com/admin/templates
+2. **Select**: "One-Time Password" template
+3. **Template ID**: `template_hgxsywy`
+4. **Configure**:
+   ```
+   Template Name: Team Guide Access Code
+   From Name: Integral Media Team Guide
+   From Email: noreply@integralmedia.com.au
+   Subject: Your Team Guide Access Code: {{otp}}
+   ```
+5. **Use branded template** (see CLAUDE.md for full HTML template)
+6. **Test template** with sample parameters
+
+### **Step 3: Feedback Template**
+- **Template ID**: `template_35rncws` (existing)
+- **Purpose**: Feedback form submissions
+- **Configuration**: Should already be configured
+
+### **Step 4: Template Parameters**
+**OTP Template (`template_hgxsywy`):**
+- `email` - Recipient email address
+- `to_name` - Recipient name (extracted from email)
+- `otp` - 6-digit access code
+
+### **Step 5: Test Authentication**
+```bash
+# 1. Open application
+open index.html
+
+# 2. Enter test email
+# Example: test@integralmedia.com.au
+
+# 3. Check email delivery
+# Should receive branded OTP email within seconds
+
+# 4. Enter code and verify access
+```
+
+### **Security Notes**
+- **Domain restriction**: Only `@integralmedia.com.au` emails accepted
+- **Code expiry**: 10-minute automatic expiry
+- **Development fallback**: Shows code on screen if email fails
+- **Session persistence**: Authentication maintained during browser session
 
 ### **Alternative Platforms**
 

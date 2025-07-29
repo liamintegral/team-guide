@@ -3,13 +3,15 @@
 ## Project Overview
 **Modern, comprehensive Client Facing Team guide** for Integral Media with targeted feedback system, flat design principles, comprehensive section summaries, and professional three-column layouts. Provides daily operational guidance and reference materials for all Client Facing Team members with enhanced UX and visual consistency.
 
-## Current Project State (2025-07-22)
+## Current Project State (2025-07-28)
 
-### ✅ **Production Ready - Modern Flat Design System**
-- **Main File**: `index.html` (~70KB optimised single-page application with section summaries)
+### ✅ **Production Ready - Secure Email Authentication System**
+- **Main File**: `index.html` (~75KB optimised single-page application with authentication)
 - **Styling**: `css/main.css` (consolidated external stylesheet with flat design principles)
 - **Repository**: https://github.com/liamintegral/team-guide
 - **Deployment**: Ready for Vercel deployment
+- **Authentication**: Email-based OTP system with professional branded emails
+- **Security**: Domain-restricted access to `@integralmedia.com.au` emails only
 - **Feedback System**: Targeted section-specific feedback with EmailJS integration
 - **Content Sections**: 14 main sections with 34 focus areas and comprehensive summaries
 - **Navigation**: 13 main items with 33 hierarchical subitems
@@ -24,12 +26,24 @@
 - **Typography**: Segoe UI font stack with proper hierarchy
 
 ### 📱 **User Experience**
+- **Secure email authentication** with branded OTP splash page
+- **Professional login flow** with two-step email verification
+- **Development mode fallback** when email service unavailable
+- **Session persistence** during browser session
 - **Targeted feedback system** with section-specific buttons that appear after user setup
 - **Visual feedback indicators** (buttons turn green when feedback provided)
 - **Collected feedback review** with edit/remove capabilities before submission
 - **One-click email submission** via EmailJS for all collected section feedback
 - **Smooth scrolling navigation** with sidebar
 - **Progressive disclosure** with accordion menus
+
+### 🔐 **Security Features**
+- **Email domain validation** restricted to `@integralmedia.com.au` only
+- **One-time password (OTP)** system with 6-digit codes
+- **10-minute code expiry** for enhanced security
+- **Session-based authentication** with automatic logout
+- **Professional branded emails** with Integral Media styling
+- **EmailJS integration** using template `template_hgxsywy`
 
 ## Architecture & Components
 
@@ -59,7 +73,18 @@
 - **EmailJS Configuration**: 
   - Public Key: `Yb9XsQ_h3DSDJ_bIA`
   - Service ID: `service_p2fplrx`
-  - Template ID: `template_35rncws`
+  - OTP Template ID: `template_hgxsywy` (One-Time Password emails)
+  - Feedback Template ID: `template_35rncws` (Feedback submissions)
+- **Authentication System**:
+  - Email-based OTP with 6-digit codes
+  - 10-minute expiry window
+  - Domain restriction to `@integralmedia.com.au`
+  - Session-based persistence
+  - Development mode fallback
+- **Logo Assets**:
+  - Sidebar: `im_brandmark_white.png` (100px height)
+  - Splash: `im_brandmark_colour.png` (80px height)
+  - Headers: 140px height (increased from 101.27px)
 - **Responsive Breakpoint**: 768px for mobile layout
 - **Feedback Widget**: 33 sections tracked with progress indicators
 - **Navigation**: Hierarchical sidebar with 13 main sections and 32 subitems
@@ -106,6 +131,21 @@
 - ✅ **Improved Visual Hierarchy**: Consistent styling with .section-summary class and updated spacing
 - ✅ **Documentation Updates**: Updated all project documentation to reflect modern design system
 
+### Phase 7: Security Implementation & Logo Enhancement (2025-07-28)
+- ✅ **Logo System Overhaul**: Implemented proper IM brandmark logos with increased sizing
+- ✅ **Header Height Optimisation**: Increased sidebar and top headers from 101.27px to 140px
+- ✅ **Brandmark Integration**: Added white/colour brandmark variations for different contexts
+- ✅ **Content Text Updates**: Removed "Account Manager" references for role-neutral language
+
+### Phase 8: Email Authentication System (2025-07-28)
+- ✅ **OTP Authentication**: Complete email-based one-time password system
+- ✅ **Domain Security**: Restricted access to `@integralmedia.com.au` emails only
+- ✅ **EmailJS Integration**: Professional branded OTP emails using `template_hgxsywy`
+- ✅ **Two-Step Verification**: Email entry → Code verification workflow
+- ✅ **Development Fallback**: Smart error handling with code display when email fails
+- ✅ **Session Management**: Persistent authentication during browser session
+- ✅ **Professional UI**: Branded splash page with gradient backgrounds and modern styling
+
 ## Development Commands
 
 ### **Local Testing**
@@ -138,10 +178,16 @@ git push
 
 ```
 📁 Integral Media Project/
-├── 📄 index.html                    # Main application (single-page)
+├── 📄 index.html                    # Main application with authentication
 ├── 📁 css/
-│   └── 📄 main.css                  # Consolidated stylesheet
-├── 📁 assets/                       # Static assets (if needed)
+│   └── 📄 main.css                  # Consolidated stylesheet with splash page styles
+├── 📁 assets/
+│   └── 📁 images/                   # Logo assets
+│       ├── 📄 im_brandmark_white.png    # Sidebar logo (100px height)
+│       ├── 📄 im_brandmark_colour.png   # Splash page logo (80px height)
+│       ├── 📄 integralmedia_white.png   # Full logo white version
+│       ├── 📄 integralmedia_white.svg   # Full logo SVG version
+│       └── 📄 integralmedia_colour.png  # Full logo colour version
 ├── 📁 documentation/                # Specialized content
 │   ├── 📄 industry-specific-considerations.html
 │   └── 📄 kind-kitchens-remarketing-brief.html
@@ -154,14 +200,17 @@ git push
 ```
 
 ## Performance Metrics
-- **File Size**: ~70KB main file (with section summaries and enhanced feedback system)
+- **File Size**: ~75KB main file (with authentication system and enhanced features)
 - **Load Time**: <2 seconds on standard connection
-- **Mobile Score**: 95+ (responsive flat design)
+- **Mobile Score**: 95+ (responsive flat design with authentication)
+- **Security**: Email-based OTP with 10-minute expiry and domain restriction
 - **Content Sections**: 14 main sections with 34 focus areas (Daily: 5, others unchanged)
 - **Section Summaries**: 9 comprehensive contextual introductions added
 - **Feedback Sections**: Targeted section-specific feedback for all 14 sections
 - **Navigation Items**: 13 main items with 33 subitems
+- **Logo Assets**: 5 optimised logo variations (PNG/SVG formats)
 - **Browser Support**: Modern browsers (ES6+ features used)
+- **EmailJS Integration**: Two templates (OTP + Feedback) with professional branding
 
 ## Future Enhancement Opportunities
 - **Search Functionality**: Add search within sections
@@ -182,5 +231,5 @@ git push
 
 ---
 
-*Last Updated: 2025-07-22*
-*Production Status: ✅ Ready for deployment*
+*Last Updated: 2025-07-28*
+*Production Status: ✅ Secure and ready for deployment with email authentication*
